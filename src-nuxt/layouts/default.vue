@@ -3,7 +3,7 @@
       <v-toolbar>
         
         <v-layout column style="height:100%; margin: 8px">
-          <v-flex offset-xs0 offset-sm1 offset-md1 offset-lg2 xs12 sm10 md10 lg8 style="height:100%">
+          <div offset-xs0 offset-sm1 offset-md1 offset-lg2 xs12 sm10 md10 lg8 style="height:100%">
             <div style="height:100%">
             <svg heigth="56px" style="height:56px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
               viewBox="0 0 1000 220" xml:space="preserve">
@@ -37,18 +37,18 @@
               </nuxt-link> -->
             <!-- </v-toolbar-items> -->
             </div>
-          </v-flex>
+          </div>
         </v-layout>
       </v-toolbar>
       <div class="default-container grey lighten-4">
-        <v-flex style="display:flex" offset-xs0 offset-sm1 offset-md1 offset-lg2 xs12 sm10 md10 lg8 >
+        <div  offset-xs0 offset-sm1 offset-md1 offset-lg2 xs12 sm10 md10 lg8 >
           <nuxt/>
-        </v-flex>
+        </div>
       </div>
       
       <v-toolbar>
         <v-layout column style="height:100%; margin: 0">
-          <v-flex offset-xs0 offset-sm1 offset-md1 offset-lg2 xs12 sm10 md10 lg8 style="height:100%">
+          <div offset-xs0 offset-sm1 offset-md1 offset-lg2 xs12 sm10 md10 lg8 style="height:100%">
           <v-toolbar-items>
             <nuxt-link :to="{ path: '/'}" title="Blog">
               <v-btn aria-label="Blog" class="toolbar-button" flat>Blog</v-btn>
@@ -60,7 +60,7 @@
               <v-btn aria-label="Legal Notice" class="toolbar-button" flat>Legal Notice</v-btn>
             </nuxt-link>
           </v-toolbar-items>
-          </v-flex>
+          </div>
         </v-layout>
       </v-toolbar>
        <v-snackbar

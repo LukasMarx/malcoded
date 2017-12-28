@@ -61,9 +61,6 @@ export default {
 .card-actions {
   padding-top: 16px;
   background-color: white;
-  display: flex;
-  flex: 1;
-  align-items: flex-end;
 }
 
 .card-thumbnail-wrapper {
@@ -73,8 +70,6 @@ export default {
 
 .title-box {
   background-color: white;
-  flex: 1;
-  flex-flow: column;
 }
 
 .description {
@@ -82,9 +77,6 @@ export default {
 }
 .card {
   height: 100% !important;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 .card-thumbnail {
   width: 100%;

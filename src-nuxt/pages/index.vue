@@ -2,63 +2,63 @@
   <v-container style="margin-top:32px;" fluid grid-list-md>
     <v-layout row wrap>
 
-      <v-flex xs12 md6 lg6
+      <div xs12 md6 lg6
         v-for="post in first2(posts)"
         :key="post.title +'a'"
       >
         <postcard :post="post"></postcard>
-      </v-flex>
+      </div>
 
-      <v-flex xs12 md6 lg4
+      <div xs12 md6 lg4
         v-for="post in second3(posts)"
         :key="post.title +'b'"
       >
         <postcard :post="post"></postcard>
-      </v-flex>
-      <v-flex xs12>
+      </div>
+      <div xs12>
         <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
           <v-btn aria-label="All Posts" flat large>
             All Posts
           </v-btn>
         </nuxt-link>
-      </v-flex>
+      </div>
 
 
-      <v-flex xs12>
+      <div xs12>
       <h1 class="section-title">Angular Beginner</h1>
-      </v-flex>
-      <v-flex xs12 md6 lg4
+      </div>
+      <div xs12 md6 lg4
         v-for="post in all(beginner)"
         :key="post.title + 'c'"
       >
         <postcard :post="post"></postcard>
-      </v-flex>
-      <v-flex xs12>
+      </div>
+      <div xs12>
         <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
           <v-btn aria-label="Beginner Posts" flat large>
             All "Beginner" Posts
           </v-btn>
         </nuxt-link>
-      </v-flex>
+      </div>
 
 
 
-      <v-flex xs12>
+      <div xs12>
       <h1 class="section-title">Angular Intermediate</h1>
-      </v-flex>
-      <v-flex xs12 md6 lg4
+      </div>
+      <div xs12 md6 lg4
         v-for="post in all(intermediate)"
         :key="post.title + 'c'"
       >
         <postcard :post="post"></postcard>
-      </v-flex>
-      <v-flex xs12>
+      </div>
+      <div xs12>
         <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
           <v-btn aria-label="Intermediate Posts" flat large>
             All "Intermediate" Posts
           </v-btn>
         </nuxt-link>
-      </v-flex>
+      </div>
     </v-layout>
   </v-container>
 
@@ -69,7 +69,7 @@ import { posts, angularBeginner, angularIntermediate } from '~/apollo/queries/po
 import postcard from '~/components/postcard.vue';
 
 export default {
-  layout: 'default',
+  // layout: 'default',
   components: { postcard },
   apollo: {
     posts: {
@@ -143,7 +143,6 @@ export default {
 <style>
 .container {
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
