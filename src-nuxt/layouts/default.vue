@@ -80,13 +80,13 @@ export default {
   mounted() {
     if (typeof window !== 'undefined') {
       let cookie = document.cookie;
-      const split = cookie.split(';');
-      for (let s of split) {
-        if (s === 'consentCookie=true' || s === ' consentCookie=true') {
-          this.snackbar = false;
-        } else {
-          this.snackbar = true;
-        }
+
+      console.log(cookie);
+
+      if (/consentCookie=true/.test(cookie)) {
+        this.snackbar = false;
+      } else {
+        this.snackbar = true;
       }
     }
   },
@@ -95,7 +95,7 @@ export default {
       if (document) {
         let now = new Date().getTime();
         const date = new Date((now += 86400000 * 365));
-        document.cookie = 'consentCookie=true;expires=' + date.toUTCString() + ';path=/';
+        document.cookie = 'consentCookie=true;expires=' + date.toUTCString() + ';path=/;';
       }
       this.snackbar = false;
     }
