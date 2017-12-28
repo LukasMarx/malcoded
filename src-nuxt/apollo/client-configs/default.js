@@ -1,7 +1,25 @@
 import { ApolloLink } from 'apollo-link';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import objectToQuery from '../../../node_modules/object-to-querystring/src/index';
+
+function objectToQuery(input) {
+  const s = Object.keys(input)
+    .filter(key => Boolean(input[key]) || input[key] === 0)
+    .map(key =>
+      []
+        .concat(input[key])
+        .map(val => {
+          if (typeof val !== 'string') {
+            val = JSON.stringify(val);
+          }
+          return `${key}=${encodeURIComponent(val)}`;
+        })
+        .join('&')
+    )
+    .join('&')
+    .trim();
+  return input ? '?' + s : '?';
+}
 
 export default ctx => {
   const customFetch = (uri, options) => {
