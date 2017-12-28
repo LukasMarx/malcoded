@@ -1,10 +1,21 @@
 import { ApolloLink } from 'apollo-link';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import objectToQuery from '../../../node_modules/object-to-querystring/src/index';
 
 export default ctx => {
+  const customFetch = (uri, options) => {
+    const { body, ...newOptions } = options;
+    let queryString = objectToQuery(JSON.parse(body));
+    queryString = queryString.replace('&variables=%5Bobject%20Object%5D', '');
+    let requestedString = uri + queryString;
+    return fetch(requestedString, newOptions);
+  };
+
   const httpLink = new HttpLink({
-    uri: 'https://api.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api'
+    uri: 'https://api.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api',
+    fetchOptions: { method: 'GET' },
+    fetch: customFetch
   });
 
   let token =

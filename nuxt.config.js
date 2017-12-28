@@ -27,10 +27,7 @@ module.exports = {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700'
       }
-      // { rel: 'stylesheet', href: '/_nuxt/vuetify.min.css' },
-      // { rel: 'stylesheet', href: '/_nuxt/font-awesome.min.css' }
     ]
-    // script: [{ src: 'https://use.fontawesome.com/73c8e2621d.js' }]
   },
   /*
   ** Customize the progress bar color
