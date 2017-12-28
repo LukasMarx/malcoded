@@ -9,7 +9,7 @@
         <source media="(max-width: 960px)" :srcset="src+'/png/860'" type="image/png">
         <source media="(max-width: 1264px)" :srcset="src+'/png/1200'" type="image/png">
         <source media="(min-width: 1265px)" :srcset="src+'/png'" type="image/png">
-        <img style="width:100%" :src="src+ '/jpg'">
+        <img style="width:100%" :alt="alt" :src="src+ '/jpg'">
     </picture>
     <noscript v-html="getNoScript()">
     </noscript>
@@ -26,7 +26,7 @@ export default {
       show: false
     };
   },
-  props: ['src'],
+  props: ['src', 'alt'],
   methods: {
     getRect() {
       this.rect = this.$el.getBoundingClientRect();

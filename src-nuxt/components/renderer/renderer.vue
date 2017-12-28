@@ -31,7 +31,8 @@ export default {
         elements.push(
           createElement(progressiveimage, {
             props: {
-              src: node.attributes.src
+              src: node.attributes.src,
+              alt: node.attributes.alt
             }
           })
         );

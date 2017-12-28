@@ -16,8 +16,8 @@
         <postcard :post="post"></postcard>
       </v-flex>
       <v-flex xs12>
-        <nuxt-link :to="{ path: 'category/all'}">
-          <v-btn flat large>
+        <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
+          <v-btn aria-label="All Posts" flat large>
             All Posts
           </v-btn>
         </nuxt-link>
@@ -34,8 +34,8 @@
         <postcard :post="post"></postcard>
       </v-flex>
       <v-flex xs12>
-        <nuxt-link :to="{ path: '/category/angular-beginner'}">
-          <v-btn flat large>
+        <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
+          <v-btn aria-label="Beginner Posts" flat large>
             All "Beginner" Posts
           </v-btn>
         </nuxt-link>
@@ -53,8 +53,8 @@
         <postcard :post="post"></postcard>
       </v-flex>
       <v-flex xs12>
-        <nuxt-link :to="{ path: 'category/angular-intermediate'}">
-          <v-btn flat large>
+        <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
+          <v-btn aria-label="Intermediate Posts" flat large>
             All "Intermediate" Posts
           </v-btn>
         </nuxt-link>

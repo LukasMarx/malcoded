@@ -28,8 +28,8 @@
             <!-- <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon> -->
             <!-- <v-toolbar-items> -->
               <div style="height:100%; float:right">
-              <nuxt-link :to="{ path: '/'}">
-                <v-btn class="toolbar-button" flat>Blog</v-btn>
+              <nuxt-link :to="{ path: '/'}" title="Blog">
+                <v-btn aria-label="Blog" class="toolbar-button" flat>Blog</v-btn>
               </nuxt-link>
               </div>
               <!-- <nuxt-link :to="{ path: '/aboutme'}">
@@ -50,14 +50,14 @@
         <v-layout column style="height:100%; margin: 0">
           <v-flex offset-xs0 offset-sm1 offset-md1 offset-lg2 xs12 sm10 md10 lg8 style="height:100%">
           <v-toolbar-items>
-            <nuxt-link :to="{ path: '/'}">
-              <v-btn class="toolbar-button" flat>Blog</v-btn>
+            <nuxt-link :to="{ path: '/'}" title="Blog">
+              <v-btn aria-label="Blog" class="toolbar-button" flat>Blog</v-btn>
             </nuxt-link>
             <!-- <nuxt-link :to="{ path: '/aboutme'}">
               <v-btn class="toolbar-button" flat>About Me</v-btn>
             </nuxt-link> -->
-            <nuxt-link :to="{ path: '/legal'}">
-              <v-btn class="toolbar-button" flat>Legal Notice</v-btn>
+            <nuxt-link :to="{ path: '/legal'}" title="Legal Notice">
+              <v-btn aria-label="Legal Notice" class="toolbar-button" flat>Legal Notice</v-btn>
             </nuxt-link>
           </v-toolbar-items>
           </v-flex>
@@ -77,7 +77,7 @@
        <!-- <nuxt-link :to="{ path: '/legal'}">
         <v-btn flat color="white">More</v-btn>
        </nuxt-link> -->
-      <v-btn flat color="pink" @click.native="consent()">Ok</v-btn>
+      <v-btn aria-label="Accept Cookies" flat color="pink" @click.native="consent()">Ok</v-btn>
     </v-snackbar>
 
   </div>
