@@ -130,15 +130,9 @@ html {
   box-sizing: border-box;
   color: #333 !important;
 }
-.default-container {
-  flex: 1;
-  display: flex;
-}
 
 .outer-container {
-  display: flex;
   min-height: 100vh;
-  flex-direction: column;
 }
 
 .icon-color {

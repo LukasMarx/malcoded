@@ -44,11 +44,16 @@ export default {
     },
     getNoScript() {
       return `<picture>
-            <source media="(max-width: 600px)" :srcset="${this.src}/500">
-            <source media="(max-width: 960px)" :srcset="${this.src}/86'">
-            <source media="(max-width: 1264px)" :srcset="${this.src}/1200">
-            <img style="width:100%" src="${this.src}">
-        </picture>`;
+        <source media="(max-width: 600px)" srcset="${this.src}/webp/500" type="image/webp">
+        <source media="(max-width: 960px)" srcset="${this.src}/webp/860" type="image/webp">
+        <source media="(max-width: 1264px)" srcset="${this.src}/webp/120'" type="image/webp">
+        <source media="(min-width: 1265px)" srcset="${this.src}/webp/png" type="image/webp">
+        <source media="(max-width: 600px)" srcset="${this.src}/png/500" type="image/png">
+        <source media="(max-width: 960px)" srcset="${this.src}/png/860" type="image/png">
+        <source media="(max-width: 1264px)" srcset="${this.src}/png/1200" type="image/png">
+        <source media="(min-width: 1265px)" srcset="${this.src}/png" type="image/png">
+        <img style="width:100%" alt="${this.alt}t" src="${this.src}/jpg">
+    </picture>`;
     }
   },
   mounted() {

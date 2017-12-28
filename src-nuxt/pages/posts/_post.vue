@@ -52,9 +52,9 @@ export default {
         {
           name: 'og:image',
           content:
-            'https://assets.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/}' +
+            'https://assets.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/' +
             post.thumbnail +
-            '/1200'
+            '/png'
         },
         { hid: 'post_og_description', name: 'og:description', content: post.description },
         { name: 'og:locale', content: 'en_US' },
