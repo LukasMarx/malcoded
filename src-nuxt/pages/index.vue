@@ -1,66 +1,64 @@
 <template>
-  <v-container style="margin-top:32px;" fluid grid-list-md>
-    <v-layout row wrap>
+  <div class="index-container">
 
-      <div xs12 md6 lg6
+      <div class="col-xs-12 col-md-6 col-lg-6 col"
         v-for="post in first2(posts)"
         :key="post.title +'a'"
       >
         <postcard :post="post"></postcard>
       </div>
 
-      <div xs12 md6 lg4
+      <div class="col-xs-12 col-md-6 col-lg-4 col"
         v-for="post in second3(posts)"
         :key="post.title +'b'"
       >
         <postcard :post="post"></postcard>
       </div>
-      <div xs12>
+      <div class="col-xs-12" style="text-align:center">
         <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
-          <v-btn aria-label="All Posts" flat large>
+          <button aria-label="All Posts" flat large>
             All Posts
-          </v-btn>
+          </button>
         </nuxt-link>
       </div>
 
 
-      <div xs12>
+      <div class="col-xs-12">
       <h1 class="section-title">Angular Beginner</h1>
       </div>
-      <div xs12 md6 lg4
+      <div class="col-xs-12 col-md-6 col-lg-4 col"
         v-for="post in all(beginner)"
         :key="post.title + 'c'"
       >
         <postcard :post="post"></postcard>
       </div>
-      <div xs12>
+      <div class="col-xs-12" style="text-align:center">
         <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
-          <v-btn aria-label="Beginner Posts" flat large>
+          <button aria-label="Beginner Posts" flat large>
             All "Beginner" Posts
-          </v-btn>
+          </button>
         </nuxt-link>
       </div>
 
 
 
-      <div xs12>
-      <h1 class="section-title">Angular Intermediate</h1>
+      <div class="col-xs-12">
+        <h1 class="section-title">Angular Intermediate</h1>
       </div>
-      <div xs12 md6 lg4
+      <div class="col-xs-12 col-md-6 col-lg-4 col"
         v-for="post in all(intermediate)"
         :key="post.title + 'c'"
       >
         <postcard :post="post"></postcard>
       </div>
-      <div xs12>
+      <div class="col-xs-12" style="text-align:center">
         <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
-          <v-btn aria-label="Intermediate Posts" flat large>
+          <button aria-label="Intermediate Posts" flat large>
             All "Intermediate" Posts
-          </v-btn>
+          </button>
         </nuxt-link>
       </div>
-    </v-layout>
-  </v-container>
+  </div>
 
 </template>
 
@@ -141,6 +139,9 @@ export default {
 </script>
 
 <style>
+.index-container {
+  margin-top: 32px;
+}
 .container {
   min-height: 100vh;
   justify-content: center;

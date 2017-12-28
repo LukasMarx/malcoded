@@ -1,17 +1,15 @@
 <template>
   <div class="rm-container">
       <h1 class="rm-title">Read More!</h1>
-      <v-layout row>
-        <v-flex xs12 lg4
+        <div
             v-for="post in BlogPosts"
             :key="post.title"
-            class="rm-layout"
+            class="rm-layout col-md-4 col"
         >
             <nuxt-link :to="{ path: '/posts/'+post.url}">
-                <postcard :post="post" :hideDesc="true"></postcard>
+                <postcard :hideSocial="true" :post="post" :hideDesc="true"></postcard>
             </nuxt-link>
-        </v-flex>
-      </v-layout>
+        </div>
   </div>
 </template>
 
@@ -38,18 +36,17 @@ export default {
   margin-bottom: -5px;
 }
 
-.rm-layout {
-  margin: 8px;
-}
-
 .rm-title {
   margin-bottom: 32px;
 }
 
+/* .rm-layout {
+} */
+
 .rm-container {
   overflow-x: auto;
   width: 100%;
-  padding: 32px;
+  padding: 16px;
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin-top: 32px;

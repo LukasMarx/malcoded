@@ -1,16 +1,13 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
+  <div style="margin-top: 32px">
 
-      <v-flex xs12 md6 lg6
+     <div class="col-xs-12 col-md-6 col-lg-4 col"
         v-for="post in all(posts)"
         :key="post.title +'a'"
       >
         <postcard :post="post"></postcard>
-      </v-flex>
-    </v-layout>
-</v-container>
-  
+      </div>
+  </div>
 </template>
 
 <script>

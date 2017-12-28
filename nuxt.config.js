@@ -91,7 +91,7 @@ module.exports = {
     ]
   },
 
-  css: ['~/assets/vuetify.min.css'],
+  css: ['~/assets/bootstrap.min.css'],
 
   apollo: {
     clientConfigs: {
@@ -103,20 +103,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    babel: {
-      plugins: [
-        [
-          'transform-imports',
-          {
-            vuetify: {
-              transform: 'vuetify/es5/components/${member}',
-              preventFullImport: true
-            }
-          }
-        ]
-      ]
-    },
-    vendor: ['~/plugins/vuetify.js'],
     extractCSS: true,
     /*
     ** Run ESLint on save
@@ -130,14 +116,6 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-      if (ctx.isServer) {
-        config.externals = [
-          nodeExternals({
-            whitelist: [/^vuetify/]
-          })
-        ];
-      }
     }
-  },
-  plugins: ['~/plugins/vuetify.js']
+  }
 };
