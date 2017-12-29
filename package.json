@@ -5,6 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "build": "nuxt build",
+    "analyze": "nuxt build --analyze",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy-dev": "nuxt build && serverless deploy --stage dev --region eu-central-1",
     "deploy-prod": "nuxt build && serverless deploy --stage prod --region eu-central-1",

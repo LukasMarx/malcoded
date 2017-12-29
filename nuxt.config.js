@@ -105,14 +105,27 @@ module.exports = {
   */
   build: {
     extractCSS: true,
-    vendor: ['babel-polyfill'],
+    vendor: [
+      'core-js/es6/symbol',
+      'core-js/es6/object',
+      'core-js/es6/function',
+      'core-js/es6/parse-int',
+      'core-js/es6/parse-float',
+      'core-js/es6/number',
+      'core-js/es6/math',
+      'core-js/es6/string',
+      'core-js/es6/date',
+      'core-js/es6/array',
+      'core-js/es6/regexp',
+      'graphql/language'
+    ],
     babel: {
       presets: [
         [
           'vue-app',
           {
             useBuiltIns: true,
-            targets: { ie: 9, uglify: true }
+            targets: { ie: 11, uglify: true }
           }
         ]
       ]
