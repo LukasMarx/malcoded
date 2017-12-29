@@ -99,14 +99,34 @@ module.exports = {
     }
   },
   srcDir: 'src-nuxt',
+
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        // return ['script', 'style', 'font'].includes(type)
+        return false;
+      }
+    }
+  },
+
   /*
   ** Build configuration
   */
   build: {
     extractCSS: true,
-    /*
-    ** Run ESLint on save
-    */
+    vendor: ['babel-polyfill'],
+    babel: {
+      presets: [
+        [
+          'vue-app',
+          {
+            useBuiltIns: true,
+            targets: { ie: 9, uglify: true }
+          }
+        ]
+      ]
+    },
+
     extend(config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
