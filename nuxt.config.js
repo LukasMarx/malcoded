@@ -21,13 +21,7 @@ module.exports = {
           "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!"
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/_nuxt/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/_nuxt/favicon.ico' }]
   },
   /*
   ** Customize the progress bar color

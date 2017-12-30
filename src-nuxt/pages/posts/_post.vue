@@ -97,7 +97,7 @@ export default {
 <style>
 .link {
   font-size: 23px;
-  color: #c3002f;
+  color: #c3002f !important;
   text-decoration: none;
   font-weight: bold;
   white-space: normal;
@@ -163,7 +163,7 @@ h2 {
 
 h3 {
   font-size: 1.5em;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 32px;
 }
 </style>
