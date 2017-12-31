@@ -192,7 +192,7 @@ button:hover {
 
 a {
   text-decoration: none !important;
-  color: inherit !important;
+  color: inherit;
 }
 
 a:hover {

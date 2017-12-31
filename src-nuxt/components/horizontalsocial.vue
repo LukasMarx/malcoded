@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  props: ['post'],
+  props: ['post', 'hoverColor'],
   methods: {
     socialClick(network) {
       this.$ga.event({

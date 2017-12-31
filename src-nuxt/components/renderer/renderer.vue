@@ -8,7 +8,7 @@ export default {
     codeview,
     progressiveimage
   },
-  props: ['input'],
+  props: ['input', 'primaryColor'],
   render(createElement) {
     if (!this.input) return null;
     const delta = JSON.parse(this.input.content);
@@ -23,7 +23,8 @@ export default {
             props: {
               code: node.content,
               title: node.attributes.src,
-              language: node.attributes.lang
+              language: node.attributes.lang,
+              primaryColor: this.input.primaryColor
             }
           })
         );
@@ -36,6 +37,14 @@ export default {
             }
           })
         );
+      } else if (node.tag === 'a') {
+        const newElement = createElement(node.tag, {
+          domProps: { innerHTML: node.content },
+          class: node.class,
+          style: { color: this.input.primaryColor },
+          attrs: node.attributes
+        });
+        elements.push(newElement);
       } else {
         const newElement = createElement(node.tag, {
           domProps: { innerHTML: node.content },

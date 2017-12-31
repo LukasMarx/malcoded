@@ -97,12 +97,16 @@ export default {
 <style>
 .link {
   font-size: 23px;
-  color: #c3002f !important;
+  color: #c3002f;
   text-decoration: none;
   font-weight: bold;
   white-space: normal;
   word-wrap: break-word;
 }
+.link:hover {
+  color: #c3002f;
+}
+
 .post-meta {
   display: flex;
   align-items: center;

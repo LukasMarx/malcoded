@@ -175,4 +175,11 @@ export default {
 .links {
   padding-top: 15px;
 }
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
 </style>
