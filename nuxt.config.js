@@ -13,6 +13,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {name: 'google-site-verification', content: 'FWSL-9BrQcznNznCkDYWgceFZ3XNzxBggv8KXU0Ut2k'},
       { hid: 'description', name: 'description', content: 'Nuxt.js project' },
       {
         hid: 'index_description',
