@@ -1,6 +1,3 @@
-/*
- * Handler definition for https://serverless.com/
- */
 const { Nuxt, Builder } = require('nuxt');
 
 let nuxtConfig = require('./nuxt.config.js');

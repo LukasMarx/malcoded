@@ -2,7 +2,7 @@
   <div class="card">
     <nuxt-link :to="{ path: '/posts/'+post.url}">
     <div class="card-thumbnail-wrapper">
-        <progressiveimage class="card-thumbnail" :alt="post.title" :src="'https://assets.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/'+post.thumbnail" />
+        <progressiveimage class="card-thumbnail" :alt="post.title" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+post.thumbnail" />
     </div>
       <div class="title-box">
         <h1 class="headline">{{post.title}}</h1>
