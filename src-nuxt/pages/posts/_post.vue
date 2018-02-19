@@ -25,149 +25,163 @@ import renderer from '~/components/renderer/renderer.vue';
 import sidesocial from '~/components/sidesocial.vue';
 import horizontalsocial from '~/components/horizontalsocial.vue';
 import readmore from '~/components/readmore.vue';
-import progressiveimage from '~/components/progressiveImage.vue';
+import progressiveimage from '~/components/progressiveimage.vue';
 
 export default {
-  components: {
-    renderer,
-    sidesocial,
-    horizontalsocial,
-    readmore,
-    progressiveimage
-  },
-  // data() {
-  //   return {
-  //     BlogPost: {}
-  //   };
-  // },
-  head() {
-    const post = this.BlogPost || { title: 'loading...' };
-    return {
-      title: post.title + '| malcoded',
-      meta: [
-        { hid: 'post_description', name: 'description', content: post.description },
-        { hid: 'post_og_type', name: 'og:type', content: 'article' },
-        { hid: 'post_og_sitename', name: 'og:sitename', content: 'malcoded.com' },
-        { hid: 'post_og_title', name: 'og:title', content: post.title },
-        {
-          name: 'og:image',
-          content:
-            'https://assets.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/' +
-            post.thumbnail +
-            '/png'
-        },
-        { hid: 'post_og_description', name: 'og:description', content: post.description },
-        { name: 'og:locale', content: 'en_US' },
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image'
-        },
-        { name: 'twitter:site', content: '@malcoded' }
-      ]
-    };
-  },
-  apollo: {
-    BlogPost: {
-      query: post,
-      variables() {
-        return { filter: { field: 'url', value: this.$route.params.post } };
-      },
-      prefetch: ({ route }) => {
-        return { filter: { field: 'url', value: route.params.post } };
-      }
-    }
-  },
-  methods: {
-    getPostDate(post) {
-      if (post) {
-        const date = new Date(post.releaseDate);
-        let options = {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
+    components: {
+        renderer,
+        sidesocial,
+        horizontalsocial,
+        readmore,
+        progressiveimage
+    },
+    // data() {
+    //   return {
+    //     BlogPost: {}
+    //   };
+    // },
+    head() {
+        const post = this.BlogPost || { title: 'loading...' };
+        return {
+            title: post.title + '| malcoded',
+            meta: [
+                {
+                    hid: 'post_description',
+                    name: 'description',
+                    content: post.description
+                },
+                { hid: 'post_og_type', name: 'og:type', content: 'article' },
+                {
+                    hid: 'post_og_sitename',
+                    name: 'og:sitename',
+                    content: 'malcoded.com'
+                },
+                { hid: 'post_og_title', name: 'og:title', content: post.title },
+                {
+                    name: 'og:image',
+                    content:
+                        'https://assets.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/' +
+                        post.thumbnail +
+                        '/png'
+                },
+                {
+                    hid: 'post_og_description',
+                    name: 'og:description',
+                    content: post.description
+                },
+                { name: 'og:locale', content: 'en_US' },
+                {
+                    name: 'twitter:card',
+                    content: 'summary_large_image'
+                },
+                { name: 'twitter:site', content: '@malcoded' }
+            ]
         };
-        return date.toLocaleString('en-us', options);
-      }
+    },
+    apollo: {
+        BlogPost: {
+            query: post,
+            variables() {
+                return {
+                    filter: { field: 'url', value: this.$route.params.post }
+                };
+            },
+            prefetch: ({ route }) => {
+                return { filter: { field: 'url', value: route.params.post } };
+            }
+        }
+    },
+    methods: {
+        getPostDate(post) {
+            if (post) {
+                const date = new Date(post.releaseDate);
+                let options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                };
+                return date.toLocaleString('en-us', options);
+            }
+        }
     }
-  }
 };
 </script>
 
 <style>
 .link {
-  font-size: 23px;
-  color: #c3002f;
-  text-decoration: none;
-  font-weight: bold;
-  white-space: normal;
-  word-wrap: break-word;
+    font-size: 23px;
+    color: #c3002f;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
 }
 .link:hover {
-  color: #c3002f;
+    color: #c3002f;
 }
 
 .post-meta {
-  display: flex;
-  align-items: center;
-  margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
 }
 
 .post-thumbnail-wrapper {
-  padding-top: 56.25%;
-  width: 100%;
-  position: relative;
+    padding-top: 56.25%;
+    width: 100%;
+    position: relative;
 }
 
 .post-author-thumbnail {
-  height: 48px;
+    height: 48px;
 }
 
 .text {
-  white-space: normal;
-  word-wrap: break-word;
-  font-size: 23px;
-  line-height: 1.58;
-  letter-spacing: -0.003em;
-  font-weight: 200;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 23px;
+    line-height: 1.58;
+    letter-spacing: -0.003em;
+    font-weight: 200;
 }
 
 .inline-image {
-  width: 100%;
+    width: 100%;
 }
 
 .post-title {
-  margin-bottom: 32px;
-  font-size: 2.5em;
+    margin-bottom: 32px;
+    font-size: 2.5em;
 }
 
 .post-thumbnail {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .post-content-container {
-  width: 100%;
-  padding: 32px;
-  background-color: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  margin-top: 32px;
-  margin-bottom: 32px;
-  padding-bottom: 32px;
-  min-height: 100vh;
+    width: 100%;
+    padding: 32px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    min-height: 100vh;
 }
 
 h2 {
-  font-size: 2em;
-  font-weight: 700;
-  margin-top: 16px;
+    font-size: 2em;
+    font-weight: 700;
+    margin-top: 16px;
 }
 
 h3 {
-  font-size: 1.5em;
-  font-weight: 600;
-  margin-top: 32px;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 32px;
 }
 </style>

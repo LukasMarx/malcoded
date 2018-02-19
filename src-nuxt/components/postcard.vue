@@ -36,73 +36,73 @@
 </template>
 
 <script>
-import progressiveimage from '~/components/progressiveImage.vue';
+import progressiveimage from '~/components/progressiveimage.vue';
 export default {
-  props: ['post', 'hideDesc', 'hideSocial'],
-  components: {
-    progressiveimage
-  },
-  methods: {
-    socialClick(network) {
-      this.$ga.event({
-        eventCategory: 'social',
-        eventAction: 'share',
-        eventLabel: network
-      });
+    props: ['post', 'hideDesc', 'hideSocial'],
+    components: {
+        progressiveimage
+    },
+    methods: {
+        socialClick(network) {
+            this.$ga.event({
+                eventCategory: 'social',
+                eventAction: 'share',
+                eventLabel: network
+            });
+        }
     }
-  }
 };
 </script>
 
 <style>
 .card-actions {
-  background-color: white;
-  padding-left: 16px;
-  padding-right: 16px;
-  height: 60px;
+    background-color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 60px;
 }
 
 .postcard-icon {
-  float: left;
-  padding: 8px !important;
+    float: left;
+    padding: 8px !important;
 }
 
 .postcard-icon:hover {
-  background-color: transparent !important;
+    background-color: transparent !important;
 }
 .card-thumbnail-wrapper {
-  padding-top: 56.25%;
-  background-color: white;
-  position: relative;
+    padding-top: 56.25%;
+    background-color: white;
+    position: relative;
 }
 
 .title-box {
-  background-color: white;
-  padding-left: 16px;
-  padding-right: 16px;
-  height: 210px;
-  margin-bottom: 8px;
-  overflow-y: hidden;
+    background-color: white;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 210px;
+    margin-bottom: 8px;
+    overflow-y: hidden;
 }
 
 .title-box > h1 {
-  line-height: 32px;
+    line-height: 32px;
 }
 
 .description {
-  min-height: 100px;
+    min-height: 100px;
 }
 .card {
-  background-color: white;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  text-align: center;
-  margin-bottom: 8px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
+    margin-bottom: 8px;
 }
 .card-thumbnail {
-  width: 100%;
-  margin-bottom: -5px;
-  top: 0;
-  left: 0;
-  position: absolute;
+    width: 100%;
+    margin-bottom: -5px;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 </style>
