@@ -31,13 +31,13 @@ export default ctx => {
   };
 
   const httpLink = new HttpLink({
-    uri: 'https://api.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api',
+    uri: 'http://localhost:8000/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api',
     fetchOptions: { method: 'GET' },
     fetch: customFetch
   });
 
   let token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXRob2QiOiJhdXRoS2V5IiwicmVhZE9ubHkiOmZhbHNlLCJwcm9qZWN0SWQiOiI0ODIzOGU4My04N2RkLTRiNGYtYmU0OC0yNmVhN2M4OWU4ZTciLCJpYXQiOjE1MTMzNTY3NDgsImF1ZCI6IjQ4MjM4ZTgzLTg3ZGQtNGI0Zi1iZTQ4LTI2ZWE3Yzg5ZThlNyIsImlzcyI6IjQ4MjM4ZTgzLTg3ZGQtNGI0Zi1iZTQ4LTI2ZWE3Yzg5ZThlNyJ9.iGIzA5UadAp7Nx05LX5L6kKAfcQbAONj6Vle9DUHSj0';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXRob2QiOiJhdXRoS2V5IiwicmVhZE9ubHkiOmZhbHNlLCJwcm9qZWN0SWQiOiI0ODIzOGU4My04N2RkLTRiNGYtYmU0OC0yNmVhN2M4OWU4ZTciLCJpYXQiOjE1MTg1OTc1OTIsImF1ZCI6IjQ4MjM4ZTgzLTg3ZGQtNGI0Zi1iZTQ4LTI2ZWE3Yzg5ZThlNyIsImlzcyI6IjQ4MjM4ZTgzLTg3ZGQtNGI0Zi1iZTQ4LTI2ZWE3Yzg5ZThlNyJ9.-zeF6YUbTR3op5Sj-jt-zGIV6uNb3U6v98zMwn5vRYs';
 
   // middleware
   const middlewareLink = new ApolloLink((operation, forward) => {
