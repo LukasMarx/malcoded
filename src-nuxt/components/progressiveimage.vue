@@ -4,7 +4,7 @@
         <source media="(max-width: 600px)" :srcset="src+'/webp/500'" type="image/webp">
         <source media="(max-width: 960px)" :srcset="src+'/webp/860'" type="image/webp">
         <source media="(max-width: 1264px)" :srcset="src+'/webp/1200'" type="image/webp">
-        <source media="(min-width: 1265px)" :srcset="src+'/webp/png'" type="image/webp">
+        <source media="(min-width: 1265px)" :srcset="src+'/webp'" type="image/webp">
         <source media="(max-width: 600px)" :srcset="src+'/png/500'" type="image/png">
         <source media="(max-width: 960px)" :srcset="src+'/png/860'" type="image/png">
         <source media="(max-width: 1264px)" :srcset="src+'/png/1200'" type="image/png">
