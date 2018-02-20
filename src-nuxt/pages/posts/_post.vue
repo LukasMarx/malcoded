@@ -2,7 +2,7 @@
   <div style="width: 100%">
     <div class="post-content-container">
       <div class="post-thumbnail-wrapper">
-        <progressiveimage :alt="BlogPost.title" class="post-thumbnail" v-if="BlogPost" :src="'https://assets.malcoded.com/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+ BlogPost.thumbnail"/>
+        <progressiveimage :alt="BlogPost.title" class="post-thumbnail" v-if="BlogPost" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+ BlogPost.thumbnail"/>
       </div>
       <h1 class="post-title" v-if="BlogPost">{{BlogPost.title}}</h1>
       <div class="post-meta" v-if="BlogPost">
