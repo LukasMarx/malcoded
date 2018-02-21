@@ -10,7 +10,7 @@ export default {
     },
     props: ['input', 'primaryColor'],
     render(createElement) {
-        if (!this.input) return null;
+        if (!this.input || !this.input.content) return null;
         const delta = JSON.parse(this.input.content);
 
         const elements = [];

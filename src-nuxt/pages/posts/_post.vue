@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { post } from '~/apollo/queries/post';
+import post from '~/apollo/queries/post';
 import renderer from '~/components/renderer/renderer.vue';
 import sidesocial from '~/components/sidesocial.vue';
 import horizontalsocial from '~/components/horizontalsocial.vue';
@@ -35,11 +35,11 @@ export default {
         readmore,
         progressiveimage
     },
-    // data() {
-    //   return {
-    //     BlogPost: {}
-    //   };
-    // },
+    data() {
+        return {
+            BlogPost: null
+        };
+    },
     head() {
         const post = this.BlogPost || { title: 'loading...' };
         return {

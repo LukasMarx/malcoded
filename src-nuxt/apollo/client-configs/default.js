@@ -24,10 +24,13 @@ function objectToQuery(input) {
 export default ctx => {
   const customFetch = (uri, options) => {
     const { body, ...newOptions } = options;
-    let queryString = objectToQuery(JSON.parse(body));
-    queryString = queryString.replace('&variables=%5Bobject%20Object%5D', '');
-    let requestedString = uri + queryString;
-    return fetch(requestedString, newOptions);
+    if (body) {
+      let queryString = objectToQuery(JSON.parse(body));
+      queryString = queryString.replace('&variables=%5Bobject%20Object%5D', '');
+      let requestedString = uri + queryString;
+      return fetch(requestedString, newOptions);
+    }
+    return fetch(uri);
   };
 
   const httpLink = new HttpLink({
