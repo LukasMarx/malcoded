@@ -7,7 +7,7 @@
         "build": "nuxt build",
         "analyze": "nuxt build --analyze",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nuxt start"
+        "start": "nuxt"
     },
     "devDependencies": {
         "babel-eslint": "^7.2.3",
