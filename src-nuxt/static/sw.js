@@ -8,44 +8,44 @@ const workboxSW = new self.WorkboxSW({
 
 workboxSW.precache([
   {
-    "url": "/dist/app.08638ff8dd7168ad701b.js",
-    "revision": "3a92101b42be149038a275ef801c11ca"
+    "url": "/dist/app.841ef176885920264f53435538513eec.css",
+    "revision": "841ef176885920264f53435538513eec"
   },
   {
-    "url": "/dist/common.57999567817b74c5ea50.js",
-    "revision": "b27746ee8c16d9877f3a6c43b5b3be08"
+    "url": "/dist/app.84d35dd97ac0b25f9206.js",
+    "revision": "68e910959e93eead6eade2752b64ba13"
   },
   {
-    "url": "/dist/common.841ef176885920264f53435538513eec.css",
-    "revision": "3398d3b354bc91a04c57f92c3513b253"
+    "url": "/dist/layouts_default.2968aefa739a22ad830c.js",
+    "revision": "cb9df0ed0a941305dd9103ced991fa39"
   },
   {
-    "url": "/dist/layouts/default.8043fa0a758321b04dbc.js",
-    "revision": "b621bec1e38db7d8fbadc4d7a8c8daed"
+    "url": "/dist/manifest.c7af2c4420f63f8d522c.js",
+    "revision": "a81ac3784b8450931095cc1ce03d3074"
   },
   {
-    "url": "/dist/manifest.21079122934063956f25.js",
-    "revision": "bf726215b7517cd129fe1207a8d439cc"
+    "url": "/dist/pages_aboutme.06e7303d726cc88285cc.js",
+    "revision": "72e011447b4c917be8329069fc94e24c"
   },
   {
-    "url": "/dist/pages/aboutme.9d85b908afadb7646e80.js",
-    "revision": "f10d5722fbd194a3f1e09b6a6158a362"
+    "url": "/dist/pages_category__category.18514321b9926efe3ddc.js",
+    "revision": "3d03e4ccd05af6f127fb6162c15d1cf9"
   },
   {
-    "url": "/dist/pages/category/_category.989e02909947cc7e9a1c.js",
-    "revision": "8096b6d038526811a90df1598e8e552d"
+    "url": "/dist/pages_index.07b5590282eb9a318aab.js",
+    "revision": "23b17cd6cbc21228ff98270568227e30"
   },
   {
-    "url": "/dist/pages/index.b1cf243d9086b2e11450.js",
-    "revision": "b41a2a27796baa79dbaebb0be33ae97a"
+    "url": "/dist/pages_legal.562997654ccfd55422fa.js",
+    "revision": "e928caf29047cf5f21e3dadb81c7406e"
   },
   {
-    "url": "/dist/pages/legal.8b8467b11b602f1ba905.js",
-    "revision": "8f72af81fd488089f589934e54abb5f5"
+    "url": "/dist/pages_posts__post.6c02abbeb6d5559ead5e.js",
+    "revision": "b1eddeec47d256c39ede9178d9a024fb"
   },
   {
-    "url": "/dist/pages/posts/_post.4a2e2969ab8640ead860.js",
-    "revision": "c8ab44558a2d2f9ea89b5e8e770cd738"
+    "url": "/dist/vendor.dc5c2b7b994fc83e21d0.js",
+    "revision": "4846a01cf23baac95f44561803800690"
   }
 ])
 
