@@ -23,7 +23,8 @@ module.exports = {
             {
                 hid: 'description',
                 name: 'description',
-                content: 'Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!'
+                content:
+                    "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!"
             },
             {
                 hid: 'index_description',
