@@ -7,7 +7,7 @@
             class="rm-layout col-md-4 col"
         >
             <nuxt-link :to="{ path: '/posts/'+post.url}">
-                <postcard :hideSocial="true" :post="post" :hideDesc="true"></postcard>
+                <postcard :hideSocial="true" :post="post" :hideDesc="false"></postcard>
             </nuxt-link>
         </div>
   </div>
@@ -51,11 +51,7 @@ export default {
 .rm-container {
     overflow-x: auto;
     width: 100%;
-    padding: 16px;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin-top: 32px;
     margin-bottom: 32px;
-    padding-bottom: 32px;
 }
 </style>
