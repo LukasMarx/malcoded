@@ -52,7 +52,7 @@ export default {
                 },
                 {
                     hid: 'og:description',
-                    name: 'og:description',
+                    property: 'og:description',
                     content: post.description
                 },
                 { hid: 'og:type', name: 'og:type', content: 'article' },
@@ -64,7 +64,7 @@ export default {
                 { hid: 'og:title', name: 'og:title', content: post.title },
                 {
                     hid: 'og:image',
-                    name: 'og:image',
+                    property: 'og:image',
                     content: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + post.thumbnail
                 },
                 {
@@ -72,7 +72,7 @@ export default {
                     name: 'apple-mobile-web-app-title',
                     content: post.title + '| malcoded'
                 },
-                { name: 'og:locale', content: 'en_US' },
+                { property: 'og:locale', content: 'en_US' },
                 {
                     name: 'twitter:card',
                     content: 'summary_large_image'
