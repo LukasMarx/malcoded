@@ -1,6 +1,3 @@
-const nodeExternals = require('webpack-node-externals');
-const resolve = dir => require('path').join(__dirname, dir);
-
 module.exports = {
     /*
   ** Headers of the page
@@ -25,17 +22,9 @@ module.exports = {
                 name: 'description',
                 content:
                     "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!"
-            },
-            {
-                hid: 'index_description',
-                name: 'description',
-                content:
-                    "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!"
             }
         ],
-        link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/_nuxt/favicon.ico' }
-        ]
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/_nuxt/favicon.ico' }]
     },
     /*
   ** Customize the progress bar color
@@ -52,18 +41,13 @@ module.exports = {
                 set: [{ field: 'anonymizeIp', value: true }],
                 commands: {
                     optOut: function() {
-                        document.cookie =
-                            'ga-disable-UA-87372848-1=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+                        document.cookie = 'ga-disable-UA-87372848-1=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
                         window['ga-disable-UA-87372848-1'] = true;
                     }
                 },
                 beforeFirstHit: function() {
                     // this is right after the tracker and before every other hit to Google Analytics
-                    if (
-                        document.cookie.indexOf(
-                            'ga-disable-UA-87372848-1=true'
-                        ) > -1
-                    ) {
+                    if (document.cookie.indexOf('ga-disable-UA-87372848-1=true') > -1) {
                         window['ga-disable-UA-87372848-1'] = true;
                     }
                 },
@@ -78,6 +62,9 @@ module.exports = {
 
     manifest: {
         name: 'malcoded.com',
+        short_name: 'malcoded',
+        description:
+            "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!",
         lang: 'en',
         theme_color: '#c3002f'
     },

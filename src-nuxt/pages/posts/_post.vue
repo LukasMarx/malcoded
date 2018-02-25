@@ -46,27 +46,31 @@ export default {
             title: post.title + '| malcoded',
             meta: [
                 {
-                    hid: 'post_description',
+                    hid: 'description',
                     name: 'description',
                     content: post.description
                 },
-                { hid: 'post_og_type', name: 'og:type', content: 'article' },
                 {
-                    hid: 'post_og_sitename',
+                    hid: 'og:description',
+                    name: 'og:description',
+                    content: post.description
+                },
+                { hid: 'og:type', name: 'og:type', content: 'article' },
+                {
+                    hid: 'og:sitename',
                     name: 'og:sitename',
                     content: 'malcoded.com'
                 },
-                { hid: 'post_og_title', name: 'og:title', content: post.title },
+                { hid: 'og:title', name: 'og:title', content: post.title },
                 {
+                    hid: 'og:image',
                     name: 'og:image',
-                    content:
-                        'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' +
-                        post.thumbnail
+                    content: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + post.thumbnail
                 },
                 {
-                    hid: 'post_og_description',
-                    name: 'og:description',
-                    content: post.description
+                    hid: 'apple-mobile-web-app-title',
+                    name: 'apple-mobile-web-app-title',
+                    content: post.title + '| malcoded'
                 },
                 { name: 'og:locale', content: 'en_US' },
                 {
