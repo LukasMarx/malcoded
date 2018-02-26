@@ -38,7 +38,7 @@ module.exports = {
             '@nuxtjs/google-analytics',
             {
                 id: 'UA-87372848-1',
-                set: [{ field: 'anonymizeIp', value: true }],
+                set: [{ field: 'anonymizeIp', value: true }, { field: 'storage', value: 'none' }, { field: 'storeGac', value: false }],
                 commands: {
                     optOut: function() {
                         document.cookie = 'ga-disable-UA-87372848-1=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
