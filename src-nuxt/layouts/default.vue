@@ -5,7 +5,7 @@
           <div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-8" style="height:100%">
             <div style="height:100%">
               <nuxt-link :to="{ path: '/'}" title="Blog">
-                <svg heigth="56px" style="height:56px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <svg heigth="56px" style="height:54px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 1000 220" xml:space="preserve">
                   <style type="text/css">
                     .st0{fill:#DD0031;}
@@ -24,8 +24,11 @@
                 </svg>
               </nuxt-link>
               <div style="height:100%; float:right">
-              <nuxt-link :to="{ path: '/'}" title="Blog">
-                <button aria-label="Blog" class="toolbar-button" flat>Blog</button>
+                <nuxt-link :to="{ path: '/aboutme'}" title="About">
+                <button aria-label="About" class="toolbar-button" flat>ABOUT</button>
+              </nuxt-link>
+              <nuxt-link :to="{ path: '/'}" title="Blog" class="hidden-small">
+                <button aria-label="Blog" class="toolbar-button" flat>BLOG</button>
               </nuxt-link>
               </div>
               <!-- <nuxt-link :to="{ path: '/aboutme'}">
@@ -47,13 +50,16 @@
           <div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-8" style="height:100%">
 
             <nuxt-link :to="{ path: '/'}" title="Blog">
-              <button aria-label="Blog" class="toolbar-button">Blog</button>
+              <button aria-label="Blog" class="toolbar-button">BLOG</button>
             </nuxt-link>
             <!-- <nuxt-link :to="{ path: '/aboutme'}">
               <v-btn class="toolbar-button" flat>About Me</v-btn>
             </nuxt-link> -->
             <nuxt-link :to="{ path: '/legal'}" title="Legal Notice">
-              <button aria-label="Legal Notice" class="toolbar-button">Legal Notice</button>
+              <button aria-label="Legal Notice" class="toolbar-button">LEGAL NOTICE</button>
+            </nuxt-link>
+             <nuxt-link :to="{ path: '/aboutme'}" title="About">
+              <button aria-label="About" class="toolbar-button">ABOUT</button>
             </nuxt-link>
 
           </div>
@@ -75,8 +81,7 @@ export default {
             x: null,
             mode: 'multi-line',
             timeout: 0,
-            text:
-                'Cookies help to improve this Website! By using this site you agree, that we may save cookies on your device.'
+            text: 'Cookies help to improve this Website! By using this site you agree, that we may save cookies on your device.'
         };
     },
     mounted() {
@@ -95,10 +100,7 @@ export default {
             if (document) {
                 let now = new Date().getTime();
                 const date = new Date((now += 86400000 * 365));
-                document.cookie =
-                    'consentCookie=true;expires=' +
-                    date.toUTCString() +
-                    ';path=/;';
+                document.cookie = 'consentCookie=true;expires=' + date.toUTCString() + ';path=/;';
             }
             this.snackbar = false;
         }
@@ -169,6 +171,12 @@ html {
 }
 .grey--text {
     color: #999;
+}
+
+@media screen and (max-width: 992px) {
+    .hidden-small {
+        display: none;
+    }
 }
 
 button {

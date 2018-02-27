@@ -17,7 +17,7 @@
       <div class="col-xs-12" style="text-align:center">
         <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
           <button aria-label="All Posts" flat large>
-            All Posts
+            ALL POSTS
           </button>
         </nuxt-link>
       </div>
@@ -35,7 +35,7 @@
       <div class="col-xs-12" style="text-align:center">
         <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
           <button aria-label="Beginner Posts" flat large>
-            All "Beginner" Posts
+            ALL BEGINNER POSTS
           </button>
         </nuxt-link>
       </div>
@@ -54,7 +54,7 @@
       <div class="col-xs-12" style="text-align:center">
         <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
           <button aria-label="Intermediate Posts" flat large>
-            All "Intermediate" Posts
+            ALL INTERMEDIATE POSTS
           </button>
         </nuxt-link>
       </div>
@@ -162,9 +162,7 @@ export default {
 }
 
 .title {
-    font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        sans-serif; /* 1 */
+    font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 1 */
     display: block;
     font-weight: 300;
     font-size: 100px;
