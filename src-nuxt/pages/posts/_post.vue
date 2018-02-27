@@ -156,7 +156,7 @@ export default {
 .post-title {
     margin-top: 8px;
     margin-bottom: 20px;
-    font-size: 2.5em;
+    font-size: 40px;
 }
 
 .post-thumbnail {
@@ -179,14 +179,19 @@ export default {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 36px;
     font-weight: 700;
     margin-top: 16px;
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 26px;
     font-weight: 600;
     margin-top: 32px;
+    margin-bottom: 0;
+}
+h4 {
+    font-size: 20px;
+    margin-bottom: 0;
 }
 </style>

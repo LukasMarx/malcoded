@@ -65,76 +65,80 @@
 
 <script>
 export default {
-  props: ['post'],
-  data() {
-    return {
-      social: false
-    };
-  },
-  methods: {
-    handleScroll() {
-      if (window.scrollY > 380) {
-        this.social = true;
-      } else {
-        this.social = false;
-      }
+    props: ['post'],
+    data() {
+        return {
+            social: false
+        };
     },
-    socialClick(network) {
-      this.$ga.event({
-        eventCategory: 'social',
-        eventAction: 'share',
-        eventLabel: network
-      });
+    methods: {
+        handleScroll() {
+            if (window.scrollY > 380) {
+                this.social = true;
+            } else {
+                this.social = false;
+            }
+        },
+        socialClick(network) {
+            this.$ga.event({
+                eventCategory: 'social',
+                eventAction: 'share',
+                eventLabel: network
+            });
+        }
+    },
+    beforeMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
     }
-  },
-  beforeMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
 };
 </script>
 
 <style>
 .social {
-  top: 150px;
-  margin-left: -132px;
-  position: fixed;
-  transition: all, ease 0.5s;
-  width: 56px;
+    top: 150px;
+    margin-left: -132px;
+    position: fixed;
+    transition: all, ease 0.5s;
+    width: 56px;
 }
 
 @media screen and (max-width: 1264px) {
-  .social {
-    margin-left: -100px;
-  }
+    .social {
+        margin-left: -100px;
+    }
 }
 
 @media screen and (max-width: 930px) {
-  .social {
-    display: none;
-  }
+    .social {
+        display: none;
+    }
 }
 
 .s-share-link {
-  float: right;
+    float: right;
 }
 
 .share-link {
-  padding-left: 8px;
+    padding-left: 8px;
 }
 
 .icon-path {
-  fill: #333;
-  padding: 4px;
+    fill: #333;
+    padding: 4px;
 }
 
 .icon-path:hover {
-  fill: #c40030;
+    background-color: transparent !important;
+}
+
+.icon-path:hover {
+    fill: #c40030;
 }
 
 .hidden {
-  opacity: 0;
+    opacity: 0;
 }
 </style>

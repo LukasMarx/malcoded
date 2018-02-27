@@ -70,35 +70,36 @@
 
 <script>
 export default {
-  props: ['post', 'hoverColor'],
-  methods: {
-    socialClick(network) {
-      this.$ga.event({
-        eventCategory: 'social',
-        eventAction: 'share',
-        eventLabel: network
-      });
+    props: ['post', 'hoverColor'],
+    methods: {
+        socialClick(network) {
+            this.$ga.event({
+                eventCategory: 'social',
+                eventAction: 'share',
+                eventLabel: network
+            });
+        }
     }
-  }
 };
 </script>
 
 <style>
 .h-social {
-  margin-top: 32px;
-  display: inline-block;
+    margin-top: 32px;
+    display: inline-block;
 }
 
 .h-share-link {
-  float: left;
-  margin-right: 16px;
+    float: left;
+    margin-right: 16px;
 }
 
 .icon-path {
-  fill: #333;
+    fill: #333;
 }
 
 .icon-path:hover {
-  fill: #c40030;
+    fill: #c40030;
+    background-color: transparent !important;
 }
 </style>
