@@ -127,7 +127,7 @@ export default {
 .post-meta {
     display: flex;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 }
 
 .post-thumbnail-wrapper {
@@ -154,7 +154,8 @@ export default {
 }
 
 .post-title {
-    margin-bottom: 32px;
+    margin-top: 8px;
+    margin-bottom: 20px;
     font-size: 2.5em;
 }
 
@@ -168,6 +169,7 @@ export default {
 .post-content-container {
     width: 100%;
     padding: 32px;
+    padding-top: 8px;
     background-color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin-top: 32px;
