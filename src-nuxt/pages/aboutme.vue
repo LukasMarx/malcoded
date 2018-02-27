@@ -67,6 +67,7 @@ export default {};
 .section-title {
     font-size: 40px;
     text-align: center;
+    width: 100%;
 }
 
 .no-padding-bot {
