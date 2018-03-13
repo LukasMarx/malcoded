@@ -68,8 +68,6 @@ import angularBeginner from '~/apollo/queries/angularBeginner';
 import angularIntermediate from '~/apollo/queries/angularIntermediate';
 import postcard from '~/components/postcard.vue';
 
-console.log(posts);
-
 export default {
     // layout: 'default',
     data() {

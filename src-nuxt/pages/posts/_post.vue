@@ -1,21 +1,25 @@
 <template>
   <div style="width: 100%">
-    <div class="post-content-container">
-      <div class="post-thumbnail-wrapper">
-        <progressiveimage :alt="BlogPost.title" class="post-thumbnail" v-if="BlogPost" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+ BlogPost.thumbnail"/>
-      </div>
-      <h1 class="post-title" v-if="BlogPost">{{BlogPost.title}}</h1>
-      <div class="post-meta" v-if="BlogPost">
-        <img alt="Lukas Marx" class="post-author-thumbnail" src="/lukas-marx.jpg">
-        <span style="margin-left: 8px">Lukas Marx</span>
-        <svg style="margin-left: 16px" width="32" height="32" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M192 1664h288v-288h-288v288zm352 0h320v-288h-320v288zm-352-352h288v-320h-288v320zm352 0h320v-320h-320v320zm-352-384h288v-288h-288v288zm736 736h320v-288h-320v288zm-384-736h320v-288h-320v288zm768 736h288v-288h-288v288zm-384-352h320v-320h-320v320zm-352-864v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm736 864h288v-320h-288v320zm-384-384h320v-288h-320v288zm384 0h288v-288h-288v288zm32-480v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm384-64v1280q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1280q0-52 38-90t90-38h128v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h384v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h128q52 0 90 38t38 90z" fill="#333"/></svg>
-        <span style="margin-left: 8px">{{getPostDate(BlogPost)}}</span>
-      </div>
-      <renderer :input="BlogPost"></renderer>
-      <sidesocial :post="BlogPost"></sidesocial>
-      <horizontalsocial :post="BlogPost"></horizontalsocial>
+    <div class="post-wrapper">
+        <div class="post-content-container">
+        <div class="post-thumbnail-wrapper">
+            <progressiveimage :alt="BlogPost.title" class="post-thumbnail" v-if="BlogPost" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+ BlogPost.thumbnail"/>
+        </div>
+        <div class="post-additional-padding">
+            <h1 class="post-title" v-if="BlogPost">{{BlogPost.title}}</h1>
+            <div class="post-meta" v-if="BlogPost">
+                <img alt="Lukas Marx" class="post-author-thumbnail" src="/lukas-marx.jpg">
+                <span style="margin-left: 8px">Lukas Marx</span>
+                <svg style="margin-left: 16px" width="32" height="32" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M192 1664h288v-288h-288v288zm352 0h320v-288h-320v288zm-352-352h288v-320h-288v320zm352 0h320v-320h-320v320zm-352-384h288v-288h-288v288zm736 736h320v-288h-320v288zm-384-736h320v-288h-320v288zm768 736h288v-288h-288v288zm-384-352h320v-320h-320v320zm-352-864v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm736 864h288v-320h-288v320zm-384-384h320v-288h-320v288zm384 0h288v-288h-288v288zm32-480v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm384-64v1280q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1280q0-52 38-90t90-38h128v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h384v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h128q52 0 90 38t38 90z" fill="#333"/></svg>
+                <span style="margin-left: 8px">{{getPostDate(BlogPost)}}</span>
+            </div>
+            <renderer style="word-break: break-word" :input="BlogPost"></renderer>
+            <sidesocial :post="BlogPost"></sidesocial>
+            <horizontalsocial :post="BlogPost"></horizontalsocial>
+            </div>
+        </div>
+        <readmore></readmore>
     </div>
-  <readmore></readmore>
 </div>
 </template>
 
@@ -99,9 +103,8 @@ export default {
             if (post) {
                 const date = new Date(post.releaseDate);
                 let options = {
-                    weekday: 'long',
                     year: 'numeric',
-                    month: 'short',
+                    month: 'long',
                     day: 'numeric'
                 };
                 return date.toLocaleString('en-us', options);
@@ -131,7 +134,8 @@ export default {
 }
 
 .post-thumbnail-wrapper {
-    padding-top: 56.25%;
+    padding-top: 45%;
+    /* padding-top: 56.25%; */
     width: 100%;
     position: relative;
 }
@@ -155,15 +159,29 @@ export default {
 
 .post-title {
     margin-top: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     font-size: 40px;
 }
 
+@media screen and (max-width: 576px) {
+    .post-title {
+        font-size: 30px;
+    }
+}
+
 .post-thumbnail {
-    width: 100%;
+    width: 75%;
+    margin-left: 12.5%;
     position: absolute;
     top: 0;
     left: 0;
+}
+
+@media screen and (min-width: 1200px) {
+    .post-wrapper {
+        margin-left: 8.33333333%;
+        width: 83.333333%;
+    }
 }
 
 .post-content-container {
@@ -172,10 +190,17 @@ export default {
     padding-top: 8px;
     background-color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    margin-top: 32px;
+    margin-top: 16px;
     margin-bottom: 32px;
     padding-bottom: 32px;
     min-height: 100vh;
+}
+
+@media screen and (min-width: 1200px) {
+    .post-additional-padding {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
 }
 
 h2 {
@@ -184,12 +209,19 @@ h2 {
     margin-top: 16px;
 }
 
+@media screen and (max-width: 576px) {
+    h2 {
+        font-size: 26px;
+    }
+}
+
 h3 {
     font-size: 26px;
     font-weight: 600;
     margin-top: 32px;
     margin-bottom: 0;
 }
+
 h4 {
     font-size: 20px;
     margin-bottom: 0;

@@ -5,7 +5,7 @@
           <div class="col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-2 col-xs-12 col-sm-10 col-md-10 col-lg-8" style="height:100%">
             <div style="height:100%">
               <nuxt-link :to="{ path: '/'}" title="Blog">
-                <svg heigth="56px" style="height:54px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <svg class="layout-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 1000 220" xml:space="preserve">
                   <style type="text/css">
                     .st0{fill:#DD0031;}
@@ -23,7 +23,7 @@
                   </g>
                 </svg>
               </nuxt-link>
-              <div style="height:100%; float:right">
+              <div class="layout-toolbar">
                 <nuxt-link :to="{ path: '/aboutme'}" title="About">
                 <button aria-label="About" class="toolbar-button" flat>ABOUT</button>
               </nuxt-link>
@@ -119,6 +119,17 @@ html {
     box-sizing: border-box;
     color: #333 !important;
 }
+
+.layout-toolbar {
+    height: 100%;
+    float: right;
+}
+
+@media screen and (max-width: 576px) {
+    .layout-toolbar {
+        font-size: 12px !important;
+    }
+}
 .snackbar {
     position: fixed;
     padding: 16px;
@@ -165,7 +176,15 @@ html {
 .icon-color:hover {
     color: #c3002f;
 }
-
+.layout-logo {
+    height: 54px;
+}
+@media screen and (max-width: 576px) {
+    .layout-logo {
+        height: 40px;
+        margin-top: 8px;
+    }
+}
 .large-icon {
     font-size: 64px;
 }

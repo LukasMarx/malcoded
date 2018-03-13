@@ -9,7 +9,7 @@
     <p>Adlerstrasse 30</p>
     <p>46459 Rees, Germany</p>
     <p>Phone: +49 174 3859441</p>
-    <p>E-Mail: marxlukas@googlemail.com</p>
+    <p>E-Mail: malcoded.blog@gmail.com</p>
     <h3>Responsible for content</h3>
     <br>
     <p>Lukas Marx</p>
@@ -51,23 +51,23 @@
 
 <script>
 export default {
-  methods: {
-    optOut() {
-      this.$ga.commands.optOut();
+    methods: {
+        optOut() {
+            this.$ga.commands.optOut();
+        }
     }
-  }
 };
 </script>
 
 <style>
 .legal-content-container {
-  width: 100%;
-  padding: 32px;
-  background-color: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  margin-top: 32px;
-  margin-bottom: 32px;
-  padding-bottom: 32px;
-  word-wrap: break-word;
+    width: 100%;
+    padding: 32px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    word-wrap: break-word;
 }
 </style>
