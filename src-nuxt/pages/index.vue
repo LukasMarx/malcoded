@@ -1,64 +1,71 @@
 <template>
-  <div class="index-container">
+  <v-container fluid grid-list-md text-xs-center>
+    <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
+        <v-layout row wrap>
+            <v-flex xs12 md6
+            v-for="post in first2(posts)"
+            :key="post.title +'a'"
+            >
+            <postcard :post="post"></postcard>
+            </v-flex>
 
-      <div class="col-xs-12 col-md-6 col-lg-6 col"
-        v-for="post in first2(posts)"
-        :key="post.title +'a'"
-      >
-        <postcard :post="post"></postcard>
-      </div>
+            <v-flex xs12 md4
+            v-for="post in second3(posts)"
+            :key="post.title +'b'"
+            >
+            <postcard :post="post"></postcard>
+            </v-flex>
+            
 
-      <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in second3(posts)"
-        :key="post.title +'b'"
-      >
-        <postcard :post="post"></postcard>
-      </div>
-      <div class="col-xs-12" style="text-align:center">
-        <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
-          <button aria-label="All Posts" flat large>
-            ALL POSTS
-          </button>
-        </nuxt-link>
-      </div>
-
-
-      <div class="col-xs-12">
-      <h1 class="section-title">Angular Beginner</h1>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in all(beginner)"
-        :key="post.title + 'c'"
-      >
-        <postcard :post="post"></postcard>
-      </div>
-      <div class="col-xs-12" style="text-align:center">
-        <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
-          <button aria-label="Beginner Posts" flat large>
-            ALL BEGINNER POSTS
-          </button>
-        </nuxt-link>
-      </div>
+            <v-flex xs12>
+                <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
+                    <button aria-label="All Posts" flat large>
+                    ALL POSTS
+                    </button>
+                </nuxt-link>
+            </v-flex>
 
 
 
-      <div class="col-xs-12">
-        <h1 class="section-title">Angular Intermediate</h1>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in all(intermediate)"
-        :key="post.title + 'c'"
-      >
-        <postcard :post="post"></postcard>
-      </div>
-      <div class="col-xs-12" style="text-align:center">
-        <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
-          <button aria-label="Intermediate Posts" flat large>
-            ALL INTERMEDIATE POSTS
-          </button>
-        </nuxt-link>
-      </div>
-  </div>
+            <v-flex xs12>
+                <h1 class="section-title">Angular Beginner</h1>
+            </v-flex>
+            
+            <v-flex xs12 md4
+                v-for="post in all(beginner)"
+                :key="post.title + 'c'"
+            >
+                <postcard :post="post"></postcard>
+            </v-flex>
+
+            <v-flex xs12>
+                <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
+                <button aria-label="Beginner Posts" flat large>
+                    ALL BEGINNER POSTS
+                </button>
+                </nuxt-link>
+            </v-flex>
+
+            <v-flex xs12>
+                <h1 class="section-title">Angular Intermediate</h1>
+            </v-flex>
+            <v-flex xs12 md4
+                v-for="post in all(intermediate)"
+                :key="post.title + 'c'"
+                >
+                <postcard :post="post"></postcard>
+            </v-flex>
+            <v-flex xs12>
+                <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
+                    <button aria-label="Intermediate Posts" flat large>
+                    ALL INTERMEDIATE POSTS
+                    </button>
+                </nuxt-link>
+            </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-container>
+
 
 </template>
 
@@ -66,10 +73,9 @@
 import posts from '~/apollo/queries/posts';
 import angularBeginner from '~/apollo/queries/angularBeginner';
 import angularIntermediate from '~/apollo/queries/angularIntermediate';
-import postcard from '~/components/postcard.vue';
+import postcard from '~/components/postcard/postcard.vue';
 
 export default {
-    // layout: 'default',
     data() {
         return { posts: null, beginner: null, intermediate: null };
     },

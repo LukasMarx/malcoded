@@ -1,3 +1,4 @@
+const nodeExternals = require('webpack-node-externals');
 module.exports = {
     /*
   ** Headers of the page
@@ -24,7 +25,10 @@ module.exports = {
                     "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!"
             }
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/_nuxt/favicon.ico' }]
+        link: [
+            { rel: 'icon', type: 'image/x-icon', href: '/_nuxt/favicon.ico' },
+            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+        ]
     },
     /*
   ** Customize the progress bar color
@@ -59,7 +63,7 @@ module.exports = {
             }
         ]
     ],
-
+    plugins: ['~/plugins/vuetify.js'],
     manifest: {
         name: 'malcoded.com',
         short_name: 'malcoded',
@@ -90,8 +94,7 @@ module.exports = {
         ]
     },
 
-    css: ['~/assets/bootstrap.min.css'],
-
+    css: ['~/assets/vuetify.min.css'],
     apollo: {
         clientConfigs: {
             default: '~/apollo/client-configs/default.js'
@@ -117,9 +120,22 @@ module.exports = {
             'core-js/es6/date',
             'core-js/es6/array',
             'core-js/es6/regexp',
-            'graphql/language'
+            'graphql/language',
+            '~/plugins/vuetify.js'
         ],
         babel: {
+            plugins: [
+                [
+                    'transform-imports',
+                    {
+                        vuetify: {
+                            transform: 'vuetify/es5/components/${member}',
+                            preventFullImport: true
+                        }
+                    }
+                ]
+            ],
+
             presets: [
                 [
                     'vue-app',
@@ -129,6 +145,15 @@ module.exports = {
                     }
                 ]
             ]
+        },
+        extend(config, ctx) {
+            if (ctx.isServer) {
+                config.externals = [
+                    nodeExternals({
+                        whitelist: [/^vuetify/]
+                    })
+                ];
+            }
         }
     }
 };

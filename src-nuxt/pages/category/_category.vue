@@ -1,17 +1,20 @@
 <template>
   <div style="margin-top: 32px">
-
-     <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in all(posts)"
-        :key="post.title +'a'"
-      >
-        <postcard :post="post"></postcard>
-      </div>
+      <v-container grid-list-xl text-xs-center>
+        <v-layout row wrap>
+            <v-flex md4 sm6 xs12
+                    v-for="post in all(posts)"
+                    :key="post.title +'a'"
+                >
+                <postcard :post="post"></postcard>
+            </v-flex>
+        </v-layout>
+      </v-container>
   </div>
 </template>
 
 <script>
-import postcard from '~/components/postcard.vue';
+import postcard from '~/components/postcard/postcard.vue';
 import category from '~/apollo/queries/category';
 export default {
     components: { postcard },
