@@ -1,6 +1,6 @@
 <template>
-  <div style="width: 100%">
-    <div class="post-wrapper">
+    <v-layout style="margin-top: 16px">
+    <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12 >
         <div class="post-content-container">
         <div class="post-thumbnail-wrapper">
             <progressiveimage :alt="BlogPost.title" class="post-thumbnail" v-if="BlogPost" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+ BlogPost.thumbnail"/>
@@ -19,8 +19,9 @@
             </div>
         </div>
         <readmore></readmore>
-    </div>
-</div>
+    </v-flex>
+    </v-layout>
+
 </template>
 
 <script>
@@ -161,6 +162,7 @@ export default {
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: 40px;
+    text-align: center;
 }
 
 @media screen and (max-width: 576px) {
@@ -190,10 +192,10 @@ export default {
     padding-top: 8px;
     background-color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    margin-top: 16px;
     margin-bottom: 32px;
     padding-bottom: 32px;
     min-height: 100vh;
+    text-align: left;
 }
 
 @media screen and (min-width: 1200px) {

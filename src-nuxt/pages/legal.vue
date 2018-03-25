@@ -1,7 +1,7 @@
 <template>
   
-  <div class="legal-content-container">
-  <h1>About this Website</h1>
+  <v-container class="legal-content-container">
+  <h1 style="font-size:40px">About this Website</h1>
   <br>
     <h3>Contact</h3>
     <br>
@@ -45,8 +45,8 @@
             Further information concerning the terms and conditions of use and data privacy can be found at http://www.google.com/analytics/terms/gb.html
             or at http://www.google.com/intl/en_uk/analytics/privacyoverview.html
     </p>
-    <button aria-label="Opt-Out from Google Analytics" v-on:click="optOut">Click here to opt-out of Google Analytics</button>
-    </div>
+    <v-btn raised aria-label="Opt-Out from Google Analytics" v-on:click="optOut">Click here to opt-out of Google Analytics</v-btn>
+  </v-container>
 </template>
 
 <script>
@@ -69,5 +69,6 @@ export default {
     margin-bottom: 32px;
     padding-bottom: 32px;
     word-wrap: break-word;
+    text-align: left;
 }
 </style>

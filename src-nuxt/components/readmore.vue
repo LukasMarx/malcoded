@@ -1,21 +1,28 @@
 <template>
-  <div class="rm-container">
-      <h1 class="rm-title">Read More!</h1>
-        <div
+<div>
+    <v-layout style="overflow: auto">
+        <v-flex xs12>
+            <h1 class="rm-title">Read More!</h1>
+        </v-flex>
+    </v-layout>
+    <v-layout wrap>
+        <v-flex xs12 md4
             v-for="post in BlogPosts ? BlogPosts.nodes: []"
             :key="post.title"
-            class="rm-layout col-md-4 col"
+            style="padding: 4px;"
         >
             <nuxt-link :to="{ path: '/posts/'+post.url}">
                 <postcard :hideSocial="true" :post="post" :hideDesc="false"></postcard>
             </nuxt-link>
-        </div>
-  </div>
+        </v-flex>
+    </v-layout>
+
+</div>
 </template>
 
 <script>
 import posts3 from '~/apollo/queries/posts3';
-import postcard from '~/components/postcard.vue';
+import postcard from '~/components/postcard/postcard.vue';
 
 export default {
     components: {
@@ -42,16 +49,6 @@ export default {
 }
 
 .rm-title {
-    margin-bottom: 32px;
-}
-
-/* .rm-layout {
-} */
-
-.rm-container {
-    overflow-x: auto;
-    width: 100%;
-    margin-top: 32px;
     margin-bottom: 32px;
 }
 </style>
