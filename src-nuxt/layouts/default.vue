@@ -19,17 +19,19 @@
     <nuxt/>
 
     <v-toolbar color="white">
-        <v-toolbar-items>
-            <nuxt-link :to="{ path: '/aboutme'}" title="About" class="full-height">
-                <v-btn flat>About</v-btn>
-            </nuxt-link>
-            <nuxt-link :to="{ path: '/legal'}" title="Legal Notice" class="full-height" >
-                <v-btn flat>Legal Notice</v-btn>
-            </nuxt-link>
-            <nuxt-link :to="{ path: '/'}" title="Blog" class="hidden-sm-and-down full-height" >
-                <v-btn flat>Blog</v-btn>
-            </nuxt-link>
-        </v-toolbar-items>
+        <div class="toolbar-wrapper">
+            <v-toolbar-items>
+                <nuxt-link :to="{ path: '/aboutme'}" title="About" class="full-height">
+                    <v-btn flat>About</v-btn>
+                </nuxt-link>
+                <nuxt-link :to="{ path: '/legal'}" title="Legal Notice" class="full-height" >
+                    <v-btn flat>Legal Notice</v-btn>
+                </nuxt-link>
+                <nuxt-link :to="{ path: '/'}" title="Blog" class="hidden-sm-and-down full-height" >
+                    <v-btn flat>Blog</v-btn>
+                </nuxt-link>
+            </v-toolbar-items>
+        </div>
     </v-toolbar>
     <v-snackbar
       :timeout="timeout"
