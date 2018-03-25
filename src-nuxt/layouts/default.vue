@@ -35,7 +35,7 @@
     </v-toolbar>
     <v-snackbar
       :timeout="timeout"
-
+        :absolute=true
       :bottom="y === 'bottom'"
       :multi-line="mode === 'multi-line'"
       :vertical="mode === 'vertical'"
@@ -45,6 +45,7 @@
       <v-btn flat color="white" @click.native="consent()">OK</v-btn>
     </v-snackbar>
   </div>
+  
 </template>
 <script>
 import logo from '~/components/logo.vue';
