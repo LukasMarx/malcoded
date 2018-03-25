@@ -90,11 +90,11 @@ export default {
             query: post,
             variables() {
                 return {
-                    filter: { field: 'url', value: this.$route.params.post }
+                    filter: [{ field: 'url', value: this.$route.params.post }]
                 };
             },
             prefetch: ({ route }) => {
-                return { filter: { field: 'url', value: route.params.post } };
+                return { filter: [{ field: 'url', value: route.params.post }] };
             }
         }
     },

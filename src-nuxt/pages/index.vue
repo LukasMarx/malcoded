@@ -2,14 +2,14 @@
   <div class="index-container">
 
       <div class="col-xs-12 col-md-6 col-lg-6 col"
-        v-for="post in first2(posts)"
+        v-for="post in first2(posts.nodes)"
         :key="post.title +'a'"
       >
         <postcard :post="post"></postcard>
       </div>
 
       <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in second3(posts)"
+        v-for="post in second3(posts.nodes)"
         :key="post.title +'b'"
       >
         <postcard :post="post"></postcard>
@@ -27,7 +27,7 @@
       <h1 class="section-title">Angular Beginner</h1>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in all(beginner)"
+        v-for="post in all(beginner.nodes)"
         :key="post.title + 'c'"
       >
         <postcard :post="post"></postcard>
@@ -46,7 +46,7 @@
         <h1 class="section-title">Angular Intermediate</h1>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in all(intermediate)"
+        v-for="post in all(intermediate.nodes)"
         :key="post.title + 'c'"
       >
         <postcard :post="post"></postcard>

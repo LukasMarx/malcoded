@@ -2,7 +2,7 @@
   <div style="margin-top: 32px">
 
      <div class="col-xs-12 col-md-6 col-lg-4 col"
-        v-for="post in all(posts)"
+        v-for="post in all(posts.nodes)"
         :key="post.title +'a'"
       >
         <postcard :post="post"></postcard>
