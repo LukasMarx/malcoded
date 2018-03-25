@@ -19,9 +19,9 @@
 
             <v-flex xs12>
                 <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
-                    <button aria-label="All Posts" flat large>
+                    <v-btn aria-label="All Posts" flat large>
                     ALL POSTS
-                    </button>
+                    </v-btn>
                 </nuxt-link>
             </v-flex>
 
@@ -40,9 +40,9 @@
 
             <v-flex xs12>
                 <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
-                <button aria-label="Beginner Posts" flat large>
+                <v-btn aria-label="Beginner Posts" flat large>
                     ALL BEGINNER POSTS
-                </button>
+                </v-btn>
                 </nuxt-link>
             </v-flex>
 
@@ -57,9 +57,9 @@
             </v-flex>
             <v-flex xs12>
                 <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
-                    <button aria-label="Intermediate Posts" flat large>
+                    <v-btn aria-label="Intermediate Posts" flat large>
                     ALL INTERMEDIATE POSTS
-                    </button>
+                    </v-btn>
                 </nuxt-link>
             </v-flex>
         </v-layout>

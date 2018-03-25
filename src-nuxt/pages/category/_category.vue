@@ -1,6 +1,7 @@
 <template>
   <div style="margin-top: 32px">
-      <v-container grid-list-xl text-xs-center>
+      <v-container fluid grid-list-md text-xs-center>
+          <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
         <v-layout row wrap>
             <v-flex md4 sm6 xs12
                     v-for="post in all(posts)"
@@ -9,6 +10,7 @@
                 <postcard :post="post"></postcard>
             </v-flex>
         </v-layout>
+          </v-flex>
       </v-container>
   </div>
 </template>
