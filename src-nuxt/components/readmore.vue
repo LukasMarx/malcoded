@@ -2,7 +2,7 @@
   <div class="rm-container">
       <h1 class="rm-title">Read More!</h1>
         <div
-            v-for="post in BlogPosts.nodes"
+            v-for="post in BlogPosts ? BlogPosts.nodes: []"
             :key="post.title"
             class="rm-layout col-md-4 col"
         >
