@@ -104,6 +104,10 @@ body {
     padding: 0;
 }
 
+.snack--bottom {
+    left: 50%;
+}
+
 .outer-container {
     background-color: #f5f5f5;
 }
