@@ -64,6 +64,7 @@ export default {};
     line-height: 1.58;
     letter-spacing: -0.003em;
     font-weight: 400;
+    text-align: center;
 }
 .center-container {
     width: 100%;
