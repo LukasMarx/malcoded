@@ -35,7 +35,6 @@
     </v-toolbar>
     <v-snackbar
       :timeout="timeout"
-        :absolute=true
       :bottom="y === 'bottom'"
       :multi-line="mode === 'multi-line'"
       :vertical="mode === 'vertical'"
