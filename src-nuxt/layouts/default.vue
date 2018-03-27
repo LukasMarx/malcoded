@@ -1,5 +1,6 @@
 <template>
-  <div class="outer-container">
+<v-app>
+
     <v-toolbar color="white">
         <div class="toolbar-wrapper">
         <logo></logo>
@@ -15,7 +16,7 @@
         </div>
 
     </v-toolbar>
-
+    
     <nuxt/>
 
     <v-toolbar color="white">
@@ -43,7 +44,8 @@
       {{ text }}
       <v-btn flat color="white" @click.native="consent()">OK</v-btn>
     </v-snackbar>
-  </div>
+
+</v-app>
   
 </template>
 <script>
@@ -96,11 +98,15 @@ html {
     color: #333 !important;
     margin: 0;
     padding: 0;
+    min-height: 100%;
+    overflow: auto;
 }
 
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 .snack--bottom {
@@ -116,7 +122,8 @@ body {
 }
 
 .layout-logo {
-    height: 54px;
+    height: 100%;
+    padding: 5px;
 }
 @media screen and (max-width: 400px) {
     .layout-logo {

@@ -84,7 +84,7 @@ export default {
     }
     20% {
         -moz-transform: translateY(-30px);
-        -ms-transform: translateY(-30px);
+        -ms-transform: translateX(-30px);
         -webkit-transform: translateY(-30px);
         transform: translateY(-30px);
     }
