@@ -224,6 +224,25 @@ h3 {
     margin-bottom: 0;
 }
 
+.page-enter {
+    transform: translateX(100%);
+    opacity: 1;
+}
+
+.page-enter-active {
+    transition: all 0.4s;
+}
+
+.page-enter-to {
+    opacity: 1;
+}
+
+.page-leave-active {
+    transition: all 0.2s;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
 h4 {
     font-size: 20px;
     margin-bottom: 0;

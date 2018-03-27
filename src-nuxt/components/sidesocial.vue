@@ -121,6 +121,61 @@ export default {
     float: right;
 }
 
+.s-share-link :hover > * {
+    -moz-animation: bounce 1s;
+    -webkit-animation: bounce 1s;
+    animation: bounce 1s;
+}
+@-moz-keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -moz-transform: translateX(0);
+        transform: translateX(0);
+    }
+    20% {
+        -moz-transform: translateX(-30px);
+        transform: translateX(-30px);
+    }
+    80% {
+        -moz-transform: translateX(-15px);
+        transform: translateX(-15px);
+    }
+}
+@-webkit-keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    20% {
+        -webkit-transform: translateX(-30px);
+        transform: translateX(-30px);
+    }
+}
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    20% {
+        -moz-transform: translateX(-30px);
+        -ms-transform: translateX(-30px);
+        -webkit-transform: translateX(-30px);
+        transform: translateX(-30px);
+    }
+}
 .share-link {
     padding-left: 8px;
 }

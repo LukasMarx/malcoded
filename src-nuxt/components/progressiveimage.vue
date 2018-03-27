@@ -36,40 +36,18 @@ export default {
         },
         checkInView() {
             this.getRect();
-            return (
-                inBrowser &&
-                (this.rect.top < window.innerHeight * 1.5 &&
-                    this.rect.bottom > 0) &&
-                (this.rect.left < window.innerWidth * 1.5 &&
-                    this.rect.right > 0)
-            );
+            return inBrowser && (this.rect.top < window.innerHeight * 1.5 && this.rect.bottom > 0);
         },
         getNoScript() {
             return `<picture>
-        <source media="(max-width: 600px)" srcset="${
-            this.src
-        }/webp/500" type="image/webp">
-        <source media="(max-width: 960px)" srcset="${
-            this.src
-        }/webp/860" type="image/webp">
-        <source media="(max-width: 1264px)" srcset="${
-            this.src
-        }/webp/1200'" type="image/webp">
-        <source media="(min-width: 1265px)" srcset="${
-            this.src
-        }/webp" type="image/webp">
-        <source media="(max-width: 600px)" srcset="${
-            this.src
-        }/png/500" type="image/png">
-        <source media="(max-width: 960px)" srcset="${
-            this.src
-        }/png/860" type="image/png">
-        <source media="(max-width: 1264px)" srcset="${
-            this.src
-        }/png/1200" type="image/png">
-        <source media="(min-width: 1265px)" srcset="${
-            this.src
-        }/png" type="image/png">
+        <source media="(max-width: 600px)" srcset="${this.src}/webp/500" type="image/webp">
+        <source media="(max-width: 960px)" srcset="${this.src}/webp/860" type="image/webp">
+        <source media="(max-width: 1264px)" srcset="${this.src}/webp/1200'" type="image/webp">
+        <source media="(min-width: 1265px)" srcset="${this.src}/webp" type="image/webp">
+        <source media="(max-width: 600px)" srcset="${this.src}/png/500" type="image/png">
+        <source media="(max-width: 960px)" srcset="${this.src}/png/860" type="image/png">
+        <source media="(max-width: 1264px)" srcset="${this.src}/png/1200" type="image/png">
+        <source media="(min-width: 1265px)" srcset="${this.src}/png" type="image/png">
         <img style="width:100%" alt="${this.alt}t" src="${this.src}/jpg">
     </picture>`;
         }
@@ -86,31 +64,11 @@ export default {
                 }
             });
 
-            window.addEventListener(
-                'scroll',
-                this.handleScroll,
-                supportsPassive ? { passive: true } : false
-            );
-            window.addEventListener(
-                'wheel',
-                this.handleScroll,
-                supportsPassive ? { passive: true } : false
-            );
-            window.addEventListener(
-                'mousewheel',
-                this.handleScroll,
-                supportsPassive ? { passive: true } : false
-            );
-            window.addEventListener(
-                'resize',
-                this.handleScroll,
-                supportsPassive ? { passive: true } : false
-            );
-            window.addEventListener(
-                'touchmove',
-                this.handleScroll,
-                supportsPassive ? { passive: true } : false
-            );
+            window.addEventListener('scroll', this.handleScroll, supportsPassive ? { passive: true } : false);
+            window.addEventListener('wheel', this.handleScroll, supportsPassive ? { passive: true } : false);
+            window.addEventListener('mousewheel', this.handleScroll, supportsPassive ? { passive: true } : false);
+            window.addEventListener('resize', this.handleScroll, supportsPassive ? { passive: true } : false);
+            window.addEventListener('touchmove', this.handleScroll, supportsPassive ? { passive: true } : false);
         }
     },
     beforeDestroy() {

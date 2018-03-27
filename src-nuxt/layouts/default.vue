@@ -148,4 +148,9 @@ a {
 a:hover {
     text-decoration: none !important;
 }
+
+.page-enter-active,
+.page-leave-active {
+    transition: all 0.5s;
+}
 </style>

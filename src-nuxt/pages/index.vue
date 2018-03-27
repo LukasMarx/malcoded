@@ -149,7 +149,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .index-container {
     margin-top: 32px;
 }
@@ -191,5 +191,24 @@ a {
 
 a:hover {
     color: inherit;
+}
+
+.page-enter {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.page-enter-active {
+    transition: all 0.4s;
+}
+
+.page-enter-to {
+    opacity: 1;
+}
+
+.page-leave-active {
+    transition: all 0.2s;
+    opacity: 0;
+    transform: translateX(-100%);
 }
 </style>
