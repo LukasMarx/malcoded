@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style>
-.page-enter {
+/* .page-enter {
     transform: translateX(100%);
     opacity: 1;
 }
@@ -87,5 +87,5 @@ export default {
     transition: all 0.2s;
     opacity: 0;
     transform: translateX(100%);
-}
+} */
 </style>

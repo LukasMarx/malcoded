@@ -63,7 +63,7 @@
     </div>
 </template>
 
-<script>
+<script scoped>
 export default {
     props: ['post'],
     data() {
@@ -122,11 +122,11 @@ export default {
 }
 
 .s-share-link :hover > * {
-    -moz-animation: bounce 1s;
-    -webkit-animation: bounce 1s;
-    animation: bounce 1s;
+    -moz-animation: s-bounce 1s;
+    -webkit-animation: s-bounce 1s;
+    animation: s-bounce 1s;
 }
-@-moz-keyframes bounce {
+@-moz-keyframes s-bounce {
     0%,
     20%,
     50%,
@@ -144,7 +144,7 @@ export default {
         transform: translateX(-15px);
     }
 }
-@-webkit-keyframes bounce {
+@-webkit-keyframes s-bounce {
     0%,
     20%,
     50%,
@@ -158,7 +158,7 @@ export default {
         transform: translateX(-30px);
     }
 }
-@keyframes bounce {
+@keyframes s-bounce {
     0%,
     20%,
     50%,

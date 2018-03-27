@@ -193,7 +193,7 @@ a:hover {
     color: inherit;
 }
 
-.page-enter {
+/* .page-enter {
     transform: translateX(-100%);
     opacity: 0;
 }
@@ -210,5 +210,5 @@ a:hover {
     transition: all 0.2s;
     opacity: 0;
     transform: translateX(-100%);
-}
+} */
 </style>
