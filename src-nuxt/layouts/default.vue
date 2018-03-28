@@ -109,8 +109,15 @@ body {
     flex-flow: column wrap;
 }
 
-.snack--bottom {
-    left: 50%;
+@media screen and (min-width: 600px) {
+    .snack--bottom {
+        left: 50%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .snack--bottom {
+        bottom: 40px !important;
+    }
 }
 
 .outer-container {
