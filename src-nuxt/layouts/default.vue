@@ -1,7 +1,7 @@
 <template>
 <v-app :dark="dark">
 
-    <v-toolbar>
+    <v-toolbar fixed scroll-off-screen>
         <div class="toolbar-wrapper">
         <logo></logo>
         <v-spacer></v-spacer>
@@ -30,7 +30,7 @@
     </v-toolbar>
 
 
-        <nuxt/>
+        <nuxt style="margin-top: 64px"/>
 
 
     <v-toolbar>
