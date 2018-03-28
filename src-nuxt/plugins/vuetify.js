@@ -1,13 +1,10 @@
 import Vue from 'vue';
-import { Vuetify, VApp, VCard, VNavigationDrawer, VFooter, VList, VBtn, VIcon, VGrid, VToolbar, VSnackbar, VTooltip } from 'vuetify';
+import { Vuetify, VApp, VCard, VBtn, VIcon, VGrid, VToolbar, VSnackbar, VTooltip } from 'vuetify';
 
 Vue.use(Vuetify, {
   components: {
     VApp,
     VCard,
-    VNavigationDrawer,
-    VFooter,
-    VList,
     VBtn,
     VIcon,
     VGrid,
