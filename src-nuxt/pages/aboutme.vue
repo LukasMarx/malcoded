@@ -1,5 +1,5 @@
 <template>
-<v-container style="font-size: 23px;">
+<v-container grid-list-xl style="font-size: 23px;">
    <v-card class="about-card">
     <v-layout>
       <v-flex xs12 sm8>
