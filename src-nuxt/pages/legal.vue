@@ -45,7 +45,7 @@
             Further information concerning the terms and conditions of use and data privacy can be found at http://www.google.com/analytics/terms/gb.html
             or at http://www.google.com/intl/en_uk/analytics/privacyoverview.html
     </p>
-    <v-btn raised aria-label="Opt-Out from Google Analytics" v-on:click="optOut">Click here to opt-out of Google Analytics</v-btn>
+    <v-btn raised aria-label="Opt-Out from Google Analytics" style="max-width: 100%;" v-on:click="optOut">Click here to opt-out of Google Analytics</v-btn>
   </v-container>
 </template>
 

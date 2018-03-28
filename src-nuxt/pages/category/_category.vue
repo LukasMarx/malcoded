@@ -1,18 +1,18 @@
 <template>
-  <div style="margin-top: 32px">
       <v-container fluid grid-list-md text-xs-center>
-          <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
-        <v-layout row wrap>
-            <v-flex md4 sm6 xs12
-                    v-for="post in all(posts)"
-                    :key="post.title +'a'"
-                >
-                <postcard :post="post"></postcard>
+          <v-layout row wrap>
+            <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
+                <v-layout row wrap>
+                    <v-flex md4 sm6 xs12
+                            v-for="post in all(posts)"
+                            :key="post.title +'a'"
+                        >
+                        <postcard :post="post"></postcard>
+                    </v-flex>
+                </v-layout>
             </v-flex>
-        </v-layout>
-          </v-flex>
+          </v-layout>
       </v-container>
-  </div>
 </template>
 
 <script>

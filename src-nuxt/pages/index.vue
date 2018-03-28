@@ -1,51 +1,53 @@
 <template>
   <v-container fluid grid-list-md text-xs-center>
-    <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
-        <v-layout row wrap>
-            <v-flex xs12 md6
-            v-for="post in first2(posts)"
-            :key="post.title +'a'"
-            >
-            <postcard :post="post"></postcard>
-            </v-flex>
-
-            <v-flex xs12 md4
-            v-for="post in second3(posts)"
-            :key="post.title +'b'"
-            >
-            <postcard :post="post"></postcard>
-            </v-flex>
-            
-
-            <v-flex xs12>
-                <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
-                    <v-btn aria-label="All Posts" flat large>
-                    ALL POSTS
+      <v-layout row wrap>
+        <v-flex  lg8 offset-lg2 md10 offset-md1 sm12>
+            <v-layout row wrap>
+                <v-flex  xs12 md6
+                    v-for="post in first2(posts)"
+                    :key="post.title +'a'"
+                    >
+                    <postcard :post="post"></postcard>
+                </v-flex>
+            </v-layout>
+            <v-layout row wrap> 
+                <v-flex d-flex xs12 md4
+                    v-for="post in second3(posts)"
+                    :key="post.title +'b'"
+                    >
+                    <postcard :post="post"></postcard>
+                </v-flex>
+            </v-layout>
+            <v-layout row wrap> 
+                <v-flex d-flex xs12>
+                    <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
+                        <v-btn aria-label="All Posts" flat large>
+                        ALL POSTS
+                        </v-btn>
+                    </nuxt-link>
+                </v-flex>
+            </v-layout>
+            <v-layout row wrap>
+                <v-flex xs12>
+                    <h1 class="section-title">Angular Beginner</h1>
+                </v-flex>
+            </v-layout>
+            <v-layout row wrap>
+                <v-flex xs12 md4
+                    v-for="post in all(beginner)"
+                    :key="post.title + 'c'"
+                >
+                    <postcard :post="post"></postcard>
+                </v-flex>
+                <v-flex xs12>
+                    <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
+                    <v-btn aria-label="Beginner Posts" flat large>
+                        ALL BEGINNER POSTS
                     </v-btn>
-                </nuxt-link>
-            </v-flex>
-
-
-
-            <v-flex xs12>
-                <h1 class="section-title">Angular Beginner</h1>
-            </v-flex>
-            
-            <v-flex xs12 md4
-                v-for="post in all(beginner)"
-                :key="post.title + 'c'"
-            >
-                <postcard :post="post"></postcard>
-            </v-flex>
-
-            <v-flex xs12>
-                <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
-                <v-btn aria-label="Beginner Posts" flat large>
-                    ALL BEGINNER POSTS
-                </v-btn>
-                </nuxt-link>
-            </v-flex>
-
+                    </nuxt-link>
+                </v-flex>
+            </v-layout>
+            <v-layout row wrap>
             <v-flex xs12>
                 <h1 class="section-title">Angular Intermediate</h1>
             </v-flex>
@@ -55,15 +57,18 @@
                 >
                 <postcard :post="post"></postcard>
             </v-flex>
-            <v-flex xs12>
-                <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
-                    <v-btn aria-label="Intermediate Posts" flat large>
-                    ALL INTERMEDIATE POSTS
-                    </v-btn>
-                </nuxt-link>
-            </v-flex>
-        </v-layout>
-      </v-flex>
+            </v-layout>
+            <v-layout row wrap>
+                <v-flex xs12>
+                    <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
+                        <v-btn aria-label="Intermediate Posts" flat large>
+                        ALL INTERMEDIATE POSTS
+                        </v-btn>
+                    </nuxt-link>
+                </v-flex>
+            </v-layout>
+        </v-flex>
+      </v-layout>
     </v-container>
 
 

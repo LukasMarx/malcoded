@@ -17,7 +17,9 @@
 
     </v-toolbar>
     
-    <nuxt/>
+  
+        <nuxt/>
+  
 
     <v-toolbar color="white">
         <div class="toolbar-wrapper">
@@ -105,23 +107,6 @@ html {
 body {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-flow: column wrap;
-}
-
-@media screen and (min-width: 600px) {
-    .snack--bottom {
-        left: 50%;
-    }
-}
-@media screen and (max-width: 600px) {
-    .snack--bottom {
-        bottom: 40px !important;
-    }
-}
-
-.outer-container {
-    background-color: #f5f5f5;
 }
 
 .full-height {
@@ -145,7 +130,16 @@ body {
     margin-left: 8px !important;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 600px) {
+    .toolbar-wrapper {
+        width: 83.33% !important;
+        margin-left: 8.33% !important;
+        display: flex !important;
+        height: 100% !important;
+    }
+}
+
+@media screen and (min-width: 960px) {
     .toolbar-wrapper {
         width: 66.66% !important;
         margin-left: 16.66% !important;
