@@ -29,7 +29,7 @@ Vue.use(Vuetify, {
   },
   options: {
     themeCache: themeCache,
-    minifyTheme: function() {
+    minifyTheme: function(val) {
       return process.env.NODE_ENV === 'production' ? val.replace(/[\s|\r\n|\r|\n]/g, '') : null;
     }
   }
