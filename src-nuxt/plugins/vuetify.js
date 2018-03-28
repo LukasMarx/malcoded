@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { Vuetify, VApp, VCard, VNavigationDrawer, VFooter, VList, VBtn, VIcon, VGrid, VToolbar, VSnackbar } from 'vuetify';
+import { Vuetify, VApp, VCard, VNavigationDrawer, VFooter, VList, VBtn, VIcon, VGrid, VToolbar, VSnackbar, VTooltip } from 'vuetify';
 
 Vue.use(Vuetify, {
   components: {
@@ -12,15 +12,16 @@ Vue.use(Vuetify, {
     VIcon,
     VGrid,
     VToolbar,
-    VSnackbar
+    VSnackbar,
+    VTooltip
   },
   theme: {
-    primary: '#9c27b0',
-    accent: '#ce93d8',
-    secondary: '#424242',
-    info: '#0D47A1',
-    warning: '#ffb300',
-    error: '#B71C1C',
-    success: '#2E7D32'
+    primary: '#333333',
+    secondary: '#D50000',
+    accent: '#c40030',
+    error: '#f44336',
+    warning: '#ffeb3b',
+    info: '#2196f3',
+    success: '#4caf50'
   }
 });

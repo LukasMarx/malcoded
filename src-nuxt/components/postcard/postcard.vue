@@ -40,13 +40,6 @@ export default {
 </script>
 
 <style>
-.card-actions {
-    background-color: white;
-    padding-left: 16px;
-    padding-right: 16px;
-    height: 60px;
-}
-
 .headline {
     font-weight: 800;
 }
@@ -61,36 +54,9 @@ export default {
 }
 .card-thumbnail-wrapper {
     padding-top: 56.25%;
-    background-color: white;
     position: relative;
 }
 
-.title-box {
-    background-color: white;
-    padding-left: 16px;
-    padding-right: 16px;
-    height: 210px;
-    margin-bottom: 8px;
-    overflow-y: hidden;
-}
-
-.title-box > h1 {
-    line-height: 32px;
-}
-
-.description {
-    min-height: 100px;
-}
-
-.postcard-icon:hover * {
-    fill: #c40030;
-}
-.card {
-    background-color: white;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    text-align: center;
-    margin-bottom: 8px;
-}
 .card-thumbnail {
     width: 100%;
     margin-bottom: -5px;

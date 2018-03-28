@@ -72,7 +72,6 @@ export default {
     background-color: #c3002f;
     color: white !important;
     padding-left: 16px;
-    overflow-x: auto;
 }
 
 .codeview-pre {
@@ -107,64 +106,138 @@ export default {
     background: #fafafa;
 }
 
-.hljs-comment,
-.hljs-quote {
+.application.theme--light .hljs-comment,
+.application.theme--light .hljs-quote {
     color: #a0a1a7;
     font-style: italic;
 }
 
-.hljs-doctag,
-.hljs-keyword,
-.hljs-formula {
+.application.theme--light .hljs-doctag,
+.application.theme--light .hljs-keyword,
+.application.theme--light .hljs-formula {
     color: #c3002f;
     /* color: #a626a4; */
 }
 
-.hljs-section,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-deletion,
-.hljs-subst {
+.application.theme--light .hljs-section,
+.application.theme--light .hljs-name,
+.application.theme--light .hljs-selector-tag,
+.application.theme--light .hljs-deletion,
+.application.theme--light .hljs-subst {
     color: #e45649;
 }
 
-.hljs-literal {
+.application.theme--light .hljs-literal {
     color: #0184bb;
 }
 
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta-string {
+.application.theme--light .hljs-string,
+.application.theme--light .hljs-regexp,
+.application.theme--light .hljs-addition,
+.application.theme--light .hljs-attribute,
+.application.theme--light .hljs-meta-string {
     color: orange;
     /* color: #50a14f; */
 }
 
-.hljs-built_in,
-.hljs-class .hljs-title {
+.application.theme--light .hljs-built_in,
+.application.theme--light .hljs-class .application.theme--light .hljs-title {
     color: #6945a4;
     /* color: #c18401; */
 }
 
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
+.application.theme--light .hljs-attr,
+.application.theme--light .hljs-variable,
+.application.theme--light .hljs-template-variable,
+.application.theme--light .hljs-type,
+.application.theme--light .hljs-selector-class,
+.application.theme--light .hljs-selector-attr,
+.application.theme--light .hljs-selector-pseudo,
+.application.theme--light .hljs-number {
     color: #986801;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-title {
+.application.theme--light
+    .hljs-symbol
+    .application.theme--light
+    .hljs-bullet
+    .application.theme--light
+    .hljs-link
+    .application.theme--light
+    .hljs-meta
+    .application.theme--light
+    .hljs-selector-id
+    .application.theme--light
+    .hljs-title {
     color: #6945a4;
+    /* color: #4078f2; */
+}
+
+/* DARK */
+.application.theme--dark .hljs-comment,
+.application.theme--dark .hljs-quote {
+    color: #a0a1a7;
+    font-style: italic;
+}
+
+.application.theme--dark .hljs-doctag,
+.application.theme--dark .hljs-keyword,
+.application.theme--dark .hljs-formula {
+    color: #ff6589;
+    /* color: #a626a4; */
+}
+
+.application.theme--dark .hljs-section,
+.application.theme--dark .hljs-name,
+.application.theme--dark .hljs-selector-tag,
+.application.theme--dark .hljs-deletion,
+.application.theme--dark .hljs-subst {
+    color: #fd5151;
+}
+
+.application.theme--dark .hljs-literal {
+    color: #76d6ff;
+}
+
+.application.theme--dark .hljs-string,
+.application.theme--dark .hljs-regexp,
+.application.theme--dark .hljs-addition,
+.application.theme--dark .hljs-attribute,
+.application.theme--dark .hljs-meta-string {
+    color: rgb(248, 201, 113);
+    /* color: #50a14f; */
+}
+
+.application.theme--dark .hljs-built_in,
+.application.theme--dark .hljs-class .application.theme--dark .hljs-title {
+    color: #c9a7ff;
+    /* color: #c18401; */
+}
+
+.application.theme--dark .hljs-attr,
+.application.theme--dark .hljs-variable,
+.application.theme--dark .hljs-template-variable,
+.application.theme--dark .hljs-type,
+.application.theme--dark .hljs-selector-class,
+.application.theme--dark .hljs-selector-attr,
+.application.theme--dark .hljs-selector-pseudo,
+.application.theme--dark .hljs-number {
+    color: #e6e35d;
+}
+
+.application.theme--dark
+    .hljs-symbol
+    .application.theme--dark
+    .hljs-bullet
+    .application.theme--dark
+    .hljs-link
+    .application.theme--dark
+    .hljs-meta
+    .application.theme--dark
+    .hljs-selector-id
+    .application.theme--dark
+    .hljs-title {
+    color: #a371f3;
     /* color: #4078f2; */
 }
 

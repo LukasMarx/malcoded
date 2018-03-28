@@ -36,7 +36,7 @@ export default {
         },
         checkInView() {
             this.getRect();
-            return inBrowser && (this.rect.top < window.innerHeight * 1.5 && this.rect.bottom > 0);
+            return inBrowser && (this.rect.top < window.innerHeight * 1.5 && this.rect.bottom > 0 - 500);
         },
         getNoScript() {
             return `<picture>
