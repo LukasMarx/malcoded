@@ -3,6 +3,34 @@
           <v-layout row wrap>
             <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
                 <v-layout row wrap>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+                    <v-flex v-if="!posts" md4 sm6 xs12>
+                        <postcardPlaceholder></postcardPlaceholder>
+                    </v-flex>
+
                     <v-flex md4 sm6 xs12
                             v-for="post in all(posts)"
                             :key="post.title +'a'"
@@ -18,8 +46,9 @@
 <script>
 import postcard from '~/components/postcard/postcard.vue';
 import category from '~/apollo/queries/category';
+import postcardPlaceholder from '~/components/postcard/postcardPlaceholder.vue';
 export default {
-    components: { postcard },
+    components: { postcard, postcardPlaceholder },
     data() {
         return { posts: null };
     },
@@ -70,22 +99,5 @@ export default {
 </script>
 
 <style>
-/* .page-enter {
-    transform: translateX(100%);
-    opacity: 1;
-}
 
-.page-enter-active {
-    transition: all 0.4s;
-}
-
-.page-enter-to {
-    opacity: 1;
-}
-
-.page-leave-active {
-    transition: all 0.2s;
-    opacity: 0;
-    transform: translateX(100%);
-} */
 </style>

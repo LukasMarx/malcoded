@@ -3,6 +3,12 @@
       <v-layout row wrap>
         <v-flex  lg8 offset-lg2 md10 offset-md1 sm12>
             <v-layout row wrap>
+                 <v-flex v-if="!posts"  xs12 md6>
+                     <postcardPlaceholder></postcardPlaceholder>
+                 </v-flex>
+                <v-flex v-if="!posts"  xs12 md6>
+                     <postcardPlaceholder></postcardPlaceholder>
+                 </v-flex>
                 <v-flex  xs12 md6
                     v-for="post in first2(posts)"
                     :key="post.title +'a'"
@@ -11,6 +17,15 @@
                 </v-flex>
             </v-layout>
             <v-layout row wrap> 
+                 <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
                 <v-flex d-flex xs12 md4
                     v-for="post in second3(posts)"
                     :key="post.title +'b'"
@@ -33,6 +48,15 @@
                 </v-flex>
             </v-layout>
             <v-layout row wrap>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
                 <v-flex xs12 md4
                     v-for="post in all(beginner)"
                     :key="post.title + 'c'"
@@ -51,6 +75,15 @@
             <v-flex xs12>
                 <h1 class="section-title">Angular Intermediate</h1>
             </v-flex>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
+                <v-flex v-if="!posts" xs12 md4>
+                    <postcardPlaceholder></postcardPlaceholder>
+                </v-flex>
             <v-flex xs12 md4
                 v-for="post in all(intermediate)"
                 :key="post.title + 'c'"
@@ -79,12 +112,13 @@ import posts from '~/apollo/queries/posts';
 import angularBeginner from '~/apollo/queries/angularBeginner';
 import angularIntermediate from '~/apollo/queries/angularIntermediate';
 import postcard from '~/components/postcard/postcard.vue';
+import postcardPlaceholder from '~/components/postcard/postcardPlaceholder.vue';
 
 export default {
     data() {
         return { posts: null, beginner: null, intermediate: null };
     },
-    components: { postcard },
+    components: { postcard, postcardPlaceholder },
     apollo: {
         posts: {
             query: posts,

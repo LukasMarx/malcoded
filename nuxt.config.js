@@ -65,7 +65,7 @@ module.exports = {
     ],
     plugins: ['~/plugins/vuetify.js'],
     manifest: {
-        name: 'malcoded.com',
+        name: 'malcoded',
         short_name: 'malcoded',
         description:
             "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!",
