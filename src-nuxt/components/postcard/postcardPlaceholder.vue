@@ -75,6 +75,18 @@ export default {};
     background-size: 250%;
 }
 
+.application.theme--dark .animated-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #888;
+    background: linear-gradient(to right, #555 8%, #666 18%, #555 33%);
+    position: relative;
+    background-size: 250%;
+}
+
 @keyframes placeHolderShimmer {
     0% {
         background-position: 100% 0;
