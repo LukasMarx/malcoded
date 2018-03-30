@@ -1,7 +1,7 @@
 <template>
   <v-card height="100%" style="display: flex; flex-flow: column; padding: 4px">
 
-    <nuxt-link :to="{ path: '/posts/'+post.url}" style="flex:1; flex-flow: column">
+    <nuxt-link :to="{ path: '/posts/'+post.url}" style="flex:1 1 auto !important; flex-flow: column">
         <div class="card-thumbnail-wrapper">
             <progressiveimage class="card-thumbnail" :alt="post.title" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+post.thumbnail" />
         </div>

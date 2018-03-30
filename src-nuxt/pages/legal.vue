@@ -1,6 +1,6 @@
 <template>
   
-  <v-container>
+  <v-container style="flex: 1 1 auto !important;">
       <v-card class="legal-card">
         <h1 style="font-size:40px">About this Website</h1>
         <br>

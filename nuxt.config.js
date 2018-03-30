@@ -120,6 +120,8 @@ module.exports = {
             'core-js/es6/date',
             'core-js/es6/array',
             'core-js/es6/regexp',
+            'core-js/es7/array',
+            'core-js/es7/object',
             'graphql/language',
             '~/plugins/vuetify.js'
         ],

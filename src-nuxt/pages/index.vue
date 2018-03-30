@@ -1,15 +1,15 @@
 <template>
-  <v-container fluid grid-list-md text-xs-center>
+  <v-container fluid grid-list-md text-xs-center style="flex: 1 1 auto !important;">
       <v-layout row wrap>
-        <v-flex  lg8 offset-lg2 md10 offset-md1 sm12>
+        <v-flex  lg8 offset-lg2 md10 offset-md1 sm12 >
             <v-layout row wrap>
-                 <v-flex v-if="!posts"  xs12 md6>
+                 <v-flex v-if="!posts"  xs12 md6 >
                      <postcardPlaceholder></postcardPlaceholder>
                  </v-flex>
                 <v-flex v-if="!posts"  xs12 md6>
                      <postcardPlaceholder></postcardPlaceholder>
                  </v-flex>
-                <v-flex  xs12 md6
+                <v-flex  xs12 md6 style="flex:1"
                     v-for="post in first2(posts)"
                     :key="post.title +'a'"
                     >
@@ -26,7 +26,7 @@
                 <v-flex v-if="!posts" xs12 md4>
                     <postcardPlaceholder></postcardPlaceholder>
                 </v-flex>
-                <v-flex d-flex xs12 md4
+                <v-flex xs12 md4 style="flex:1"
                     v-for="post in second3(posts)"
                     :key="post.title +'b'"
                     >
@@ -57,7 +57,7 @@
                 <v-flex v-if="!posts" xs12 md4>
                     <postcardPlaceholder></postcardPlaceholder>
                 </v-flex>
-                <v-flex xs12 md4
+                <v-flex xs12 md4 style="flex:1"
                     v-for="post in all(beginner)"
                     :key="post.title + 'c'"
                 >
@@ -84,7 +84,7 @@
                 <v-flex v-if="!posts" xs12 md4>
                     <postcardPlaceholder></postcardPlaceholder>
                 </v-flex>
-            <v-flex xs12 md4
+            <v-flex xs12 md4 style="flex:1"
                 v-for="post in all(intermediate)"
                 :key="post.title + 'c'"
                 >
