@@ -254,6 +254,11 @@ export default {
     width: 100%;
 }
 
+.inline-iframe {
+    width: 100%;
+    height: 500px;
+}
+
 .post-title {
     margin-top: 8px;
     margin-bottom: 8px;

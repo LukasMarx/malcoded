@@ -31,12 +31,19 @@ const blocks = {
     return {
       tag: 'img',
       attributes: {
-        src:
-          'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' +
-          attr,
+        src: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + attr,
         alt: attr
       },
       class: { 'inline-image': true }
+    };
+  },
+  'i-frame': (attr, value) => {
+    return {
+      tag: 'iframe',
+      attributes: {
+        src: attr.src
+      },
+      class: { 'inline-iframe': true }
     };
   }
 };
@@ -106,10 +113,7 @@ export class QuillRenderer {
       return this.createNodeFromAttributes(closureAttributes, operation.insert);
     } else {
       if (typeof operation.insert === 'string') {
-        return this.createInlineFromAttributes(
-          operation.attributes,
-          operation.insert
-        );
+        return this.createInlineFromAttributes(operation.attributes, operation.insert);
       } else {
         return this.createBlockFromAttributes(operation.insert);
       }
@@ -125,10 +129,7 @@ export class QuillRenderer {
     let prevTag;
     let toMerge;
     nodes.forEach(node => {
-      if (
-        node.tag === 'codeview' ||
-        (node.tag === 'br' && prevTag === 'codeview')
-      ) {
+      if (node.tag === 'codeview' || (node.tag === 'br' && prevTag === 'codeview')) {
         if (toMerge) {
           toMerge.content += '\n';
           if (node.content) toMerge.content += node.content;
