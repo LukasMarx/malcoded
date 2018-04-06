@@ -39,7 +39,10 @@ app.get('/rss', (req, res) => {
                         description: node.description,
                         url: 'https://malcoded.com/posts/' + node.url,
                         guid: 'https://malcoded.com/posts/' + node.url,
-                        enclosure: { url: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + node.thumbnail + '/jpg' },
+                        enclosure: {
+                            url: 'http://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + node.thumbnail + '/jpg',
+                            type: 'image/jpg'
+                        },
                         author: 'Lukas Marx',
                         date: node.releaseDate
                     };
