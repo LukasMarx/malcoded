@@ -2,16 +2,6 @@ const { Nuxt, Builder } = require('nuxt');
 const RSS = require('rss');
 const request = require('graphql-request').request;
 
-const feedOptions = {
-    title: 'malcoded',
-    description: 'Angular, Typescript & more',
-    feed_url: 'https://malcoded.com/rss',
-    site_url: 'https://malcoded.com',
-    managingEditor: 'malcoded.blog@gmail.com (Lukas Marx)',
-    language: 'en'
-};
-const feed = new RSS(feedOptions);
-
 let nuxtConfig = require('./nuxt.config.js');
 nuxtConfig.dev = false;
 const nuxt = new Nuxt(nuxtConfig);
@@ -33,6 +23,16 @@ app.get('/rss', (req, res) => {
     request('https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api', query).then(
         data => {
             if (data && data.BlogPosts && data.BlogPosts.nodes) {
+                const feedOptions = {
+                    title: 'malcoded',
+                    description: 'Angular, Typescript & more',
+                    feed_url: 'https://malcoded.com/rss',
+                    site_url: 'https://malcoded.com',
+                    managingEditor: 'malcoded.blog@gmail.com (Lukas Marx)',
+                    language: 'en'
+                };
+                const feed = new RSS(feedOptions);
+
                 data.BlogPosts.nodes.forEach(node => {
                     const itemOptions = {
                         title: node.title,
