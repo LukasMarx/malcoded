@@ -38,7 +38,7 @@ app.get('/rss', (req, res) => {
                         'webfeeds:cover': { _attr: { image: 'https://malcoded.com/malcoded-logo-text-square_1500x500.jpg' } }
                     },
                     {
-                        'webfeeds:icon': 'https://malcoded.com//dist/icons/icon_120.9qNqsVB8pKj.png'
+                        'webfeeds:icon': 'https://malcoded.com/dist/icons/icon_120.9qNqsVB8pKj.png'
                     }
                 ]
             };
