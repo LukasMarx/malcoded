@@ -27,8 +27,20 @@ app.get('/rss', (req, res) => {
                 description: 'Angular, Typescript & more',
                 feed_url: 'https://malcoded.com/rss',
                 site_url: 'https://malcoded.com',
+                image_url: 'http://malcoded.com//dist/icons/icon_120.9qNqsVB8pKj.png',
                 managingEditor: 'malcoded.blog@gmail.com (Lukas Marx)',
-                language: 'en'
+                language: 'en',
+                custom_namespaces: {
+                    webfeeds: 'http://webfeeds.org/rss/1.0'
+                },
+                custom_elements: [
+                    {
+                        'webfeeds:cover': { _attr: { image: 'https://malcoded.com/malcoded-logo-text-square_1500x500.jpg' } }
+                    },
+                    {
+                        'webfeeds:icon': 'https://malcoded.com//dist/icons/icon_120.9qNqsVB8pKj.png'
+                    }
+                ]
             };
             const feed = new RSS(feedOptions);
             if (data && data.BlogPosts && data.BlogPosts.nodes) {
