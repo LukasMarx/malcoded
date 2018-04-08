@@ -1,18 +1,20 @@
 <template>
-<v-container grid-list-xl style="font-size: 23px;">
+<v-container grid-list-xl fluid style="font-size: 23px;">
+  <v-layout row wrap>
+  <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
    <v-card class="about-card">
     <v-layout>
       <v-flex xs12 sm8>
         <h2 style="width:100%">Want to devlelop awesome Angular Apps?</h2>
-        <h3 class="sub-section-title">You have come the right Place!</h3>
+        <h4 class="sub-section-title">You have come the right Place!</h4>
       </v-flex>
       <v-flex sm4>
         <img src="angular.png" style="width: 100%">
       </v-flex>
     </v-layout>
     <br>
-    <p>With over <b>20</b> comprehensive guides and tutorials about angular, there is an article for every skill level.</p>
-    <h3>Take your angular programming skills to the next level!</h3>
+    <p>With over <b>25</b> comprehensive guides and tutorials about angular, there is an article for every skill level.</p>
+    <h3 class="sub-section-title">Take your angular programming skills to the next level!</h3>
   </v-card>
   <v-card class="about-card">
     <v-layout>
@@ -24,12 +26,12 @@
        </v-flex>
       <v-flex xs12 sm8>
         <h2 style="width:100%">What malcoded is all About</h2>
-        <h3 class="sub-section-title">Detailed Tutorials that contain everything you need to get started!</h3>
+        <h4 class="sub-section-title">Detailed Tutorials that contain everything you need to get started!</h4>
       </v-flex>
     </v-layout>
     <p>My goal is to provide rich and detailed tutorials, that actually help you to succeed.</p>
     <p>That is why all of my articles provide complete examples, that result in an running application!</p>
-    <h3>In this blog I share all the mistakes & discoveries I've made, so you can profit from my learnings, too!</h3>
+    <h3 class="sub-section-title">In this blog I share all the mistakes & discoveries I've made, so you can profit from my learnings, too!</h3>
   </v-card>
   <v-card class="about-card">
     <div class="center-container">
@@ -40,7 +42,8 @@
       <p class="sub-sub-section-title">Entering the world of frontend-development with vanilla JavaScript, I quickly fell in love with single-page-applciation-frameworks, like Angular.</p><br>
       <p class="sub-sub-section-title">Since back then I am continously exploring the depths of angular, sharing my most exiting findings here with you!</p><br>
     </div>
-  </v-card>
+  </v-card></v-flex>
+  </v-layout>
 </v-container>
 </template>
 
@@ -52,6 +55,7 @@ export default {};
 .about-card {
     padding: 16px;
     margin-bottom: 32px;
+    text-align: center;
 }
 
 .center-container {
@@ -63,6 +67,10 @@ export default {};
 
 .no-padding-bot {
     margin-bottom: 0;
+}
+
+.sub-section-title {
+    margin-top: 48px;
 }
 
 @media screen and (max-width: 768px) {
