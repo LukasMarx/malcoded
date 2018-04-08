@@ -84,7 +84,7 @@ export default {
     head() {
         const post = this.BlogPost || { title: 'loading...' };
         return {
-            title: post.title + '| malcoded',
+            title: post.title + ' | malcoded',
             meta: [
                 {
                     hid: 'description',
