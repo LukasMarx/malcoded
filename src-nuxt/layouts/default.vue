@@ -164,7 +164,7 @@ body {
     }
 }
 .application--wrap {
-    /* width: 100%; */
+    width: 100%;
 }
 
 a {
