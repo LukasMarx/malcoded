@@ -1,5 +1,5 @@
 <template>
-<v-container grid-list-xl fluid style="font-size: 23px;">
+<v-container grid-list-xl fluid style="font-size: 23px; flex: 1 1 auto !important;">
   <v-layout row wrap>
   <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
    <v-card class="about-card">
@@ -63,10 +63,16 @@ export default {};
     display: flex;
     flex-direction: column;
     align-items: center;
+    word-wrap: normal;
+    word-break: normal;
 }
 
 .no-padding-bot {
     margin-bottom: 0;
+}
+
+.sub-sub-section-title {
+    width: 100%;
 }
 
 .sub-section-title {

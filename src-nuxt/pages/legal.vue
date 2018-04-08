@@ -1,6 +1,6 @@
 <template>
   
-  <v-container grid-list-xl fluid>
+  <v-container grid-list-xl fluid style="flex: 1 1 auto !important;">
         <v-layout row wrap>
   <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
       <v-card class="legal-card">

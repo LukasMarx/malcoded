@@ -46,12 +46,13 @@
                                 </div>
                                 <renderer style="word-break: break-word;" :input="BlogPost"></renderer>
                                 <sidesocial :post="BlogPost"></sidesocial>
-                                <horizontalsocial :post="BlogPost"></horizontalsocial>
+                                
                             </v-flex>
                             &nbsp;
                         </div>
                     </transition>
                 </v-card>
+                <horizontalsocial :post="BlogPost"></horizontalsocial>
                 <readmore style="margin-bottom:32px; margin-top:32px"></readmore>
                 
             </v-flex>

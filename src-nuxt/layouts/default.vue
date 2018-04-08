@@ -163,6 +163,9 @@ body {
         height: 100% !important;
     }
 }
+.application--wrap {
+    /* width: 100%; */
+}
 
 a {
     text-decoration: none !important;

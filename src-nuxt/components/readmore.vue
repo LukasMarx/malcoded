@@ -1,8 +1,8 @@
 <template>
 <div>
     <v-layout style="overflow: auto">
-        <v-flex xs12>
-            <h1 class="rm-title">Read More!</h1>
+        <v-flex xs12 style="margin-bottom: 16px">
+            <span class="rm-title">Read More!</span>
         </v-flex>
     </v-layout>
     <v-layout wrap>
@@ -49,6 +49,8 @@ export default {
 }
 
 .rm-title {
-    margin-bottom: 32px;
+    margin-bottom: 40px;
+    font-size: 2em;
+    font-weight: 600;
 }
 </style>
