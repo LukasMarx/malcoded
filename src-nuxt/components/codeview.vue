@@ -34,7 +34,8 @@ hljs.registerLanguage('html', xml);
 hljs.registerLanguage('scss', scss);
 
 hljs.configure({
-    languages: ['javascript', 'typescript', 'xml', 'scss', 'json'],
+    tabReplace: '    ',
+    languages: ['javascript', 'typescript', 'html', 'scss', 'json'],
     useBR: true
 });
 
@@ -42,8 +43,9 @@ export default {
     props: ['code', 'language', 'title', 'primaryColor'],
     methods: {
         hlCode(code) {
-            const result = hljs.highlightAuto(code);
-            return result.value;
+            let result = hljs.highlightAuto(code);
+
+            return hljs.fixMarkup(result.value);
         }
     }
 };
@@ -82,6 +84,7 @@ export default {
     width: 100%;
     display: table;
     table-layout: fixed;
+    white-space: pre;
 }
 
 .codeview-content {
