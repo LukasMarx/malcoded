@@ -43,9 +43,11 @@ export default {
     props: ['code', 'language', 'title', 'primaryColor'],
     methods: {
         hlCode(code) {
+            console.log(code);
             let result = hljs.highlightAuto(code);
 
             return hljs.fixMarkup(result.value);
+            //return result.value;
         }
     }
 };
@@ -82,9 +84,7 @@ export default {
 
 .codeview-pre {
     width: 100%;
-    display: table;
-    table-layout: fixed;
-    white-space: pre;
+    overflow: auto;
 }
 
 .codeview-content {
