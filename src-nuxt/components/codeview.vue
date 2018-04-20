@@ -13,7 +13,10 @@
         </v-toolbar>
         <div class="codeview-content-wrapper">
             <div class="codeview-content">
-                <pre class="codeview-pre" v-html="hlCode(code)"></pre>
+                <pre class="codeview-pre" >
+                    <code v-html="hlCode(code)">
+                    </code>
+                </pre>
             </div>
         </div>
     </v-card>
@@ -64,6 +67,24 @@ export default {
     }
 }
 
+code {
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    word-break: initial;
+    white-space: pre-wrap;
+    display: block;
+}
+code::before {
+    content: none;
+}
+code::after {
+    content: none;
+}
+
 .codeview-card {
     margin-bottom: 32px;
 }
@@ -84,7 +105,7 @@ export default {
 
 .codeview-pre {
     width: 100%;
-    overflow: auto;
+    display: flex;
 }
 
 .codeview-content {
