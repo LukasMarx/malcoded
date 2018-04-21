@@ -46,7 +46,6 @@ export default {
     props: ['code', 'language', 'title', 'primaryColor'],
     methods: {
         hlCode(code) {
-            console.log(code);
             let result = hljs.highlightAuto(code);
 
             return hljs.fixMarkup(result.value);

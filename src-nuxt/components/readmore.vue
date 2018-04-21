@@ -8,7 +8,7 @@
     <v-layout wrap>
         <v-flex xs12 md4
             v-for="post in BlogPosts ? BlogPosts.nodes: []"
-            :key="post.title"
+            :key="post.url"
             style="padding: 4px;"
         >
             <nuxt-link :to="{ path: '/posts/'+post.url}">

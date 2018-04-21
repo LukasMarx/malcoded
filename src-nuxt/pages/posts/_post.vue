@@ -57,9 +57,11 @@
                 <readmore style="margin-bottom:32px; margin-top:32px"></readmore>
                 
             </v-flex>
-            <v-flex lg2 style="padding-top: 410px" hidden-md-and-down>
+            
+            <sidebar>
                 <headlines :headlines="headlines" v-on:headline-click="navigateToHeadline($event)" :color="BlogPost ? BlogPost.primaryColor : null"></headlines>
-            </v-flex>
+                <sideSuggestions></sideSuggestions>
+            </sidebar>
         </v-layout>
     </v-container>
     <!-- </v-layout> -->
@@ -73,6 +75,8 @@ import horizontalsocial from '~/components/horizontalsocial.vue';
 import readmore from '~/components/readmore.vue';
 import progressiveimage from '~/components/progressiveimage.vue';
 import headlines from '~/components/headlines.vue';
+import sideSuggestions from '~/components/sideSuggestions.vue';
+import sidebar from '~/components/sidebar.vue';
 
 export default {
     components: {
@@ -81,7 +85,9 @@ export default {
         horizontalsocial,
         readmore,
         progressiveimage,
-        headlines
+        headlines,
+        sideSuggestions,
+        sidebar
     },
     data() {
         return {
