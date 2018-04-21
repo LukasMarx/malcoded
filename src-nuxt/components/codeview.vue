@@ -1,4 +1,5 @@
 <template>
+<div style="width: 100%">
     <v-card class="codeview-card">
         <v-toolbar card dense class="codeview-toolbar" v-bind:style="{ 'background-color': (primaryColor || '#c3002f' ) + '!important' }" v-if="title && title !== 'null' && title !== 'undefined' || (language!=='undefined' && language!=='null')">
           <div class="codeview-icon" v-if="language && language!==null">
@@ -11,15 +12,15 @@
             <span  v-if="title && title !== 'null' && title !== 'undefined'" class="codeview-title">{{title}}</span>
           </div>
         </v-toolbar>
-        <div class="codeview-content-wrapper">
-            <div class="codeview-content">
-                <pre class="codeview-pre" >
-                    <code v-html="hlCode(code)">
-                    </code>
-                </pre>
-            </div>
+
+        <div style="padding: 16px">
+        <pre class="pre"  v-html="hlCode(code)">
+        </pre>
         </div>
+
+
     </v-card>
+</div>
 </template>
 
 <script>
@@ -56,38 +57,9 @@ export default {
 </script>
 
 <style>
-.title-wrapper {
-    height: 100%;
-}
-
-@media screen and (max-width: 600px) {
-    .title-wrapper {
-        font-size: 0.8em;
-    }
-}
-
-code {
-    background-color: transparent;
-    color: inherit;
-    box-shadow: none;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    word-break: initial;
-    white-space: pre-wrap;
-    display: block;
-}
-code::before {
-    content: none;
-}
-code::after {
-    content: none;
-}
-
 .codeview-card {
     margin-bottom: 32px;
 }
-
 .codeview-wrapper {
     margin-bottom: 32px;
 }
@@ -101,30 +73,25 @@ code::after {
     color: white !important;
     padding-left: 16px;
 }
-
-.codeview-pre {
+.pre {
     width: 100%;
-    display: flex;
+    white-space: pre-wrap;
 }
-
 .codeview-content {
     overflow-x: auto;
     text-align: left;
 }
-
 .codeview-title {
     margin-left: 8px;
     line-height: 48px;
     font-size: 1.2em;
 }
-
 .codeview-content-wrapper {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin-left: 1px;
     margin-right: 1px;
     padding: 32px;
 }
-
 .hljs {
     display: block;
     overflow-x: auto;
@@ -132,20 +99,17 @@ code::after {
     color: #383a42;
     background: #fafafa;
 }
-
 .application.theme--light .hljs-comment,
 .application.theme--light .hljs-quote {
     color: #a0a1a7;
     font-style: italic;
 }
-
 .application.theme--light .hljs-doctag,
 .application.theme--light .hljs-keyword,
 .application.theme--light .hljs-formula {
     color: #c3002f;
     /* color: #a626a4; */
 }
-
 .application.theme--light .hljs-section,
 .application.theme--light .hljs-name,
 .application.theme--light .hljs-selector-tag,
@@ -153,11 +117,9 @@ code::after {
 .application.theme--light .hljs-subst {
     color: #e45649;
 }
-
 .application.theme--light .hljs-literal {
     color: #0184bb;
 }
-
 .application.theme--light .hljs-string,
 .application.theme--light .hljs-regexp,
 .application.theme--light .hljs-addition,
@@ -166,13 +128,11 @@ code::after {
     color: orange;
     /* color: #50a14f; */
 }
-
 .application.theme--light .hljs-built_in,
 .application.theme--light .hljs-class .application.theme--light .hljs-title {
     color: #6945a4;
     /* color: #c18401; */
 }
-
 .application.theme--light .hljs-attr,
 .application.theme--light .hljs-variable,
 .application.theme--light .hljs-template-variable,
@@ -183,7 +143,6 @@ code::after {
 .application.theme--light .hljs-number {
     color: #986801;
 }
-
 .application.theme--light
     .hljs-symbol
     .application.theme--light
@@ -199,21 +158,18 @@ code::after {
     color: #6945a4;
     /* color: #4078f2; */
 }
-
 /* DARK */
 .application.theme--dark .hljs-comment,
 .application.theme--dark .hljs-quote {
     color: #a0a1a7;
     font-style: italic;
 }
-
 .application.theme--dark .hljs-doctag,
 .application.theme--dark .hljs-keyword,
 .application.theme--dark .hljs-formula {
     color: #ff6589;
     /* color: #a626a4; */
 }
-
 .application.theme--dark .hljs-section,
 .application.theme--dark .hljs-name,
 .application.theme--dark .hljs-selector-tag,
@@ -221,11 +177,9 @@ code::after {
 .application.theme--dark .hljs-subst {
     color: #fd5151;
 }
-
 .application.theme--dark .hljs-literal {
     color: #76d6ff;
 }
-
 .application.theme--dark .hljs-string,
 .application.theme--dark .hljs-regexp,
 .application.theme--dark .hljs-addition,
@@ -234,13 +188,11 @@ code::after {
     color: rgb(248, 201, 113);
     /* color: #50a14f; */
 }
-
 .application.theme--dark .hljs-built_in,
 .application.theme--dark .hljs-class .application.theme--dark .hljs-title {
     color: #c9a7ff;
     /* color: #c18401; */
 }
-
 .application.theme--dark .hljs-attr,
 .application.theme--dark .hljs-variable,
 .application.theme--dark .hljs-template-variable,
@@ -251,7 +203,6 @@ code::after {
 .application.theme--dark .hljs-number {
     color: #e6e35d;
 }
-
 .application.theme--dark
     .hljs-symbol
     .application.theme--dark
@@ -267,15 +218,12 @@ code::after {
     color: #a371f3;
     /* color: #4078f2; */
 }
-
 .hljs-emphasis {
     font-style: italic;
 }
-
 .hljs-strong {
     font-weight: bold;
 }
-
 .hljs-link {
     text-decoration: underline;
 }
