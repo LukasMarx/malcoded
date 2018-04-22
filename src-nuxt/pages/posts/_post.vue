@@ -54,13 +54,13 @@
                     </transition>
                 </div>
                 <horizontalsocial :post="BlogPost"></horizontalsocial>
-                <readmore style="margin-bottom:32px; margin-top:32px"></readmore>
+                <!-- <readmore style="margin-bottom:32px; margin-top:32px"></readmore> -->
                 
             </v-flex>
             
             <sidebar>
                 <headlines :headlines="headlines" v-on:headline-click="navigateToHeadline($event)" :color="BlogPost ? BlogPost.primaryColor : null"></headlines>
-                <sideSuggestions></sideSuggestions>
+                <sideSuggestions :post="BlogPost"></sideSuggestions>
             </sidebar>
         </v-layout>
     </v-container>

@@ -2,7 +2,7 @@
 <div>
     <span class="title">You might also like:</span>
     <div style="margin-top: 16px">
-        <nuxt-link v-for="post in BlogPosts ? BlogPosts.nodes: []" 
+        <nuxt-link v-for="post in post ? post.recommendations.nodes: []" 
             :key="post.url" 
             :to="{ path: '/posts/'+post.url}" 
             style="flex:1 1 auto !important; flex-flow: column">
@@ -20,6 +20,7 @@
 import progressiveimage from '~/components/progressiveimage.vue';
 import posts3 from '~/apollo/queries/posts3';
 export default {
+    props: ['post'],
     data() {
         return {
             BlogPosts: null
