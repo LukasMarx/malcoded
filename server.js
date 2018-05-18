@@ -2,10 +2,15 @@ const { Nuxt, Builder } = require('nuxt');
 const RSS = require('rss');
 const request = require('graphql-request').request;
 
+const apicache = require('apicache');
+let cache = apicache.middleware;
+
 let nuxtConfig = require('./nuxt.config.js');
 nuxtConfig.dev = false;
 const nuxt = new Nuxt(nuxtConfig);
 const app = require('express')();
+
+app.disable('x-powered-by');
 
 const query = `{
     BlogPosts(orderBy: "releaseDate", descending: true) { 
@@ -69,6 +74,7 @@ app.get('/rss', (req, res) => {
     );
 });
 
+app.use(cache('1 hour'));
 app.use(nuxt.render);
 
 app.set('port', process.env.PORT || 8000);
