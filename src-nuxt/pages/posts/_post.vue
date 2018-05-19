@@ -45,7 +45,7 @@
                                     <span style="margin-left: 8px">{{getPostDate(BlogPost)}}</span>
                                 </div>
                                 <renderer style="word-break: break-word;" :input="BlogPost" v-on:headlines="headlines = $event"></renderer>
-                                <sidesocial :post="BlogPost"></sidesocial>
+                                <!-- <sidesocial :post="BlogPost"></sidesocial> -->
                                 
                             </v-flex>
                             

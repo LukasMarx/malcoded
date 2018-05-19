@@ -16,7 +16,7 @@
     </nuxt-link>
 
     <v-card-actions>
-        <postcardIcons v-if="!hideSocial" :post="post"></postcardIcons>
+        <!-- <postcardIcons v-if="!hideSocial" :post="post"></postcardIcons> -->
         <v-spacer></v-spacer>
         <nuxt-link style="float:right" :to="{ path: '/posts/'+post.url}">
             <v-btn aria-label="Read More" flat>
