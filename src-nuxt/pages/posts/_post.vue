@@ -53,7 +53,7 @@
                         </div>
                     </transition>
                 </div>
-                <horizontalsocial :post="BlogPost"></horizontalsocial>
+                <!-- <horizontalsocial :post="BlogPost"></horizontalsocial> -->
                 <!-- <readmore style="margin-bottom:32px; margin-top:32px"></readmore> -->
                 
             </v-flex>
