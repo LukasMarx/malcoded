@@ -42,13 +42,16 @@
                 <nuxt-link :to="{ path: '/legal'}" title="Legal Notice" class="full-height" >
                     <v-btn flat>Legal Notice</v-btn>
                 </nuxt-link>
+                 <nuxt-link :to="{ path: '/privacy'}" title="Privacy" class="full-height" >
+                    <v-btn flat>Privacy</v-btn>
+                </nuxt-link>
                 <nuxt-link :to="{ path: '/'}" title="Blog" class="hidden-sm-and-down full-height" >
                     <v-btn flat>Blog</v-btn>
                 </nuxt-link>
             </v-toolbar-items>
         </div>
     </v-toolbar>
-    <v-snackbar
+    <!-- <v-snackbar
       :timeout="timeout"
       :bottom="y === 'bottom'"
       :multi-line="mode === 'multi-line'"
@@ -57,7 +60,7 @@
     >
       {{ text }}
       <v-btn flat color="white" @click.native="consent()">OK</v-btn>
-    </v-snackbar>
+    </v-snackbar> -->
 
 </v-app>
   
@@ -78,25 +81,24 @@ export default {
         };
     },
     mounted() {
-        if (typeof window !== 'undefined') {
-            let cookie = document.cookie;
-
-            if (/consentCookie=true/.test(cookie)) {
-                this.snackbar = false;
-            } else {
-                this.snackbar = true;
-            }
-        }
+        // if (typeof window !== 'undefined') {
+        //     let cookie = document.cookie;
+        //     if (/consentCookie=true/.test(cookie)) {
+        //         this.snackbar = false;
+        //     } else {
+        //         this.snackbar = true;
+        //     }
+        // }
     },
     methods: {
-        consent() {
-            if (document) {
-                let now = new Date().getTime();
-                const date = new Date((now += 86400000 * 365));
-                document.cookie = 'consentCookie=true;expires=' + date.toUTCString() + ';path=/;';
-            }
-            this.snackbar = false;
-        },
+        // consent() {
+        //     if (document) {
+        //         let now = new Date().getTime();
+        //         const date = new Date((now += 86400000 * 365));
+        //         document.cookie = 'consentCookie=true;expires=' + date.toUTCString() + ';path=/;';
+        //     }
+        //     this.snackbar = false;
+        // },
         toggleDarkMode() {
             this.dark = !this.dark;
         }

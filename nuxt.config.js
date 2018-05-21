@@ -34,31 +34,31 @@ module.exports = {
 
     modules: [
         '@nuxtjs/apollo',
-        ['@nuxtjs/pwa', { onesignal: false }],
-        [
-            '@nuxtjs/google-analytics',
-            {
-                id: 'UA-87372848-1',
-                set: [{ field: 'anonymizeIp', value: true }, { field: 'storage', value: 'none' }, { field: 'storeGac', value: false }],
-                commands: {
-                    optOut: function() {
-                        document.cookie = 'ga-disable-UA-87372848-1=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-                        window['ga-disable-UA-87372848-1'] = true;
-                    }
-                },
-                beforeFirstHit: function() {
-                    // this is right after the tracker and before every other hit to Google Analytics
-                    if (document.cookie.indexOf('ga-disable-UA-87372848-1=true') > -1) {
-                        window['ga-disable-UA-87372848-1'] = true;
-                    }
-                },
-                autoTracking: {
-                    shouldRouterUpdate: function(to, from) {
-                        return !window['ga-disable-UA-87372848-1'];
-                    }
-                }
-            }
-        ]
+        ['@nuxtjs/pwa', { onesignal: false }]
+        // [
+        //     '@nuxtjs/google-analytics',
+        //     {
+        //         id: 'UA-87372848-1',
+        //         set: [{ field: 'anonymizeIp', value: true }, { field: 'storage', value: 'none' }, { field: 'storeGac', value: false }],
+        //         commands: {
+        //             optOut: function() {
+        //                 document.cookie = 'ga-disable-UA-87372848-1=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+        //                 window['ga-disable-UA-87372848-1'] = true;
+        //             }
+        //         },
+        //         beforeFirstHit: function() {
+        //             // this is right after the tracker and before every other hit to Google Analytics
+        //             if (document.cookie.indexOf('ga-disable-UA-87372848-1=true') > -1) {
+        //                 window['ga-disable-UA-87372848-1'] = true;
+        //             }
+        //         },
+        //         autoTracking: {
+        //             shouldRouterUpdate: function(to, from) {
+        //                 return !window['ga-disable-UA-87372848-1'];
+        //             }
+        //         }
+        //     }
+        // ]
     ],
     plugins: ['~/plugins/vuetify.js'],
     manifest: {
@@ -70,26 +70,26 @@ module.exports = {
         theme_color: '#c3002f'
     },
 
-    workbox: {
-        importScripts: ['custom-sw.js'],
-        cacheId: 'malcoded.com',
-        navigateFallback: '/',
-        skipWaiting: true,
-        runtimeCaching: [
-            {
-                urlPattern: 'https://fonts.googleapis.com/.*',
-                handler: 'networkFirst'
-            },
-            {
-                urlPattern: 'https://assets.malcoded.com/.*',
-                handler: 'networkFirst'
-            },
-            {
-                urlPattern: 'https://api.malcoded.com/.*',
-                handler: 'networkFirst'
-            }
-        ]
-    },
+    // workbox: {
+    //     importScripts: ['custom-sw.js'],
+    //     cacheId: 'malcoded.com',
+    //     navigateFallback: '/',
+    //     skipWaiting: true,
+    //     runtimeCaching: [
+    //         {
+    //             urlPattern: 'https://fonts.googleapis.com/.*',
+    //             handler: 'networkFirst'
+    //         },
+    //         {
+    //             urlPattern: 'https://assets.malcoded.com/.*',
+    //             handler: 'networkFirst'
+    //         },
+    //         {
+    //             urlPattern: 'https://api.malcoded.com/.*',
+    //             handler: 'networkFirst'
+    //         }
+    //     ]
+    // },
 
     css: ['~/assets/vuetify.min.css'],
     apollo: {

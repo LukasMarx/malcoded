@@ -3,4 +3,5 @@ User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
 Disallow: /legal
+Disallow: /privacy
 Sitemap: https://malcoded.com/sitemap.xml
