@@ -5,6 +5,10 @@
             <v-card class="card">
                 <h1>Privacy Policy</h1>
                 <p>Last updated: 24.05.2018</p>
+
+                <p><b>Please notice:</b> Because we run this blog for personal use and do not make any money with it, we do not have to comply with the GDPR (Art. 2, §2, c).
+                    But becuase we think privacy is important, we did our best to comply with the GDPR anyway.</p>
+
                 <p>This page informs you of our policies regarding the collection,
                     use and disclosure of Personal Information we receive from users
                     of the Site (malcoded.com). We use your Personal Information only
@@ -46,6 +50,52 @@
                 <p>We might link to revelevant content on other sites. We are not responsible for these sites or their content.
                     When you visit these sites, they might collect your personal data. We do not have any control over that.
                 </p>
+
+                <h2>Your rights as the data subject</h2>
+                <br>
+                <h3>Right to be informed</h3>
+                <p>
+                You have the right to be informed, wether or not personal data concerning you are being processed.
+                </p>
+               <p> For more information see Art. 12, 13, 14 GDPR.</p>
+                
+
+                <h3>Right of access</h3>
+                <p>You have the right to obtain a copy of the personal data we store. That is, if you can prove that the data acutally concerns you.</p>
+                <p>For more information see Art. 15 GDPR.</p>
+
+                <h3>Right to rectification</h3>
+                <p>You have the right that we rectify any personal data concering you, that might be incorrect.</p>
+                <p>For more information see Art. 16 GDPR.</p>
+                
+                <h3>Right to erasure </h3>
+                <p>You have the right that we delete your personal data without undue delay, if you request so.</p>
+                <p>For more information see Art. 17 GDPR.</p>
+                
+                <h3>The right to restrict processing</h3>
+                <p>You have the right to restrict the processing of your personal data if: 
+                    <ul>
+                        <li>You personal data is not accurate</li>
+                        <li>The processing is unlawfull</li>
+                        <li>We no longer need the data for what we have collected them for</li>
+                    </ul>
+                    </p>
+                <p>For more information see Art. 18 GDPR.</p>
+                
+                <h3>The right to data portability</h3>
+                <p>You have the right to recieve a copy of your personal data in a structured, machine-useable way.</p>
+                <p>For more information see Art. 20 GDPR.</p>
+                
+                <h3>The right to object</h3>
+                <p>You have the right to object the processing of your personal data at any time.</p>
+                <p>For more information see Art. 21 GDPR.</p>
+               
+                <h3>Rights of automated decision making and profiling</h3>
+                <p>You have the right not to be subject to decision solely based on automated processing.</p>
+                <p>For more information see Art. 22 GDPR.</p>
+
+                <br>
+                <p>If you want to make use of your rights, please send us an email.</p>
             </v-card>
         </v-flex>
     </v-layout>
