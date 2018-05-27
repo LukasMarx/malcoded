@@ -1,6 +1,6 @@
 <template>
 <nuxt-link :to="{ path: '/'}" title="Home">
-   <svg class="layout-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   <!-- <svg class="layout-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                   viewBox="0 0 1000 220" xml:space="preserve">
         <style type="text/css">
         .st0{fill:#DD0031;}
@@ -16,7 +16,8 @@
         <text x="220" y="125" font-family="Verdana" font-size="180" fill="white">a</text>
         <text class="logo-text" x="380" y="125" font-family="Verdana" font-size="180">lcoded</text>
         </g>
-    </svg>
+    </svg> -->
+    <img src="malcoded.png" style="height: 100%"/>
 </nuxt-link>
 </template>
 
@@ -25,5 +26,4 @@ export default {};
 </script>
 
 <style>
-
 </style>
