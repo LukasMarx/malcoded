@@ -7,7 +7,7 @@ module.exports = {
         base: '/'
     },
     head: {
-        title: 'malcoded | Angular, Typescript & more!',
+        title: 'malcoded | Learn to build Web-Applications',
         meta: [
             { charset: 'utf-8' },
             {
