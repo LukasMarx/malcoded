@@ -4,10 +4,7 @@
         <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
             <v-card class="card">
                 <h1>Privacy Policy</h1>
-                <p>Last updated: 24.05.2018</p>
-
-                <p><b>Please notice:</b> Because we run this blog for personal use and do not make any money with it, we do not have to comply with the GDPR (Art. 2, §2, c).
-                    But becuase we think privacy is important, we did our best to comply with the GDPR anyway.</p>
+                <p>Last updated: 29.05.2018</p>
 
                 <p>This page informs you of our policies regarding the collection,
                     use and disclosure of Personal Information we receive from users
@@ -40,7 +37,7 @@
                      the Log Data, errors in the application can be detected and removed. This is our legitimate
                      interest (Art. 6, Section 1 f, GDPR).
                 </p>
-                <p>The Log Data is deleted regularly and is stored no longer than 30 days.</p>
+                <p>The Log Data is deleted regularly and is stored no longer than 14 days.</p>
 
                 <h2>Cookies</h2>
                 <p>Cookies are small text-files that many Sites place on the users computer.</p>
@@ -52,50 +49,145 @@
                 </p>
 
                 <h2>Your rights as the data subject</h2>
-                <br>
-                <h3>Right to be informed</h3>
-                <p>
-                You have the right to be informed, wether or not personal data concerning you are being processed.
-                </p>
-               <p> For more information see Art. 12, 13, 14 GDPR.</p>
                 
-
-                <h3>Right of access</h3>
-                <p>You have the right to obtain a copy of the personal data we store. That is, if you can prove that the data acutally concerns you.</p>
-                <p>For more information see Art. 15 GDPR.</p>
-
-                <h3>Right to rectification</h3>
-                <p>You have the right that we rectify any personal data concering you, that might be incorrect.</p>
-                <p>For more information see Art. 16 GDPR.</p>
-                
-                <h3>Right to erasure </h3>
-                <p>You have the right that we delete your personal data without undue delay, if you request so.</p>
-                <p>For more information see Art. 17 GDPR.</p>
-                
-                <h3>The right to restrict processing</h3>
-                <p>You have the right to restrict the processing of your personal data if: 
-                    <ul>
-                        <li>You personal data is not accurate</li>
-                        <li>The processing is unlawfull</li>
-                        <li>We no longer need the data for what we have collected them for</li>
-                    </ul>
-                    </p>
-                <p>For more information see Art. 18 GDPR.</p>
-                
-                <h3>The right to data portability</h3>
-                <p>You have the right to recieve a copy of your personal data in a structured, machine-useable way.</p>
-                <p>For more information see Art. 20 GDPR.</p>
-                
-                <h3>The right to object</h3>
-                <p>You have the right to object the processing of your personal data at any time.</p>
-                <p>For more information see Art. 21 GDPR.</p>
-               
-                <h3>Rights of automated decision making and profiling</h3>
-                <p>You have the right not to be subject to decision solely based on automated processing.</p>
-                <p>For more information see Art. 22 GDPR.</p>
-
-                <br>
-                <p>If you want to make use of your rights, please send us an email.</p>
+               <p>If personal data are processed by users, they are affected within the meaning of the EU-GDPR and they are entitled to the following rights vis-à-vis the person responsible, whereby the following list includes all their rights, not only the rights arising from the use of our services:</p>
+<h3>1. Right to information</h3>
+<p>Users may request confirmation from those responsible as to whether personal data concerning them are processed by us.</p>
+<p>Once such processing has taken place, users can request the following information from the person responsible:</p>
+<ul>
+   <li>
+      (1) the purposes for which the personal data is processed;
+   </li>
+   <li>
+      (2) the categories of personal data being processed;
+   </li>
+   <li>
+      (3) the recipients or categories of recipients to whom the personal data concerning you have been or are still being disclosed;
+   </li>
+   <li>
+      (4) the planned duration of the storage of the personal data concerning you or, if specific information on this is not possible, criteria for determining the storage period;
+   </li>
+   <li>
+      (5) the existence of a right to rectification or deletion of personal data concerning you, a right to limitation of processing by the controller or a right to object to such processing;
+   </li>
+   <li>
+      (6) the existence of a right of appeal to a supervisory authority;
+   </li>
+   <li>
+      (7) any available information on the origin of the data if the personal data are not collected from the data subject;
+   </li>
+   <li>
+      (8) the existence of automated decision-making including profiling in accordance with Art. 22 para. 1 and 4 EU-GDPR and - at least in these cases - meaningful information on the logic involved and the scope and intended effects of such processing for the data subject.
+   </li>
+</ul>
+<h3>2. Right to correction</h3>
+<p>Users have a right of rectification and/or completion vis-à-vis those responsible if the personal data processed concerning them are incorrect or incomplete. The person responsible shall make the correction without delay.</p>
+<h3>3. Right to limitation of processing</h3>
+<p>
+   Users may request that the processing of personal data concerning them be restricted under the following conditions:
+</p>
+<ul>
+   <li>
+      (1) if users dispute the accuracy of the personal data concerning them for a period that enables the data controller to verify the accuracy of the personal data;
+   </li>
+   <li>
+      (2) the processing is unlawful and users refuse to delete the personal data and instead request the restriction of the use of the personal data;
+   </li>
+   <li>
+      (3) the controller no longer needs the personal data for the purposes of the processing, but users need them to assert, exercise or defend legal claims, or
+   </li>
+   <li>
+      (4) if users have filed an objection to the processing pursuant to Art. 21 para. 1 EU-GDPR and it has not yet been determined whether the legitimate reasons of the person responsible outweigh their reasons.
+   </li>
+</ul>
+<p>Where the processing of personal data relating to users has been restricted, such data may be processed only with their consent or for the purpose of asserting, exercising or defending rights or protecting the rights of another natural or legal person or on grounds of an important public interest of the Union or a Member State, other than their storage.</p>
+<p>If the restriction of processing has been restricted in accordance with the above conditions, users will be informed by the person responsible before the restriction is lifted.
+<p>
+<h3>4. Right to cancellation</h3>
+<h4>a) Duty to delete</h4>
+<p>Users may request the data controller to delete personal data concerning them immediately and the controller is obliged to delete such data immediately if one of the following reasons applies:</p>
+<ul>
+   <li>
+      (1) Personal data relating to users are no longer necessary for the purposes for which they were collected or otherwise processed.
+   </li>
+   <li>
+      (2) Users revoke their consent on which the processing was based pursuant to Art. 6 para. 1 lit. a or Art. 9 para. 2 lit. a DSBER, and there is no other legal basis for the processing.
+   </li>
+   <li>
+      (3) Users file an objection to processing pursuant to Art. 21 para. 1 EU-GDPR and there are no overriding legitimate grounds for processing, or they file an objection to processing pursuant to Art. 21 para. 2 EU-GDPR.
+   </li>
+   <li>
+      (4) Personal data relating to users have been processed unlawfully.
+   </li>
+   <li>
+      (5). The deletion of personal data relating to users shall be necessary to fulfil a legal obligation under Union law or the law of the Member States to which the controller is subject.
+   </li>
+   <li>
+      (6) Personal data relating to users have been collected in relation to information society services offered pursuant to Art. 8 para. 1 EU-GDPR.
+   </li>
+</ul>
+<h4>b) Information to third parties</h4>
+<p>If the data controller has made personal data relating to users public and is obliged to delete them pursuant to Art. 17 para. 1 EU-GDPR, he shall take appropriate measures, including technical measures, taking into account the available technology and the implementation costs, to inform those responsible for data processing who process the personal data that you as the data subject have requested the deletion of all links to this personal data or of copies or replications of this personal data.</p>
+<h4>c) Exceptions</h4>
+<p>The right to cancellation does not exist insofar as the processing is necessary</p>
+<ul>
+<li>
+   (1) to exercise freedom of expression and information;
+</li>
+<li>
+   (2) for the performance of a legal obligation required for processing under the law of the Union or of the Member States to which the controller is subject or for the performance of a task in the public interest or in the exercise of official authority conferred on the controller;
+</li>
+<li>
+   (3) for reasons of public interest in the field of public health pursuant to Art. 9 para. 2 lit. h and i and Art. 9 para. 3 EU-GDPR;
+</li>
+<li>
+   (4) for archiving purposes in the public interest, scientific or historical research purposes or for statistical purposes pursuant to Art. 89 para. 1 EU-GDPR, insofar as the law referred to under a) is likely to make it impossible or seriously impair the attainment of the objectives of such processing, or
+</li>
+<li>
+   (5) to assert, exercise or defend legal claims.
+</li>
+</ul>
+<h3>5. Right to information</h3>
+<p>If users have exercised their right of rectification, cancellation or restriction of the processing with respect to the controller, the controller shall be obliged to notify all recipients to whom personal data relating to the users have been disclosed of such rectification or cancellation of the data or restriction of the processing, unless this proves impossible or involves disproportionate effort.</p>
+<p>Users have the right vis-à-vis the person responsible to be informed about these recipients.</p>
+<h3>6. Right to Data Portability</h3>
+<p>Users have the right to receive personally identifiable information they provide to the controller in a structured, common and machine-readable format. In addition, users have the right to transfer this data to another person without hindrance by the person responsible for providing the personal data, provided that</p>
+<ul>
+   <li>
+      (1) the processing on a consent acc. Art. 6 para. 1 lit. a GDPR or Art. 9 para. 2 lit. a EU-GDPR or on a contract acc. Art. 6 para. 1 lit. b EU-GDPR is based and
+   </li>
+   <li>
+      (2) the processing is done by automated means.
+   </li>
+</ul>
+<p>In exercising this right, users also have the right to obtain that personal data relating to them be transmitted directly from one controller to another, where technically feasible. Freedoms and rights of other persons may not be affected.</p>
+<p>The right to data portability does not apply to the processing of personal data necessary for the performance of a task in the public interest or in the exercise of official authority delegated to the controller.</p>
+<h3>7. Right to object</h3>
+<p>Users have the right, for reasons of their own special circumstances, to object at any time to the processing of personal data relating to you pursuant to Article 6 (1) (e) or (f) of the GDPR; this also applies to profiling based on these provisions.</p>
+<p>The controller will no longer process personal data concerning users unless he can demonstrate compelling legitimate grounds for processing that outweigh their interests, rights and freedoms, or the processing is intended to assert, exercise or defend legal claims.</p>
+<p>If the personal data relating to the users is processed in order to operate direct mail, users have the right to object at any time to the processing of the personal data concerning them for the purpose of such advertising; this also applies to profiling insofar as it is associated with such direct mail.</p>
+<p>If users object to the processing for direct marketing purposes, the personal data concerned will no longer be processed for these purposes.</p>
+<p>Users have the option, in the context of the use of information society services, of exercising their right of opposition through automated procedures that use technical specifications, regardless of Directive 2002/58 / EC.</p>
+<h3>8. Right to revoke the data protection declaration of consent</h3>
+<p>Users have the right to revoke their data protection declaration of consent at any time. The revocation of consent shall not affect the legality of the processing carried out on the basis of the consent until revocation.</p>
+<h3>9. Automated decision in individual cases including profiling</h3>
+<p>Users have the right not to be subject to a decision based exclusively on automated processing - including profiling - which has legal effect against them or significantly impairs them in a similar manner. This does not apply if the decision</p>
+<ul>
+   <li>
+      (1) is necessary for the conclusion or performance of a contract between them and the person responsible,
+   </li>
+   <li>
+      (2) the legislation of the Union or of the Member States to which the person responsible is subject is admissible and that legislation contains appropriate measures to safeguard their rights, freedoms and legitimate interests; or
+   </li>
+   <li>
+      (3) with their express consent.
+   </li>
+</ul>
+<p>However, these decisions may not be based on special categories of personal data pursuant to Art. 9 para. 1 EU-GDPR, unless Art. 9 para. 2 lit. a or g EU-GDPR applies and appropriate measures have been taken to protect your rights and freedoms and your legitimate interests.</p>
+<p>In the cases referred to in (1) and (3), the person responsible shall take appropriate measures to safeguard the rights and freedoms and their legitimate interests, including at least the right to obtain the intervention of a person by the person responsible, to state his own position and to challenge the decision.</p>
+<h3>10. Right of appeal to a supervisory authority</h3>
+<p>Without prejudice to any other administrative or judicial remedy, users have the right of appeal to a supervisory authority, in particular in the Member State where they reside, work or suspect of infringement, if they consider that the processing of personal data concerning them is contrary to the EU-GDPR.</p>
+<p>The supervisory authority to which the complaint has been lodged shall inform the complainant of the status and results of the complaint, including the possibility of a judicial remedy under Article 78 EU-GDPR.</p>
             </v-card>
         </v-flex>
     </v-layout>
