@@ -34,7 +34,7 @@ app.get('/rss', cache.route({ expire: 3600 }), (req, res) => {
                 description: 'Angular, Typescript & more',
                 feed_url: 'https://malcoded.com/rss',
                 site_url: 'https://malcoded.com',
-                image_url: 'http://malcoded.com//dist/icons/icon_120.9qNqsVB8pKj.png',
+                image_url: 'http://malcoded.com/dist/icons/icon_120.9qNqsVB8pKj.png',
                 managingEditor: 'malcoded.blog@gmail.com (Lukas Marx)',
                 language: 'en',
                 custom_namespaces: {
