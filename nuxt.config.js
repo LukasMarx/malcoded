@@ -33,8 +33,8 @@ module.exports = {
     loading: { color: '#c3002f' },
 
     modules: [
-        '@nuxtjs/apollo'
-        // ['@nuxtjs/pwa', { onesignal: false }]
+        '@nuxtjs/apollo',
+        ['@nuxtjs/pwa', { onesignal: false, workbox: false }]
         // [
         //     '@nuxtjs/google-analytics',
         //     {
