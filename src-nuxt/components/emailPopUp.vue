@@ -20,7 +20,7 @@
                 :rules="emailRules"
                 ></v-text-field>
                 <h3 style="font-weight:200">Marketing Permissions</h3>
-                <p class="small-print">malcoded.com will use the information you provide on this form to be in touch with you and to provide updates and marketing. Please let us know all the ways you would like to hear from us:</p>
+                <p class="small-print">malcoded.com will use the information you provide on this form to be in touch with you and to provide updates and marketing. You agree that we track wich links you click in emails you recieve from us. Please let us know all the ways you would like to hear from us:</p>
                 <v-checkbox type="checkbox"
                     name="gdpr[6371]"
                     id="gdpr_6371"

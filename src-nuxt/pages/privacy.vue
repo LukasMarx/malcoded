@@ -62,7 +62,7 @@
 
                 <p>Your data is only stored as long as you are subscribed to the newsletter.</p>
 
-                <p>We also track if you open an email and wether you click on a link inside of it.</p>
+                <p>We also track on wich links you click in emails you received from us.</p>
                 
                 <p>Of course you can unsubscribe at any time by clicking the unsubscribe link at the bottom of every email or by contacting us via email.</p>
 
