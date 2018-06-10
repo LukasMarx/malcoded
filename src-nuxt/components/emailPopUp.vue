@@ -21,7 +21,7 @@
                 ></v-text-field>
                 <h3 style="font-weight:200">Marketing Permissions</h3>
                 <p class="small-print">malcoded.com will use the information you provide on this form to be in touch with you and to provide updates and marketing. You agree that we track wich links you click in emails you recieve from us. Please let us know all the ways you would like to hear from us:</p>
-                <v-checkbox type="checkbox"
+                <v-checkbox
                     name="gdpr[6371]"
                     id="gdpr_6371"
                     :label="`Email`"
@@ -29,10 +29,11 @@
                     color="red accent-4"
                     value="Y"
                 ></v-checkbox>
+                <input v-if="consent" type="hidden" name="gdpr[6371]" id="gdpr[6371]" tabindex="-1" value="Y">
                 <p style="color:red;"> If you don't check this box, you will get no emails at all!</p>
 
                 <p></p>
-                <p class="small-print">You can change your mind at any time by clicking the unsubscribe link in the footer of any email you receive from us, or by contacting us at malcoded.blog@gmail.com. We will treat your information with respect. For more information about our privacy practices please visit our website. By clicking below, you agree that we may process your information in accordance with these terms.</p>
+                <p class="small-print">You can change your mind at any time by clicking the unsubscribe link in the footer of any email you receive from us, or by contacting us at malcoded.blog@gmail.com. For more information about our privacy practices please visit our website. By clicking below, you agree that we may process your information in accordance with these terms.</p>
                 <p class="small-print">We use MailChimp as our marketing automation platform. By clicking below to submit this form, you acknowledge that the information you provide will be transferred to MailChimp for processing in accordance with their <a href="https://mailchimp.com/legal/privacy/">Privacy Policy</a> and <a href="https://mailchimp.com/legal/terms/"> Terms</a></p>
 
             </v-card-text>
