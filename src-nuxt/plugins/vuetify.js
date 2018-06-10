@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { Vuetify, VApp, VCard, VBtn, VIcon, VGrid, VToolbar, VSnackbar, VTooltip } from 'vuetify';
+import { Vuetify, VApp, VCard, VBtn, VIcon, VGrid, VToolbar, VSnackbar, VTooltip, VDialog, VTextField, VCheckbox, VForm } from 'vuetify';
 import * as LRU from 'lru';
 
 const themeCache = LRU({
@@ -16,11 +16,15 @@ Vue.use(Vuetify, {
     VGrid,
     VToolbar,
     VSnackbar,
-    VTooltip
+    VTooltip,
+    VDialog,
+    VTextField,
+    VCheckbox,
+    VForm
   },
   theme: {
-    primary: '#333333',
-    secondary: '#D50000',
+    primary: '#c40030',
+    secondary: '#c40030',
     accent: '#c40030',
     error: '#f44336',
     warning: '#ffeb3b',

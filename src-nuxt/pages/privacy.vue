@@ -4,7 +4,7 @@
         <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
             <v-card class="card">
                 <h1>Privacy Policy</h1>
-                <p>Last updated: 29.05.2018</p>
+                <p>Last updated: 10.06.2018</p>
 
                 <p>This page informs you of our policies regarding the collection,
                     use and disclosure of Personal Information we receive from users
@@ -18,12 +18,15 @@
                      is malcoded.com, Lukas Marx, Adlerstraße in Rees, Germany. (Art. 4, No. 7 GDPR)
                 </p>
 
-                <h2>Hosting (Data Processor)</h2>
+                <h2>Hosting</h2>
                 <p>To serve this Site to you, we use a hosting company called <a class="link" href="https://www.digitalocean.com/security/gdpr/">
-                     DigitalOcean</a>. They are
+                     DigitalOcean</a>  (Data Processor). They are
                      participant in and comply with the EU-U.S. Privacy Shield Framework. They also
                      comply with the GDPR.
                 </p>
+
+               
+
 
                 <h2>Personal Data</h2>
                 <h3>Log Data</h3>
@@ -38,6 +41,30 @@
                      interest (Art. 6, Section 1 f, GDPR).
                 </p>
                 <p>The Log Data is deleted regularly and is stored no longer than 14 days.</p>
+
+                 <h3>Newsletter</h3>
+                <p>It is possible to subscribe to a free email newsletter on our site.
+                    Before you subscribe, you can give your consent that you want to recieve emails form us with updates and marketing material.
+                    When you choose to subscribe to the newsletter we collect your email address. </p>
+                
+                <p>We are also using the double opt-in method, which means that we will send you an email and ask for consent (again).</p>
+                    
+                <p>In the moment of sending the subscription request we are also saving your IP-Address.
+                We are required to do so by law, to proove that you actually gave your consent.</p>
+
+                <p>We collect this data with your consent and therefore under Art. 6, Section 1 a, EU-GDPR.</p>
+
+                <p>To collect this data, we are using Mailchimp as Data Processor. Although they are located in the United States, they take the Date Protection very seriously
+                    and are certified to the EU-U.S. Privacy Shield Framework and Swiss-U.S. Privacy Shield Framework. Mailchimp <a href="https://mailchimp.com/legal/privacy/">Privacy Policy</a> and <a href="https://mailchimp.com/legal/terms/"> Terms</a>.
+                </p>
+
+                <p>We need to collect this data, to be able to provide the newsletter service to you.</p>
+
+                <p>Your data is only stored as long as you are subscribed to the newsletter.</p>
+
+                <p>We also track if you open an email and wether you click on a link inside of it.</p>
+                
+                <p>Of course you can unsubscribe at any time by clicking the unsubscribe link at the bottom of every email or by contacting us via email.</p>
 
                 <h2>Cookies</h2>
                 <p>Cookies are small text-files that many Sites place on the users computer.</p>

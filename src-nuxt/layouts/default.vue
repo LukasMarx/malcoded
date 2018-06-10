@@ -13,8 +13,6 @@
                 <v-btn flat>Blog</v-btn>
             </nuxt-link>
 
-            
-
             <v-tooltip bottom>
                 <v-btn slot="activator" flat @click.native="toggleDarkMode()">
                     <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -61,14 +59,17 @@
       {{ text }}
       <v-btn flat color="white" @click.native="consent()">OK</v-btn>
     </v-snackbar> -->
+    <emailPopUp v-bind:show="dialog" v-on:close="dialog = false"></emailPopUp>
 
 </v-app>
   
 </template>
 <script>
 import logo from '~/components/logo.vue';
+import emailPopUp from '~/components/emailPopUp.vue';
+import jsonp from 'jsonp';
 export default {
-    components: { logo },
+    components: { logo, emailPopUp },
     data() {
         return {
             dark: false,
@@ -77,7 +78,10 @@ export default {
             x: null,
             mode: 'multi-line',
             timeout: 0,
-            text: 'Cookies help to improve this Website! By using this site you agree, that we may save cookies on your device.'
+            text: 'Cookies help to improve this Website! By using this site you agree, that we may save cookies on your device.',
+            dialog: false,
+            consent: false,
+            email: ''
         };
     },
     mounted() {
@@ -89,7 +93,9 @@ export default {
         //         this.snackbar = true;
         //     }
         // }
+        //document.body.addEventListener('mouseleave', this.onExitIntent);
     },
+
     methods: {
         // consent() {
         //     if (document) {
@@ -101,6 +107,11 @@ export default {
         // },
         toggleDarkMode() {
             this.dark = !this.dark;
+        },
+        onExitIntent(event) {
+            console.log(this);
+            document.body.removeEventListener('mouseleave', this.onExitIntent);
+            this.dialog = true;
         }
     }
 };
@@ -125,6 +136,10 @@ html {
 body {
     margin: 0;
     padding: 0;
+}
+
+.small-print {
+    font-size: 13px;
 }
 
 .full-height {
@@ -272,5 +287,39 @@ a:hover {
         /* Super Modern Browsers */ url('/fonts/roboto-v18-latin-700.woff') format('woff'),
         /* Modern Browsers */ url('/fonts/roboto-v18-latin-700.ttf') format('truetype'),
         /* Safari, Android, iOS */ url('/fonts/roboto-v18-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/MaterialIcons-Regular.eot'); /* For IE6-8 */
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url('/fonts/MaterialIcons-Regular.woff2') format('woff2'),
+        url('/fonts/MaterialIcons-Regular.woff') format('woff'), url('/fonts/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
 </style>

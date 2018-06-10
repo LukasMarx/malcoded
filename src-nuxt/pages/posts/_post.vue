@@ -61,8 +61,13 @@
             <sidebar>
                 <headlines :headlines="headlines" v-on:headline-click="navigateToHeadline($event)" :color="BlogPost ? BlogPost.primaryColor : null"></headlines>
                 <sideSuggestions :post="BlogPost"></sideSuggestions>
+                <v-btn @click.native="dialog = true" v-if="BlogPost" class="email-button" large v-bind:style="{ 'background-color': (BlogPost.primaryColor || '#c3002f' ) + '!important', color: 'white' }">
+                    <v-icon class="email-icon" dark>email</v-icon>
+                    Never miss a post!
+                </v-btn>
             </sidebar>
         </v-layout>
+        <emailPopUp v-bind:show="dialog" v-on:close="dialog = false"></emailPopUp>
     </v-container>
     <!-- </v-layout> -->
 </template>
@@ -77,6 +82,7 @@ import progressiveimage from '~/components/progressiveimage.vue';
 import headlines from '~/components/headlines.vue';
 import sideSuggestions from '~/components/sideSuggestions.vue';
 import sidebar from '~/components/sidebar.vue';
+import emailPopUp from '~/components/emailPopUp.vue';
 
 export default {
     components: {
@@ -87,12 +93,14 @@ export default {
         progressiveimage,
         headlines,
         sideSuggestions,
-        sidebar
+        sidebar,
+        emailPopUp
     },
     data() {
         return {
             BlogPost: null,
-            headlines: null
+            headlines: null,
+            dialog: false
         };
     },
     head() {
@@ -173,6 +181,13 @@ export default {
     .ms-flex {
         display: flex;
     }
+}
+.email-button {
+    width: 100%;
+}
+
+.email-icon {
+    margin-right: 8px;
 }
 
 .fade-enter-active,
