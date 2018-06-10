@@ -67,7 +67,6 @@
 <script>
 import logo from '~/components/logo.vue';
 import emailPopUp from '~/components/emailPopUp.vue';
-import jsonp from 'jsonp';
 export default {
     components: { logo, emailPopUp },
     data() {
