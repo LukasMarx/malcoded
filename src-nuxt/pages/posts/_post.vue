@@ -61,10 +61,10 @@
             <sidebar>
                 <headlines :headlines="headlines" v-on:headline-click="navigateToHeadline($event)" :color="BlogPost ? BlogPost.primaryColor : null"></headlines>
                 <sideSuggestions :post="BlogPost"></sideSuggestions>
-                <v-btn @click.native="dialog = true" v-if="BlogPost" class="email-button" large v-bind:style="{ 'background-color': (BlogPost.primaryColor || '#c3002f' ) + '!important', color: 'white' }">
+                <!-- <v-btn @click.native="dialog = true" v-if="BlogPost" class="email-button" large v-bind:style="{ 'background-color': (BlogPost.primaryColor || '#c3002f' ) + '!important', color: 'white' }">
                     <v-icon class="email-icon" dark>email</v-icon>
                     Never miss a post!
-                </v-btn>
+                </v-btn> -->
             </sidebar>
         </v-layout>
         <emailPopUp v-bind:show="dialog" v-on:close="dialog = false"></emailPopUp>
@@ -85,277 +85,277 @@ import sidebar from '~/components/sidebar.vue';
 import emailPopUp from '~/components/emailPopUp.vue';
 
 export default {
-    components: {
-        renderer,
-        sidesocial,
-        horizontalsocial,
-        readmore,
-        progressiveimage,
-        headlines,
-        sideSuggestions,
-        sidebar,
-        emailPopUp
-    },
-    data() {
-        return {
-            BlogPost: null,
-            headlines: null,
-            dialog: false
-        };
-    },
-    head() {
-        const post = this.BlogPost || { title: 'loading...' };
-        return {
-            title: post.title + ' | malcoded',
-            meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: post.description
-                },
-                {
-                    hid: 'og:description',
-                    property: 'og:description',
-                    content: post.description
-                },
-                { hid: 'og:type', name: 'og:type', content: 'article' },
-                {
-                    hid: 'og:sitename',
-                    name: 'og:sitename',
-                    content: 'malcoded.com'
-                },
-                { hid: 'og:title', name: 'og:title', content: post.title },
-                {
-                    hid: 'og:image',
-                    property: 'og:image',
-                    content: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + post.thumbnail + '/jpg'
-                },
-                {
-                    hid: 'apple-mobile-web-app-title',
-                    name: 'apple-mobile-web-app-title',
-                    content: post.title + '| malcoded'
-                },
-                { property: 'og:locale', content: 'en_US' },
-                {
-                    name: 'twitter:card',
-                    content: 'summary_large_image'
-                },
-                { name: 'twitter:site', content: '@malcoded' }
-            ]
-        };
-    },
-    apollo: {
-        BlogPost: {
-            query: post,
-            variables() {
-                return {
-                    filter: [{ field: 'url', value: this.$route.params.post }]
-                };
-            },
-            prefetch: ({ route }) => {
-                return { filter: [{ field: 'url', value: route.params.post }] };
-            }
-        }
-    },
-    methods: {
-        getPostDate(post) {
-            if (post) {
-                const date = new Date(post.releaseDate);
-                let options = {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                };
-                return date.toLocaleString('en-us', options);
-            }
+  components: {
+    renderer,
+    sidesocial,
+    horizontalsocial,
+    readmore,
+    progressiveimage,
+    headlines,
+    sideSuggestions,
+    sidebar,
+    emailPopUp
+  },
+  data() {
+    return {
+      BlogPost: null,
+      headlines: null,
+      dialog: false
+    };
+  },
+  head() {
+    const post = this.BlogPost || { title: 'loading...' };
+    return {
+      title: post.title + ' | malcoded',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: post.description
         },
-        navigateToHeadline(id) {
-            document.getElementById(id).scrollIntoView();
-        }
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: post.description
+        },
+        { hid: 'og:type', name: 'og:type', content: 'article' },
+        {
+          hid: 'og:sitename',
+          name: 'og:sitename',
+          content: 'malcoded.com'
+        },
+        { hid: 'og:title', name: 'og:title', content: post.title },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + post.thumbnail + '/jpg'
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: post.title + '| malcoded'
+        },
+        { property: 'og:locale', content: 'en_US' },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+        { name: 'twitter:site', content: '@malcoded' }
+      ]
+    };
+  },
+  apollo: {
+    BlogPost: {
+      query: post,
+      variables() {
+        return {
+          filter: [{ field: 'url', value: this.$route.params.post }]
+        };
+      },
+      prefetch: ({ route }) => {
+        return { filter: [{ field: 'url', value: route.params.post }] };
+      }
     }
+  },
+  methods: {
+    getPostDate(post) {
+      if (post) {
+        const date = new Date(post.releaseDate);
+        let options = {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        };
+        return date.toLocaleString('en-us', options);
+      }
+    },
+    navigateToHeadline(id) {
+      document.getElementById(id).scrollIntoView();
+    }
+  }
 };
 </script>
 
 <style>
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .ms-flex {
-        display: flex;
-    }
+  .ms-flex {
+    display: flex;
+  }
 }
 .email-button {
-    width: 100%;
+  width: 100%;
 }
 
 .email-icon {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 .fade-enter,
 .fade-leave-to {
-    opacity: 0;
+  opacity: 0;
 }
 
 .placeholder-element {
-    height: 25px;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
+  height: 25px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .animated-background {
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: placeHolderShimmer;
-    animation-timing-function: linear;
-    background: #f6f7f8;
-    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-    position: relative;
-    background-size: 250%;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  position: relative;
+  background-size: 250%;
 }
 
 .application.theme--dark .animated-background {
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: placeHolderShimmer;
-    animation-timing-function: linear;
-    background: #888;
-    background: linear-gradient(to right, #555 8%, #666 18%, #555 33%);
-    position: relative;
-    background-size: 250%;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #888;
+  background: linear-gradient(to right, #555 8%, #666 18%, #555 33%);
+  position: relative;
+  background-size: 250%;
 }
 
 @keyframes placeHolderShimmer {
-    0% {
-        background-position: 100% 0;
-    }
-    100% {
-        background-position: -100% 0;
-    }
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }
 
 .post-placeholder {
-    width: 100%;
+  width: 100%;
 }
 
 .link {
-    font-size: 23px;
-    color: #c3002f;
-    text-decoration: none;
-    font-weight: bold;
-    white-space: normal;
-    word-wrap: break-word;
+  font-size: 23px;
+  color: #c3002f;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: normal;
+  word-wrap: break-word;
 }
 .link:hover {
-    color: #c3002f;
+  color: #c3002f;
 }
 
 .post-meta {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .post-thumbnail-wrapper {
-    padding-top: 45%;
-    /* padding-top: 56.25%; */
-    width: 100%;
-    position: relative;
+  padding-top: 45%;
+  /* padding-top: 56.25%; */
+  width: 100%;
+  position: relative;
 }
 
 .post-author-thumbnail {
-    height: 48px;
-    border-radius: 50%;
+  height: 48px;
+  border-radius: 50%;
 }
 
 .text {
-    white-space: normal;
-    word-wrap: break-word;
-    font-size: 23px;
-    line-height: 1.58;
-    letter-spacing: -0.003em;
-    font-weight: 200;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 23px;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+  font-weight: 200;
 }
 
 .inline-image {
-    width: 100%;
+  width: 100%;
 }
 
 .inline-iframe {
-    width: 100%;
-    height: 500px;
+  width: 100%;
+  height: 500px;
 }
 
 .post-title {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    font-size: 40px;
-    text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 40px;
+  text-align: center;
 }
 
 @media screen and (max-width: 576px) {
-    .post-title {
-        font-size: 30px;
-    }
+  .post-title {
+    font-size: 30px;
+  }
 }
 
 .post-thumbnail {
-    width: 75%;
-    margin-left: 12.5%;
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 75%;
+  margin-left: 12.5%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .post-content-container {
-    padding: 32px;
-    padding-top: 8px;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    min-height: 100vh;
-    text-align: left;
+  padding: 32px;
+  padding-top: 8px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  min-height: 100vh;
+  text-align: left;
 }
 
 .align-left {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 .base-padding {
-    padding-left: 32px;
-    padding-right: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 @media screen and (min-width: 1200px) {
-    .post-additional-padding {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  .post-additional-padding {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 h2 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-top: 16px;
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 16px;
 }
 
 @media screen and (max-width: 576px) {
-    h2 {
-        font-size: 26px;
-    }
+  h2 {
+    font-size: 26px;
+  }
 }
 
 h3 {
-    font-size: 26px;
-    font-weight: 600;
-    margin-top: 32px;
-    margin-bottom: 0;
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 0;
 }
 
 /* .page-enter {
@@ -378,7 +378,7 @@ h3 {
 } */
 
 h4 {
-    font-size: 20px;
-    margin-bottom: 0;
+  font-size: 20px;
+  margin-bottom: 0;
 }
 </style>

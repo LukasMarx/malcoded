@@ -41,8 +41,10 @@
                      interest (Art. 6, Section 1 f, GDPR).
                 </p>
                 <p>The Log Data is deleted regularly and is stored no longer than 14 days.</p>
-
-                 <h3>Newsletter</h3>
+                <h3>Traffic Analysis</h3>
+                <p>To get a basic understanding how often articles are read and if our readers are statisfied with them, the website is sending some information back to the server while you are using it.
+                    This data does contain a timestamp, and the URL of the article. It does not contain any personal data.
+                <h3>Newsletter</h3>
                 <p>It is possible to subscribe to a free email newsletter on our site.
                     Before you subscribe, you can give your consent that you want to recieve emails form us with updates and marketing material.
                     When you choose to subscribe to the newsletter we collect your email address. </p>
@@ -227,19 +229,19 @@ export default {};
 
 <style scoped>
 .card {
-    margin-top: 32px;
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    word-break: break-word;
-    text-align: left;
-    padding: 32px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  word-break: break-word;
+  text-align: left;
+  padding: 32px;
 }
 
 .link {
-    color: #c3002f;
-    text-decoration: none;
-    font-weight: bold;
-    white-space: normal;
-    word-wrap: break-word;
+  color: #c3002f;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: normal;
+  word-wrap: break-word;
 }
 </style>
