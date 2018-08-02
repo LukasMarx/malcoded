@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-const socket = io('localhost:3001', { path: '/analytics' });
+const socket = io('https://malcoded.com', { path: '/analytics' });
 
 export default ({ app: { router } }) => {
   router.afterEach((to, from) => {
