@@ -1,4 +1,4 @@
-const socket = new WebSocket('ws://localhost:3001/analytics');
+const socket = new WebSocket('wss://malcoded.com/analytics');
 
 const open = new Promise((resolve, reject) => {
   socket.onopen = () => {
