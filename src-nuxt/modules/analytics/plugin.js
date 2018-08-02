@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-const socket = io('malcoded.com', { path: '/analytics', transports: ['websocket'] });
+const socket = io('localhost:3001', { path: '/analytics' });
 
 export default ({ app: { router } }) => {
   router.afterEach((to, from) => {
