@@ -4,7 +4,7 @@
         <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
             <v-card class="card">
                 <h1>Privacy Policy</h1>
-                <p>Last updated: 10.06.2018</p>
+                <p>Last updated: 04.08.2018</p>
 
                 <p>This page informs you of our policies regarding the collection,
                     use and disclosure of Personal Information we receive from users
@@ -25,7 +25,12 @@
                      comply with the GDPR.
                 </p>
 
-               
+               <h3>Content Delivery Network</h3>
+                <p>A content delivery network (CDN) is a collection of servers spread arrount the world that are serving a copy of our website and assests (such as images).</p>
+                <p>Because of the CDN, the request latency of the website is greatly reduced. In cause of our CDN, it also provides protection against malicious activity such as DDOS-Attacks.</p>
+                <p>We are using Cloudflare (Data Processor) as a service provider for the CDN. They are
+                     participant in and comply with the EU-U.S. Privacy Shield Framework. They also
+                     comply with the GDPR.</p>
 
 
                 <h2>Personal Data</h2>
@@ -38,13 +43,16 @@
                 </p>
                 <p>This Log Data is required to ensure the functionality of the site. With the help of
                      the Log Data, errors in the application can be detected and removed. This is our legitimate
-                     interest (Art. 6, Section 1 f, GDPR).
+                     interest (Art. 6, Section 1 f, EU-GDPR).
                 </p>
                 <p>The Log Data is deleted regularly and is stored no longer than 14 days.</p>
-                <h3>Traffic Analysis</h3>
-                <p>To get a basic understanding how often articles are read and if our readers are statisfied with them, the website is sending some information back to the server while you are using it.
-                    This data does contain a timestamp, and the URL of the article. It does not contain any personal data.
-                <h3>Newsletter</h3>
+
+                <h3>Cloudflare(CDN)</h3>
+                <p>In order to protect the website from malicious activity, decrese the load on our servers and increase your user experience, we need to collect personal data via Cloudflare
+                    such as your IP address, security fingerprints, DNS log data, and website performance data based on your usage of the website.</p>
+                    <p>This is our legitimate interest as of Art.6 Section 1 f EU-GDPR to ensure the security and quality of the website.</p>
+                
+                <!-- <h3>Newsletter</h3>
                 <p>It is possible to subscribe to a free email newsletter on our site.
                     Before you subscribe, you can give your consent that you want to recieve emails form us with updates and marketing material.
                     When you choose to subscribe to the newsletter we collect your email address. </p>
@@ -66,11 +74,15 @@
 
                 <p>We also track on wich links you click in emails you received from us.</p>
                 
-                <p>Of course you can unsubscribe at any time by clicking the unsubscribe link at the bottom of every email or by contacting us via email.</p>
+                <p>Of course you can unsubscribe at any time by clicking the unsubscribe link at the bottom of every email or by contacting us via email.</p> -->
+                
 
                 <h2>Cookies</h2>
-                <p>Cookies are small text-files that many Sites place on the users computer.</p>
-                <p>This Site does not set any Cookies.</p>
+                <p>Cookies are small text-files that many sites place on the users computer.</p>
+                <p>We are placing a cookie called "__cfduid" on your computer. This cookies is placed by our Data Processor Cloudflare and contains an Id (unique identifier). This Id is required to prevent malicious activity on a per-client basis. Therefore, this cookies is strictly necessary for security reasons.
+                    The cookie does not contain any personally identifiable information.
+                    The cookie does expire afer one year.
+                </p>
 
                 <h2>External Links</h2>
                 <p>We might link to revelevant content on other sites. We are not responsible for these sites or their content.
