@@ -13,5 +13,6 @@ RUN npm run build
 EXPOSE 4200
 
 ENV PORT "4200"
+ENV NODE_ENV production
 
 ENTRYPOINT node server.js
