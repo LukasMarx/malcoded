@@ -36,8 +36,8 @@
             <v-layout row wrap> 
                 <v-flex d-flex xs12>
                     <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
-                        <v-btn aria-label="All Posts" flat large>
-                        ALL POSTS
+                        <v-btn round color="primary" aria-label="All Posts" large>
+                            ALL POSTS
                         </v-btn>
                     </nuxt-link>
                 </v-flex>
@@ -65,7 +65,7 @@
                 </v-flex>
                 <v-flex xs12>
                     <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
-                    <v-btn aria-label="Beginner Posts" flat large>
+                    <v-btn round color="primary" aria-label="Beginner Posts" large>
                         ALL BEGINNER POSTS
                     </v-btn>
                     </nuxt-link>
@@ -94,7 +94,7 @@
             <v-layout row wrap>
                 <v-flex xs12>
                     <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
-                        <v-btn aria-label="Intermediate Posts" flat large>
+                        <v-btn round color="primary" aria-label="Intermediate Posts" large>
                         ALL INTERMEDIATE POSTS
                         </v-btn>
                     </nuxt-link>
@@ -115,121 +115,121 @@ import postcard from '~/components/postcard/postcard.vue';
 import postcardPlaceholder from '~/components/postcard/postcardPlaceholder.vue';
 
 export default {
-    data() {
-        return { posts: null, beginner: null, intermediate: null };
+  data() {
+    return { posts: null, beginner: null, intermediate: null };
+  },
+  components: { postcard, postcardPlaceholder },
+  apollo: {
+    posts: {
+      query: posts,
+      prefetch: true,
+      update: ({ BlogPosts }) => {
+        return BlogPosts.nodes;
+      }
     },
-    components: { postcard, postcardPlaceholder },
-    apollo: {
-        posts: {
-            query: posts,
-            prefetch: true,
-            update: ({ BlogPosts }) => {
-                return BlogPosts.nodes;
-            }
-        },
-        beginner: {
-            query: angularBeginner,
-            prefetch: true,
-            update: ({ BlogPosts }) => {
-                return BlogPosts.nodes;
-            }
-        },
-        intermediate: {
-            query: angularIntermediate,
-            prefetch: true,
-            update: ({ BlogPosts }) => {
-                return BlogPosts.nodes;
-            }
-        }
+    beginner: {
+      query: angularBeginner,
+      prefetch: true,
+      update: ({ BlogPosts }) => {
+        return BlogPosts.nodes;
+      }
     },
-    methods: {
-        first2: posts => {
-            if (!posts) return null;
-            return posts.slice(0, 2).map((value, index) => {
-                const clone = JSON.parse(JSON.stringify(value));
-
-                const description = clone.description.substring(0, 197);
-                if (clone.description.length > 200) {
-                    clone.description = description + '...';
-                } else {
-                    clone.description = description;
-                }
-
-                return clone;
-            });
-        },
-        second3: posts => {
-            if (!posts) return null;
-            return posts.slice(2, posts.length).map((value, index) => {
-                const clone = JSON.parse(JSON.stringify(value));
-                const description = clone.description.substring(0, 197);
-                if (clone.description.length > 200) {
-                    clone.description = description + '...';
-                } else {
-                    clone.description = description;
-                }
-                return clone;
-            });
-        },
-        all: posts => {
-            if (!posts) return null;
-            return posts.map((value, index) => {
-                const clone = JSON.parse(JSON.stringify(value));
-                const description = clone.description.substring(0, 197);
-                if (clone.description.length > 200) {
-                    clone.description = description + '...';
-                } else {
-                    clone.description = description;
-                }
-                return clone;
-            });
-        }
+    intermediate: {
+      query: angularIntermediate,
+      prefetch: true,
+      update: ({ BlogPosts }) => {
+        return BlogPosts.nodes;
+      }
     }
+  },
+  methods: {
+    first2: posts => {
+      if (!posts) return null;
+      return posts.slice(0, 2).map((value, index) => {
+        const clone = JSON.parse(JSON.stringify(value));
+
+        const description = clone.description.substring(0, 197);
+        if (clone.description.length > 200) {
+          clone.description = description + '...';
+        } else {
+          clone.description = description;
+        }
+
+        return clone;
+      });
+    },
+    second3: posts => {
+      if (!posts) return null;
+      return posts.slice(2, posts.length).map((value, index) => {
+        const clone = JSON.parse(JSON.stringify(value));
+        const description = clone.description.substring(0, 197);
+        if (clone.description.length > 200) {
+          clone.description = description + '...';
+        } else {
+          clone.description = description;
+        }
+        return clone;
+      });
+    },
+    all: posts => {
+      if (!posts) return null;
+      return posts.map((value, index) => {
+        const clone = JSON.parse(JSON.stringify(value));
+        const description = clone.description.substring(0, 197);
+        if (clone.description.length > 200) {
+          clone.description = description + '...';
+        } else {
+          clone.description = description;
+        }
+        return clone;
+      });
+    }
+  }
 };
 </script>
 
 <style scoped>
 .index-container {
-    margin-top: 32px;
+  margin-top: 32px;
 }
 .container {
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .section-title {
-    margin-top: 64px;
-    margin-bottom: 16px;
-    float: left;
+  margin-top: 64px;
+  margin-bottom: 16px;
+  float: left;
 }
 
 .title {
-    font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 1 */
-    display: block;
-    font-weight: 300;
-    font-size: 100px;
-    color: #35495e;
-    letter-spacing: 1px;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 1 */
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
 }
 
 .subtitle {
-    font-weight: 300;
-    font-size: 42px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 15px;
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
 }
 
 .links {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 a {
-    color: inherit;
+  color: inherit;
 }
 
 a:hover {
-    color: inherit;
+  color: inherit;
 }
 
 /* .page-enter {
