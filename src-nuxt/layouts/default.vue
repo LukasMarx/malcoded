@@ -125,7 +125,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  color: #333 !important;
+  /* color: #333 !important; */
+
   margin: 0;
   padding: 0;
   min-height: 100%;
@@ -135,6 +136,10 @@ html {
 body {
   margin: 0;
   padding: 0;
+}
+
+h1 h2 h3 h4 h5 h6 {
+  color: #5b5b5b !important;
 }
 
 .small-print {
