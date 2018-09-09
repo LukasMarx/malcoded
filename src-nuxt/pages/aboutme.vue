@@ -24,7 +24,7 @@
         <img src="malcoded-hat.svg" width="100%"/>
        </v-flex>
       <v-flex xs12 sm8 class="text">
-        <h2 style="width:100%">What malcoded is all About</h2>
+        <h2 style="width:100%">What malcoded is all about</h2>
         <h4>Detailed tutorials that contain everything you need to get started!</h4>
         <br/>
         <p>My goal is to provide rich and detailed tutorials, that actually help you to succeed.</p>
