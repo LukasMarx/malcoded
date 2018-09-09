@@ -4,12 +4,12 @@
   <v-flex lg8 offset-lg2 md8 offset-md2 sm10 offset-sm1 xs12>
    <v-card class="about-card">
     <v-layout>
-      <v-flex xs12 sm8>
+      <v-flex xs12 sm8 class="text">
         <h2 style="width:100%">Want to devlelop awesome web applications?</h2>
-        <h4>You have come the right Place!</h4>
+        <h4>You have come the right place!</h4>
         <br/>
          <p>With over <b>25</b> comprehensive guides and tutorials about angular, react and vue there is an article for every skill level.</p>
-    <h3 class="sub-section-title">Take your programming skills to the next level!</h3>
+        <p >Take your programming skills to the next level!</p>
       </v-flex>
       <v-flex sm4>
         <img src="malcoded-desktop.svg" width="100%"/>
@@ -23,19 +23,18 @@
        <v-flex sm4>
         <img src="malcoded-hat.svg" width="100%"/>
        </v-flex>
-      <v-flex xs12 sm8>
+      <v-flex xs12 sm8 class="text">
         <h2 style="width:100%">What malcoded is all About</h2>
-        <h4 class="sub-section-title">Detailed Tutorials that contain everything you need to get started!</h4>
+        <h4>Detailed tutorials that contain everything you need to get started!</h4>
+        <br/>
         <p>My goal is to provide rich and detailed tutorials, that actually help you to succeed.</p>
         <p>That is why all of my articles provide complete examples, that result in an running application!</p>
       </v-flex>
     </v-layout>
-   
-   
-    <h3 class="sub-section-title">In this blog I share all the mistakes & discoveries I've made, so you can profit from my learnings, too!</h3>
+    <p>In this blog I share all the mistakes & discoveries I've made, so you can profit from my learnings, too!</p>
   </v-card>
   <v-card class="about-card">
-    <div class="center-container">
+    <div class="center-container text">
       <img src="lukas-marx.jpg" class="portrait">
       <h2 class="section-title no-padding-bot">About Lukas Marx</h2><br>
       <p class="sub-sub-section-title">I am a computer science (masters) student living in Germany. I've started writing this blog in 2016, to document my coding-journey for myself and others.</p><br>
@@ -87,5 +86,14 @@ export default {};
 
 .portrait {
   border-radius: 50%;
+}
+
+.text {
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 23px;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+  font-weight: 200;
 }
 </style>
