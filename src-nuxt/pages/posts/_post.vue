@@ -144,19 +144,6 @@ export default {
       ]
     };
   },
-  apollo: {
-    BlogPost: {
-      query: post,
-      variables() {
-        return {
-          filter: [{ field: 'url', value: this.$route.params.post }]
-        };
-      },
-      prefetch: ({ route }) => {
-        return { filter: [{ field: 'url', value: route.params.post }] };
-      }
-    }
-  },
   methods: {
     getPostDate(post) {
       if (post) {
@@ -172,6 +159,18 @@ export default {
     navigateToHeadline(id) {
       document.getElementById(id).scrollIntoView();
     }
+  },
+  async asyncData({ error, app, params, redirect }) {
+    const BlogPost = await app.apolloProvider.defaultClient
+      .query({
+        query: post,
+        variables: { filter: [{ field: 'url', value: params.post }] }
+      })
+      .then(({ data }) => data && data.BlogPost);
+    if (!BlogPost) {
+      return error({ statusCode: 404, message: 'Not found' });
+    }
+    return { BlogPost };
   }
 };
 </script>
