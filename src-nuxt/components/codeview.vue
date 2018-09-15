@@ -26,7 +26,7 @@
 <script>
 import * as hljs from 'highlight.js/lib/highlight';
 import * as javascript from 'highlight.js/lib/languages/javascript';
-import * as typescript from 'highlight.js/lib/languages/typescript';
+import { typescript } from './typescript';
 import * as xml from 'highlight.js/lib/languages/xml';
 import * as scss from 'highlight.js/lib/languages/scss';
 import * as json from 'highlight.js/lib/languages/json';
@@ -38,160 +38,174 @@ hljs.registerLanguage('html', xml);
 hljs.registerLanguage('scss', scss);
 
 hljs.configure({
-    tabReplace: '    ',
-    languages: ['javascript', 'typescript', 'html', 'scss', 'json'],
-    useBR: true
+  tabReplace: '    ',
+  languages: ['typescript', 'html', 'scss', 'json'],
+
+  useBR: true
 });
 
 export default {
-    props: ['code', 'language', 'title', 'primaryColor'],
-    methods: {
-        hlCode(code) {
-            let result = hljs.highlightAuto(code);
+  props: ['code', 'language', 'title', 'primaryColor'],
+  methods: {
+    hlCode(code) {
+      let result = hljs.highlightAuto(code);
 
-            return hljs.fixMarkup(result.value);
-            //return result.value;
-        }
+      return hljs.fixMarkup(result.value);
+      //return result.value;
     }
+  }
 };
 </script>
 
 <style>
 .codeview-card {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 .codeview-wrapper {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 .codeview-icon {
-    width: 48px;
-    padding: 8px;
-    float: left;
+  width: 48px;
+  padding: 8px;
+  float: left;
 }
 .codeview-toolbar {
-    background-color: #c3002f;
-    color: white !important;
-    padding-left: 16px;
+  background-color: #c3002f;
+  color: white !important;
+  padding-left: 16px;
 }
 .pre {
-    width: 100%;
-    white-space: pre-wrap;
+  width: 100%;
+  white-space: pre-wrap;
 }
 .codeview-content {
-    overflow-x: auto;
-    text-align: left;
+  overflow-x: auto;
+  text-align: left;
 }
 .codeview-title {
-    margin-left: 8px;
-    line-height: 48px;
-    font-size: 1.2em;
+  margin-left: 8px;
+  line-height: 48px;
+  font-size: 1.2em;
 }
 .codeview-content-wrapper {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    margin-left: 1px;
-    margin-right: 1px;
-    padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-left: 1px;
+  margin-right: 1px;
+  padding: 32px;
 }
 .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    color: #383a42;
-    background: #fafafa;
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #383a42;
+  background: #fafafa;
 }
 .application.theme--light .hljs-comment,
 .application.theme--light .hljs-quote {
-    color: #a0a1a7;
-    font-style: italic;
+  color: #a0a1a7;
+  font-style: italic;
 }
 .application.theme--light .hljs-doctag,
 .application.theme--light .hljs-keyword,
+.application.theme--light .hljs-attribute,
 .application.theme--light .hljs-formula {
-    color: #c3002f;
-    /* color: #a626a4; */
+  color: #c3002f;
+  /* color: #c3002f; */
+  /* color: #a626a4; */
 }
+
+.application.theme--light .hljs-title {
+  color: #303f9f;
+}
+
 .application.theme--light .hljs-section,
 .application.theme--light .hljs-name,
 .application.theme--light .hljs-selector-tag,
 .application.theme--light .hljs-deletion,
 .application.theme--light .hljs-subst {
-    color: #e45649;
+  color: #e45649;
 }
 .application.theme--light .hljs-literal {
-    color: #0184bb;
+  color: #0184bb;
 }
 .application.theme--light .hljs-string,
 .application.theme--light .hljs-regexp,
 .application.theme--light .hljs-addition,
-.application.theme--light .hljs-attribute,
 .application.theme--light .hljs-meta-string {
-    color: orange;
-    /* color: #50a14f; */
+  color: rgb(0, 141, 42);
+  /* color: #50a14f; */
 }
 .application.theme--light .hljs-built_in,
 .application.theme--light .hljs-class .application.theme--light .hljs-title {
-    color: #6945a4;
-    /* color: #c18401; */
+  color: #6945a4;
+  /* color: #c18401; */
 }
+.application.theme--light .hljs-type {
+  color: orange;
+}
+
+.application.theme--light .hljs-meta {
+  color: #8539ff;
+}
+
 .application.theme--light .hljs-attr,
 .application.theme--light .hljs-variable,
 .application.theme--light .hljs-template-variable,
-.application.theme--light .hljs-type,
 .application.theme--light .hljs-selector-class,
 .application.theme--light .hljs-selector-attr,
 .application.theme--light .hljs-selector-pseudo,
 .application.theme--light .hljs-number {
-    color: #986801;
+  color: orange;
 }
 .application.theme--light
-    .hljs-symbol
-    .application.theme--light
-    .hljs-bullet
-    .application.theme--light
-    .hljs-link
-    .application.theme--light
-    .hljs-meta
-    .application.theme--light
-    .hljs-selector-id
-    .application.theme--light
-    .hljs-title {
-    color: #6945a4;
-    /* color: #4078f2; */
+  .hljs-symbol
+  .application.theme--light
+  .hljs-bullet
+  .application.theme--light
+  .hljs-link
+  .application.theme--light
+  .hljs-meta
+  .application.theme--light
+  .hljs-selector-id
+  .application.theme--light
+  .hljs-title {
+  color: #6945a4;
+  /* color: #4078f2; */
 }
 /* DARK */
 .application.theme--dark .hljs-comment,
 .application.theme--dark .hljs-quote {
-    color: #a0a1a7;
-    font-style: italic;
+  color: #a0a1a7;
+  font-style: italic;
 }
 .application.theme--dark .hljs-doctag,
 .application.theme--dark .hljs-keyword,
 .application.theme--dark .hljs-formula {
-    color: #ff6589;
-    /* color: #a626a4; */
+  color: #ff6589;
+  /* color: #a626a4; */
 }
 .application.theme--dark .hljs-section,
 .application.theme--dark .hljs-name,
 .application.theme--dark .hljs-selector-tag,
 .application.theme--dark .hljs-deletion,
 .application.theme--dark .hljs-subst {
-    color: #fd5151;
+  color: #fd5151;
 }
 .application.theme--dark .hljs-literal {
-    color: #76d6ff;
+  color: #76d6ff;
 }
 .application.theme--dark .hljs-string,
 .application.theme--dark .hljs-regexp,
 .application.theme--dark .hljs-addition,
 .application.theme--dark .hljs-attribute,
 .application.theme--dark .hljs-meta-string {
-    color: rgb(248, 201, 113);
-    /* color: #50a14f; */
+  color: rgb(248, 201, 113);
+  /* color: #50a14f; */
 }
 .application.theme--dark .hljs-built_in,
 .application.theme--dark .hljs-class .application.theme--dark .hljs-title {
-    color: #c9a7ff;
-    /* color: #c18401; */
+  color: #c9a7ff;
+  /* color: #c18401; */
 }
 .application.theme--dark .hljs-attr,
 .application.theme--dark .hljs-variable,
@@ -201,30 +215,30 @@ export default {
 .application.theme--dark .hljs-selector-attr,
 .application.theme--dark .hljs-selector-pseudo,
 .application.theme--dark .hljs-number {
-    color: #e6e35d;
+  color: #e6e35d;
 }
 .application.theme--dark
-    .hljs-symbol
-    .application.theme--dark
-    .hljs-bullet
-    .application.theme--dark
-    .hljs-link
-    .application.theme--dark
-    .hljs-meta
-    .application.theme--dark
-    .hljs-selector-id
-    .application.theme--dark
-    .hljs-title {
-    color: #a371f3;
-    /* color: #4078f2; */
+  .hljs-symbol
+  .application.theme--dark
+  .hljs-bullet
+  .application.theme--dark
+  .hljs-link
+  .application.theme--dark
+  .hljs-meta
+  .application.theme--dark
+  .hljs-selector-id
+  .application.theme--dark
+  .hljs-title {
+  color: #a371f3;
+  /* color: #4078f2; */
 }
 .hljs-emphasis {
-    font-style: italic;
+  font-style: italic;
 }
 .hljs-strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 .hljs-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 </style>
