@@ -47,15 +47,14 @@
                                 <renderer style="word-break: break-word;" :input="BlogPost" v-on:headlines="headlines = $event"></renderer>
                                 <!-- <sidesocial :post="BlogPost"></sidesocial> -->
                                 
+                                
                             </v-flex>
                             
                             &nbsp;
                         </div>
                     </transition>
                 </div>
-                <!-- <horizontalsocial :post="BlogPost"></horizontalsocial> -->
-                <!-- <readmore style="margin-bottom:32px; margin-top:32px"></readmore> -->
-                
+                <horizontalsocial class="horizontal-social" :post="BlogPost"></horizontalsocial>
             </v-flex>
             
             <sidebar>
@@ -68,33 +67,33 @@
             </sidebar>
         </v-layout>
         <emailPopUp v-bind:show="dialog" v-on:close="dialog = false"></emailPopUp>
+      <shareFab class="fab" :post="BlogPost"></shareFab>
     </v-container>
     <!-- </v-layout> -->
+    
 </template>
 
 <script>
 import post from '~/apollo/queries/post';
 import renderer from '~/components/renderer/renderer.vue';
-import sidesocial from '~/components/sidesocial.vue';
 import horizontalsocial from '~/components/horizontalsocial.vue';
-import readmore from '~/components/readmore.vue';
 import progressiveimage from '~/components/progressiveimage.vue';
 import headlines from '~/components/headlines.vue';
 import sideSuggestions from '~/components/sideSuggestions.vue';
 import sidebar from '~/components/sidebar.vue';
 import emailPopUp from '~/components/emailPopUp.vue';
+import shareFab from '~/components/share-fab.vue';
 
 export default {
   components: {
     renderer,
-    sidesocial,
     horizontalsocial,
-    readmore,
     progressiveimage,
     headlines,
     sideSuggestions,
     sidebar,
-    emailPopUp
+    emailPopUp,
+    shareFab
   },
   data() {
     return {
@@ -350,6 +349,12 @@ h2 {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .horizontal-social {
+    display: none;
+  }
+}
+
 h3 {
   font-size: 26px;
   font-weight: 600;
@@ -357,27 +362,12 @@ h3 {
   margin-bottom: 0;
 }
 
-/* .page-enter {
-    transform: translateX(100%);
-    opacity: 1;
-}
-
-.page-enter-active {
-    transition: all 0.4s;
-}
-
-.page-enter-to {
-    opacity: 1;
-}
-
-.page-leave-active {
-    transition: all 0.2s;
-    opacity: 0;
-    transform: translateX(100%);
-} */
-
 h4 {
   font-size: 20px;
   margin-bottom: 0;
+}
+
+.fab {
+  position: fixed;
 }
 </style>
