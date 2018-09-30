@@ -123,22 +123,22 @@ export default {
     posts: {
       query: posts,
       prefetch: true,
-      update: ({ BlogPosts }) => {
-        return BlogPosts.nodes;
+      update: ({ getPublicPosts }) => {
+        return getPublicPosts.edges.map(edge => edge.node);
       }
     },
     beginner: {
       query: angularBeginner,
       prefetch: true,
-      update: ({ BlogPosts }) => {
-        return BlogPosts.nodes;
+      update: ({ getPublicPosts }) => {
+        return getPublicPosts.edges.map(edge => edge.node);
       }
     },
     intermediate: {
       query: angularIntermediate,
       prefetch: true,
-      update: ({ BlogPosts }) => {
-        return BlogPosts.nodes;
+      update: ({ getPublicPosts }) => {
+        return getPublicPosts.edges.map(edge => edge.node);
       }
     }
   },

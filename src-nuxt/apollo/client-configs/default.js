@@ -34,7 +34,7 @@ export default ctx => {
   };
 
   const httpLink = new HttpLink({
-    uri: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api',
+    uri: 'http://localhost:3000/graphql',
     fetchOptions: { method: 'GET' },
     fetch: customFetch
   });

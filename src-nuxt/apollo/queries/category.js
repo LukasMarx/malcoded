@@ -1,4 +1,4 @@
 import gql from 'graphql-tag';
 export default gql(
-  'query Posts ($filter: [FilterInput]) {BlogPosts(filter: $filter, orderBy: "releaseDate", descending: true) {nodes {title\n thumbnail\n releaseDate\n description\n url}}}'
+  'query getPublicPosts ($category: String) { getPublicPosts(category: $category) {edges {node {title\n thumbnail\n releaseDate\n description\n url}}}}'
 );

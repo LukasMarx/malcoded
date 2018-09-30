@@ -48,56 +48,49 @@ import postcard from '~/components/postcard/postcard.vue';
 import category from '~/apollo/queries/category';
 import postcardPlaceholder from '~/components/postcard/postcardPlaceholder.vue';
 export default {
-    components: { postcard, postcardPlaceholder },
-    data() {
-        return { posts: null };
-    },
-    apollo: {
-        posts: {
-            query: category,
-            variables() {
-                if (this.$route.params.category === 'all') return {};
-                else
-                    return {
-                        filter: {
-                            field: 'category1',
-                            value: this.$route.params.category
-                        }
-                    };
-            },
-            prefetch: ({ route }) => {
-                if (route.params.category === 'all') return {};
-                else
-                    return {
-                        filter: {
-                            field: 'category1',
-                            value: route.params.category
-                        }
-                    };
-            },
-            update: ({ BlogPosts }) => {
-                return BlogPosts.nodes;
-            }
-        }
-    },
-    methods: {
-        all: posts => {
-            if (!posts) return null;
-            return posts.map((value, index) => {
-                const clone = JSON.parse(JSON.stringify(value));
-                const description = clone.description.substring(0, 197);
-                if (clone.description.length > 200) {
-                    clone.description = description + '...';
-                } else {
-                    clone.description = description;
-                }
-                return clone;
-            });
-        }
+  components: { postcard, postcardPlaceholder },
+  data() {
+    return { posts: null };
+  },
+  apollo: {
+    posts: {
+      query: category,
+      variables() {
+        if (this.$route.params.category === 'all') return {};
+        else
+          return {
+            category: this.$route.params.category
+          };
+      },
+      prefetch: ({ route }) => {
+        if (route.params.category === 'all') return {};
+        else
+          return {
+            category: this.$route.params.category
+          };
+      },
+      update: ({ getPublicPosts }) => {
+        return getPublicPosts.edges.map(edge => edge.node);
+      }
     }
+  },
+  methods: {
+    all: posts => {
+      if (!posts) return null;
+      return posts.map((value, index) => {
+        const clone = JSON.parse(JSON.stringify(value));
+        const description = clone.description.substring(0, 197);
+        if (clone.description.length > 200) {
+          clone.description = description + '...';
+        } else {
+          clone.description = description;
+        }
+        return clone;
+      });
+    }
+  }
 };
 </script>
 
 <style>
-
 </style>

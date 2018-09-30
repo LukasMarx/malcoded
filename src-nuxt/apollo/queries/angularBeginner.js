@@ -1,4 +1,2 @@
 import gql from 'graphql-tag';
-export default gql(
-  'query Posts {BlogPosts(filter: [{field: "category1", value:"angular-beginner"}], limit: 3, orderBy: "releaseDate", descending: true) {nodes {title\n thumbnail\n releaseDate\n description\n url}}}'
-);
+export default gql('query Posts {getPublicPosts(limit: 3, category: "angular-beginner") {edges {node {title\n thumbnail\n releaseDate\n description\n url}}}}');

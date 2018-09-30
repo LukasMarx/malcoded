@@ -163,9 +163,9 @@ export default {
     const BlogPost = await app.apolloProvider.defaultClient
       .query({
         query: post,
-        variables: { filter: [{ field: 'url', value: params.post }] }
+        variables: { url: params.post }
       })
-      .then(({ data }) => data && data.BlogPost);
+      .then(({ data }) => data && data.publicPost);
     if (!BlogPost) {
       return error({ statusCode: 404, message: 'Not found' });
     }
