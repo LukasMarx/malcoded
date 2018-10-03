@@ -1,8 +1,8 @@
 <template>
     <!-- <v-layout style="margin-top: 16px" row wrap> -->
-    <v-container fluid grid-list style="padding:0; padding-top: 16px; flex: 1 1 auto !important;">
+    <v-container fluid grid-list style="padding:0; padding-top: 16px; flex: 1 1 auto !important; margin-top:72px">
         <v-layout row wrap>
-            <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12 >
+            <v-flex lg5 offset-lg2 md8 offset-md2 sm10 offset-sm1 xs12 >
                 <div raised class="base-padding align-left ms-flex" style="padding-top: 8px">
                     <transition name="fade" mode="out-in">
                         <div key="1" v-if="!BlogPost" class="post-placeholder ms-flex">
@@ -45,29 +45,28 @@
                                     <span style="margin-left: 8px">{{getPostDate(BlogPost)}}</span>
                                 </div>
                                 <renderer style="word-break: break-word;" :input="BlogPost" v-on:headlines="headlines = $event"></renderer>
-                                <!-- <sidesocial :post="BlogPost"></sidesocial> -->
-                                
-                                
                             </v-flex>
-                            
                             &nbsp;
                         </div>
                     </transition>
                 </div>
-                <horizontalsocial class="horizontal-social" :post="BlogPost"></horizontalsocial>
+                <!-- <horizontalsocial class="horizontal-social" :post="BlogPost"></horizontalsocial> -->
+                <comments :post="BlogPost" class="comments"></comments>
             </v-flex>
-            
             <sidebar>
                 <headlines :headlines="headlines" v-on:headline-click="navigateToHeadline($event)" :color="BlogPost ? BlogPost.primaryColor : null"></headlines>
-                <sideSuggestions :post="BlogPost"></sideSuggestions>
-                <!-- <v-btn @click.native="dialog = true" v-if="BlogPost" class="email-button" large v-bind:style="{ 'background-color': (BlogPost.primaryColor || '#c3002f' ) + '!important', color: 'white' }">
+                <v-btn @click.native="dialog = true" v-if="BlogPost" class="email-button" large v-bind:style="{ 'background-color': (BlogPost.primaryColor || '#c3002f' ) + '!important', color: 'white' }">
                     <v-icon class="email-icon" dark>email</v-icon>
                     Never miss a post!
-                </v-btn> -->
+                </v-btn>
+                <sideSuggestions :post="BlogPost"></sideSuggestions>
+                
             </sidebar>
+                 
         </v-layout>
         <emailPopUp v-bind:show="dialog" v-on:close="dialog = false"></emailPopUp>
       <shareFab class="fab" :post="BlogPost"></shareFab>
+
     </v-container>
     <!-- </v-layout> -->
     
@@ -83,6 +82,7 @@ import sideSuggestions from '~/components/sideSuggestions.vue';
 import sidebar from '~/components/sidebar.vue';
 import emailPopUp from '~/components/emailPopUp.vue';
 import shareFab from '~/components/share-fab.vue';
+import comments from '~/components/comments/comments.vue';
 
 export default {
   components: {
@@ -93,7 +93,8 @@ export default {
     sideSuggestions,
     sidebar,
     emailPopUp,
-    shareFab
+    shareFab,
+    comments
   },
   data() {
     return {
@@ -159,7 +160,7 @@ export default {
       document.getElementById(id).scrollIntoView();
     }
   },
-  async asyncData({ error, app, params, redirect }) {
+  async asyncData({ error, app, params, redirect, store }) {
     const BlogPost = await app.apolloProvider.defaultClient
       .query({
         query: post,
@@ -168,6 +169,9 @@ export default {
       .then(({ data }) => data && data.publicPost);
     if (!BlogPost) {
       return error({ statusCode: 404, message: 'Not found' });
+    }
+    if (BlogPost.primaryColor) {
+      store.commit('setThemeColor', BlogPost.primaryColor);
     }
     return { BlogPost };
   }
@@ -182,19 +186,11 @@ export default {
 }
 .email-button {
   width: 100%;
+  margin: 0;
 }
 
 .email-icon {
   margin-right: 8px;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 
 .placeholder-element {
@@ -202,39 +198,6 @@ export default {
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.animated-background {
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-name: placeHolderShimmer;
-  animation-timing-function: linear;
-  background: #f6f7f8;
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
-  position: relative;
-  background-size: 250%;
-}
-
-.application.theme--dark .animated-background {
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-name: placeHolderShimmer;
-  animation-timing-function: linear;
-  background: #888;
-  background: linear-gradient(to right, #555 8%, #666 18%, #555 33%);
-  position: relative;
-  background-size: 250%;
-}
-
-@keyframes placeHolderShimmer {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
 }
 
 .post-placeholder {
@@ -293,15 +256,22 @@ export default {
   margin-top: 8px;
   margin-bottom: 8px;
   font-size: 40px;
-  text-align: center;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 600px) {
   .post-title {
     font-size: 30px;
   }
+  .post-additional-padding {
+    padding: 16px;
+  }
 }
 
+@media screen and (max-width: 600px) {
+  .comments {
+    padding: 32px;
+  }
+}
 .post-thumbnail {
   width: 75%;
   margin-left: 12.5%;
@@ -323,18 +293,6 @@ export default {
 
 .align-left {
   text-align: left !important;
-}
-
-.base-padding {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-@media screen and (min-width: 1200px) {
-  .post-additional-padding {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
 }
 
 h2 {

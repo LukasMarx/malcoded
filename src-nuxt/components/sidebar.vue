@@ -1,5 +1,5 @@
 <template>
-    <v-flex lg2 hidden-md-and-down class="container">
+    <v-flex lg3 hidden-md-and-down class="container">
         <div class="sticky">
             <slot></slot>
         </div>
@@ -13,18 +13,19 @@ export default {};
 
 <style scoped>
 .container {
-    font-size: smaller;
-    margin: 0;
-    padding-top: 410px;
+  font-size: smaller;
+  margin: 0;
+  padding-left: 128px;
+  padding-top: 410px;
 }
 
 .container * {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
 }
 </style>

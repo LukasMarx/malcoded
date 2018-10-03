@@ -1,5 +1,5 @@
 <template>
-  <v-container grid-list-xl fluid style="flex: 1 1 auto !important;">
+  <v-container grid-list-xl fluid style="flex: 1 1 auto !important; margin-top:72px">
     <v-layout row wrap>
         <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
             <v-card class="card">
@@ -52,30 +52,41 @@
                     such as your IP address, security fingerprints, DNS log data, and website performance data based on your usage of the website.</p>
                     <p>This is our legitimate interest as of Art.6 Section 1 f EU-GDPR to ensure the security and quality of the website.</p>
                 
-                <!-- <h3>Newsletter</h3>
+                <h3>Newsletter</h3>
                 <p>It is possible to subscribe to a free email newsletter on our site.
-                    Before you subscribe, you can give your consent that you want to recieve emails form us with updates and marketing material.
+                    Before you subscribe, you give your consent that you want to recieve emails form us with updates and marketing material.
                     When you choose to subscribe to the newsletter we collect your email address. </p>
                 
                 <p>We are also using the double opt-in method, which means that we will send you an email and ask for consent (again).</p>
                     
-                <p>In the moment of sending the subscription request we are also saving your IP-Address.
+                <p>In the moment of sending the subscription request, as well as when you verify your email address, we are saving your IP-Address.
                 We are required to do so by law, to proove that you actually gave your consent.</p>
 
                 <p>We collect this data with your consent and therefore under Art. 6, Section 1 a, EU-GDPR.</p>
 
-                <p>To collect this data, we are using Mailchimp as Data Processor. Although they are located in the United States, they take the Date Protection very seriously
-                    and are certified to the EU-U.S. Privacy Shield Framework and Swiss-U.S. Privacy Shield Framework. Mailchimp <a href="https://mailchimp.com/legal/privacy/">Privacy Policy</a> and <a href="https://mailchimp.com/legal/terms/"> Terms</a>.
-                </p>
-
                 <p>We need to collect this data, to be able to provide the newsletter service to you.</p>
 
-                <p>Your data is only stored as long as you are subscribed to the newsletter.</p>
+                <p>Your email address is only stored as long as you are subscribed to the newsletter.</p>
+                <p>However, we keep a hash of your email address as well as the information required (Ip-Addresses and Timestamps) to proof that you gave us your consent in the first place.</p>
+                <p>The hash can't be used to send emails or reconstruct you email address</p>
 
                 <p>We also track on wich links you click in emails you received from us.</p>
                 
-                <p>Of course you can unsubscribe at any time by clicking the unsubscribe link at the bottom of every email or by contacting us via email.</p> -->
-                
+                <p>Of course you can unsubscribe at any time by clicking the unsubscribe link at the bottom of every email or by contacting us via email.</p> 
+                 
+                <h3>Comments & Social Sign In</h3>
+                <p>We give our users the possibility to comment on posts. Before a user can leave a comment, he has to sign in using on of the provided authentication methods.</p>
+                <p>We are using different, so called Social Sing In provider such as Google, Facebook, Twitter or Github. Using these providers, the user can create an account at our website, without the need of going trough a full registration process.</p>
+                <p>Instead the user authorizes the provider to transmit certain personal information to us. We request the users email address, his name and his profile picture and save them on our server.</p>
+
+                <p>Afterward, the user is signed in and can leave a comment.</p>
+
+                <p>Before the personal data is submited to us, the user is informed that he is about to transmit the data and asked for his consent.</p>
+                <p>Therefore we collect this data using Art. 6 Art. 6, Section 1 a, EU-GDPR.</p>
+
+                <p>The user can request the deletion of his account by sending an email to support@malcoded.com</p>
+
+                <p>Furthermore the user is able to edit or delete is comments, when signed in.</p>
 
                 <h2>Cookies</h2>
                 <p>Cookies are small text-files that many sites place on the users computer.</p>
@@ -236,7 +247,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$store.commit('setThemeColor', '#c40030');
+  }
+};
 </script>
 
 <style scoped>
@@ -252,7 +267,6 @@ export default {};
 .link {
   color: #c3002f;
   text-decoration: none;
-  font-weight: bold;
   white-space: normal;
   word-wrap: break-word;
 }

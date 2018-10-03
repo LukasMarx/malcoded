@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid grid-list-md text-xs-center style="flex: 1 1 auto !important;">
-      <v-layout row wrap>
+  <v-container fluid grid-list-md text-xs-center style="flex: 1 1 auto !important; padding:0; margin-top:72px">
+      <v-layout row wrap style="margin:0">
         <v-flex  lg8 offset-lg2 md10 offset-md1 sm12 >
             <v-layout row wrap>
                  <v-flex v-if="!posts"  xs12 md6 >
@@ -141,6 +141,9 @@ export default {
         return getPublicPosts.edges.map(edge => edge.node);
       }
     }
+  },
+  created() {
+    this.$store.commit('setThemeColor', '#c40030');
   },
   methods: {
     first2: posts => {

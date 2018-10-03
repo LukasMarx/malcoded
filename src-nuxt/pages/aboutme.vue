@@ -1,5 +1,5 @@
 <template>
-<v-container grid-list-xl fluid style="font-size: 23px; flex: 1 1 auto !important;">
+<v-container grid-list-xl fluid style="font-size: 23px; flex: 1 1 auto !important; margin-top:72px">
   <v-layout row wrap>
   <v-flex lg8 offset-lg2 md8 offset-md2 sm10 offset-sm1 xs12>
    <v-card class="about-card">
@@ -47,7 +47,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  created() {
+    this.$store.commit('setThemeColor', '#c40030');
+  }
+};
 </script>
 
 <style>

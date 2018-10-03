@@ -1,5 +1,25 @@
 import Vue from 'vue';
-import { Vuetify, VApp, VCard, VBtn, VIcon, VGrid, VToolbar, VSnackbar, VTooltip, VDialog, VTextField, VCheckbox, VForm, VSpeedDial } from 'vuetify';
+import {
+  Vuetify,
+  VApp,
+  VCard,
+  VBtn,
+  VIcon,
+  VGrid,
+  VToolbar,
+  VSnackbar,
+  VTooltip,
+  VDialog,
+  VTextField,
+  VCheckbox,
+  VForm,
+  VSpeedDial,
+  VAvatar,
+  VTextarea,
+  VTabs,
+  transitions,
+  VMenu
+} from 'vuetify';
 import * as LRU from 'lru';
 
 Vue.use(Vuetify, {
@@ -16,7 +36,12 @@ Vue.use(Vuetify, {
     VTextField,
     VCheckbox,
     VForm,
-    VSpeedDial
+    VSpeedDial,
+    VAvatar,
+    VTextarea,
+    VTabs,
+    transitions,
+    VMenu
   },
   theme: {
     primary: '#c40030',

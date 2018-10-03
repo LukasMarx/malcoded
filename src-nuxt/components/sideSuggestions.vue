@@ -8,7 +8,9 @@
             style="flex:1 1 auto !important; flex-flow: column">
             <v-card   class="card">
                 <progressiveimage class="thumbnail" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+post.node.thumbnail"></progressiveimage>
-                <span class="ttl">{{post.node.title}}</span>
+                <div class="text-wrapper">
+                  <span class="ttl">{{post.node.title}}</span>
+                </div>
             </v-card>
         </nuxt-link>
     </div>
@@ -32,6 +34,13 @@ export default {
   margin-bottom: 16px;
   float: left;
   justify-content: space-around;
+  min-height: 80px;
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .thumbnail {

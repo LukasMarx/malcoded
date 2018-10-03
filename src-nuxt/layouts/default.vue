@@ -1,34 +1,36 @@
 <template>
-<v-app :dark="dark">
+<v-app :dark="darkMode">
 
     <v-toolbar fixed scroll-off-screen>
-        <div class="toolbar-wrapper">
-        <logo></logo>
-        <v-spacer></v-spacer>
-        <v-toolbar-items >
-            <nuxt-link :to="{ path: '/aboutme'}" title="About" class="full-height">
-                <v-btn flat>About</v-btn>
-            </nuxt-link>
-            <nuxt-link :to="{ path: '/'}" title="Blog" class="hidden-sm-and-down full-height" >
-                <v-btn flat>Blog</v-btn>
-            </nuxt-link>
+        <v-layout row style="height:100%">
+          <v-flex lg8 offset-lg2 md10 offset-md1 sm12 style="display:flex;" >
+            <logo :accentColor="themeColor" :fontColor="darkMode? '#fff' : null"></logo>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="toolbar-items">
+                <nuxt-link :to="{ path: '/aboutme'}" title="About" class="full-height">
+                    <v-btn flat>About</v-btn>
+                </nuxt-link>
+                <nuxt-link :to="{ path: '/'}" title="Blog" class="hidden-sm-and-down full-height" >
+                    <v-btn flat>Blog</v-btn>
+                </nuxt-link>
 
-            <v-tooltip bottom>
-                <v-btn slot="activator" flat @click.native="toggleDarkMode()">
-                    <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path class="icon-path" d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"/>
-                    </svg>
-                </v-btn>
-             <span>Toggle Dark-Mode</span>
-    </v-tooltip>
-        </v-toolbar-items>
-        </div>
-
+                <v-tooltip bottom>
+                    <v-btn slot="activator" flat @click.native="toggleDarkMode()" style="height: 100%">
+                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path class="icon-path" d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"/>
+                        </svg>
+                    </v-btn>
+                <span>Toggle Dark-Mode</span>
+                </v-tooltip>
+                <userAvatarButton :user="user"></userAvatarButton>
+            </v-toolbar-items>
+          </v-flex>
+        </v-layout>
     </v-toolbar>
 
 
-        <nuxt style="margin-top: 64px"/>
+    <nuxt/>
 
 
     <v-toolbar>
@@ -67,8 +69,9 @@
 <script>
 import logo from '~/components/logo.vue';
 import emailPopUp from '~/components/emailPopUp.vue';
+import userAvatarButton from '~/components/user-avatar-button.vue';
 export default {
-  components: { logo, emailPopUp },
+  components: { logo, emailPopUp, userAvatarButton },
   data() {
     return {
       dark: false,
@@ -93,6 +96,27 @@ export default {
     //     }
     // }
     //document.body.addEventListener('mouseleave', this.onExitIntent);
+    const rawToken = localStorage.getItem('token');
+    if (rawToken) {
+      const token = JSON.parse(rawToken);
+      if (token && token.user) {
+        this.$store.commit('setUser', token.user);
+      }
+      if (token && token.access_token) {
+        this.$store.commit('setToken', token.access_token);
+      }
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    themeColor() {
+      return this.$store.state.themeColor;
+    },
+    darkMode() {
+      return this.$store.state.darkMode;
+    }
   },
 
   methods: {
@@ -105,7 +129,7 @@ export default {
     //     this.snackbar = false;
     // },
     toggleDarkMode() {
-      this.dark = !this.dark;
+      this.$store.commit('setDarkMode', !this.darkMode);
     },
     onExitIntent(event) {
       console.log(this);
@@ -138,8 +162,28 @@ body {
   padding: 0;
 }
 
-h1 h2 h3 h4 h5 h6 {
-  color: #5b5b5b !important;
+.theme--dark.application {
+  background-color: #1f2e41;
+}
+
+.theme--dark.application .v-toolbar {
+  background-color: #1a2335 !important;
+}
+
+.theme--dark.application .v-card {
+  background-color: #0e1125 !important;
+}
+
+.theme--dark.application .v-btn {
+  background-color: #1f2e41;
+}
+
+.application.theme--dark .icon-path {
+  fill: white;
+}
+
+.v-toolbar__content {
+  padding: 0;
 }
 
 .small-print {
@@ -148,6 +192,10 @@ h1 h2 h3 h4 h5 h6 {
 
 .full-height {
   height: 100%;
+}
+
+.toolbar-items {
+  display: flex;
 }
 
 .layout-logo {
@@ -160,33 +208,6 @@ h1 h2 h3 h4 h5 h6 {
     margin-top: 8px;
   }
 }
-.toolbar-wrapper {
-  width: 100%;
-  display: flex;
-  height: 100%;
-  margin-left: 8px !important;
-}
-
-@media screen and (min-width: 600px) {
-  .toolbar-wrapper {
-    width: 83.33% !important;
-    margin-left: 8.33% !important;
-    display: flex !important;
-    height: 100% !important;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .toolbar-wrapper {
-    width: 66.66% !important;
-    margin-left: 16.66% !important;
-    display: flex !important;
-    height: 100% !important;
-  }
-}
-.application--wrap {
-  width: 100%;
-}
 
 a {
   text-decoration: none !important;
@@ -197,51 +218,8 @@ a:hover {
   text-decoration: none !important;
 }
 
-.application.theme--dark .icon-path {
-  fill: white;
-}
-
-.application.theme--light .icon-path {
-  fill: #333;
-}
-
-.application.theme--dark .logo-text {
-  fill: white;
-}
-
-.application.theme--light .logo-text {
-  fill: #333;
-}
-
-.application.theme--dark .icon-highlight :hover {
-  fill: #c40030;
-}
-
-.application.theme--light .icon-highlight :hover {
-  fill: #c40030;
-}
-
-.application.theme--light .toolbar {
+.application.theme--light .v-toolbar {
   background-color: white !important;
-}
-/* width */
-::-webkit-scrollbar {
-  height: 12px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 /* roboto-300 - latin */

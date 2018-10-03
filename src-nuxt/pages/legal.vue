@@ -1,6 +1,6 @@
 <template>
   
-  <v-container grid-list-xl fluid style="flex: 1 1 auto !important;">
+  <v-container grid-list-xl fluid style="flex: 1 1 auto !important; margin-top:72px">
         <v-layout row wrap>
   <v-flex lg6 offset-lg3 md8 offset-md2 sm10 offset-sm1 xs12>
       <v-card class="legal-card">
@@ -26,26 +26,29 @@
 
 <script>
 export default {
-    methods: {
-        optOut() {
-            this.$ga.commands.optOut();
-        }
+  methods: {
+    optOut() {
+      this.$ga.commands.optOut();
     }
+  },
+  created() {
+    this.$store.commit('setThemeColor', '#c40030');
+  }
 };
 </script>
 
 <style>
 .ga-button {
-    margin-top: 32px;
+  margin-top: 32px;
 }
 
 .legal-card {
-    margin-top: 32px;
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    word-break: break-word;
-    text-align: left;
-    padding: 32px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  word-break: break-word;
+  text-align: left;
+  padding: 32px;
 }
 
 /* .page-enter {

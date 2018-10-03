@@ -94,7 +94,8 @@ module.exports = {
   css: ['~/assets/vuetify.min.css'],
   apollo: {
     clientConfigs: {
-      default: '~/apollo/client-configs/default.js'
+      default: '~/apollo/client-configs/default.js',
+      post: '~/apollo/client-configs/post.js'
     }
   },
   srcDir: 'src-nuxt',
