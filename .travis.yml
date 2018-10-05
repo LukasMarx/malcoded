@@ -3,16 +3,13 @@ node_js: '9'
 sudo: required
 services:
   - docker
-branches:
-  only:
-    - master
-    - dev
+
 before_install:
   - docker build -t malcoded-frontend .
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - export REPO=malcoded/frontend
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_TAG ; fi`
   - docker build -f Dockerfile -t $REPO:$COMMIT .
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
