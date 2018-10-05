@@ -34,6 +34,12 @@ module.exports = {
 
   modules: [
     '@nuxtjs/apollo',
+    [
+      'nuxt-env',
+      {
+        keys: ['GRAPHQL_URL', 'ASSET_URL']
+      }
+    ],
     ['@nuxtjs/pwa', { onesignal: false, workbox: false }]
     // [
     //     '@nuxtjs/google-analytics',

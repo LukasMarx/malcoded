@@ -34,7 +34,7 @@
                         <div key="2" v-if="BlogPost" class="ms-flex">
                             <div class="post-thumbnail-wrapper" >
                                 
-                                <progressiveimage :alt="BlogPost.title" class="post-thumbnail" v-if="BlogPost" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+ BlogPost.thumbnail"/>
+                                <progressiveimage :alt="BlogPost.title" class="post-thumbnail" v-if="BlogPost" :src="assetUrl+ BlogPost.thumbnail"/>
                             </div>
                             <v-flex class="post-additional-padding">
                                 <h1 class="post-title" v-if="BlogPost">{{BlogPost.title}}</h1>
@@ -143,6 +143,11 @@ export default {
         { name: 'twitter:site', content: '@malcoded' }
       ]
     };
+  },
+  computed: {
+    assetUrl() {
+      return this.$env.ASSET_URL || 'http://localhost:3000/v1/api/asset/';
+    }
   },
   methods: {
     getPostDate(post) {

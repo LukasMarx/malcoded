@@ -1,15 +1,15 @@
 <template>
     <div>
     <picture v-if="show">
-        <source media="(max-width: 600px)" :srcset="src+'/webp/500'" type="image/webp">
-        <source media="(max-width: 960px)" :srcset="src+'/webp/860'" type="image/webp">
-        <source media="(max-width: 1264px)" :srcset="src+'/webp/1200'" type="image/webp">
-        <source media="(min-width: 1265px)" :srcset="src+'/webp'" type="image/webp">
-        <source media="(max-width: 600px)" :srcset="src+'/png/500'" type="image/png">
-        <source media="(max-width: 960px)" :srcset="src+'/png/860'" type="image/png">
-        <source media="(max-width: 1264px)" :srcset="src+'/png/1200'" type="image/png">
-        <source media="(min-width: 1265px)" :srcset="src+'/png'" type="image/png">
-        <img style="width:100%" :alt="alt" :src="src+ '/jpg'">
+        <source media="(max-width: 600px)" :srcset="src+'.webp/500'" type="image/webp">
+        <source media="(max-width: 960px)" :srcset="src+'.webp/860'" type="image/webp">
+        <source media="(max-width: 1264px)" :srcset="src+'.webp/1200'" type="image/webp">
+        <source media="(min-width: 1265px)" :srcset="src+'.webp'" type="image/webp">
+        <source media="(max-width: 600px)" :srcset="src+'.png/500'" type="image/png">
+        <source media="(max-width: 960px)" :srcset="src+'.png/860'" type="image/png">
+        <source media="(max-width: 1264px)" :srcset="src+'.png/1200'" type="image/png">
+        <source media="(min-width: 1265px)" :srcset="src+'.png'" type="image/png">
+        <img style="width:100%" :alt="alt" :src="src+ '.jpg'">
     </picture>
     <noscript v-html="getNoScript()">
     </noscript>

@@ -4,7 +4,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 export default function(context) {
   const httpLink = new HttpLink({
-    uri: 'http://localhost:3000/graphql',
+    uri: context.app.$env.GRAPHQL_URL || 'http://localhost:3000/v1/api/graphql',
     fetchOptions: { method: 'POST' }
   });
 

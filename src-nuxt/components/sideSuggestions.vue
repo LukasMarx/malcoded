@@ -7,7 +7,7 @@
             :to="{ path: '/posts/'+post.node.url}" 
             style="flex:1 1 auto !important; flex-flow: column">
             <v-card   class="card">
-                <progressiveimage class="thumbnail" :src="'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/'+post.node.thumbnail"></progressiveimage>
+                <progressiveimage class="thumbnail" :src="assetUrl+post.node.thumbnail"></progressiveimage>
                 <div class="text-wrapper">
                   <span class="ttl">{{post.node.title}}</span>
                 </div>
@@ -22,7 +22,12 @@
 import progressiveimage from '~/components/progressiveimage.vue';
 export default {
   props: ['post'],
-  components: { progressiveimage }
+  components: { progressiveimage },
+  computed: {
+    assetUrl() {
+      return this.$env.ASSET_URL || 'http://localhost:3000/v1/api/asset/';
+    }
+  }
 };
 </script>
 

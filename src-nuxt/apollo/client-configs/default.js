@@ -34,7 +34,7 @@ export default ctx => {
   };
 
   const httpLink = new HttpLink({
-    uri: 'http://localhost:3000/graphql',
+    uri: ctx.app.$env.GRAPHQL_URL || 'http://localhost:3000/v1/api/graphql',
     fetchOptions: { method: 'GET' },
     fetch: customFetch
   });
