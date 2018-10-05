@@ -3,6 +3,10 @@ node_js: '9'
 sudo: required
 services:
   - docker
+branches:
+  only:
+    - master
+    - dev
 before_install:
   - docker build -t malcoded-frontend .
 after_success:
@@ -16,5 +20,3 @@ after_success:
 env:
   global:
     - COMMIT=${TRAVIS_COMMIT::8}
-   
-
