@@ -3,7 +3,7 @@ node_js: '9'
 sudo: required
 services:
   - docker
-
+if: tag IS present
 before_install:
   - docker build -t malcoded-frontend .
 after_success:
@@ -12,7 +12,6 @@ after_success:
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_TAG ; fi`
   - docker build -f Dockerfile -t $REPO:$COMMIT .
   - docker tag $REPO:$COMMIT $REPO:$TAG
-  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
   - docker push $REPO
 env:
   global:
