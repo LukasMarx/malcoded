@@ -1,4 +1,13 @@
 const nodeExternals = require('webpack-node-externals');
+
+const generateDisallow = () => {
+  const array = ['/privacy', '/legal'];
+  if (process.env.BLOCK_ROBOTS) {
+    array.push('/');
+  }
+  return array;
+};
+
 module.exports = {
   /*
   ** Headers of the page
@@ -35,9 +44,19 @@ module.exports = {
   modules: [
     '@nuxtjs/apollo',
     [
+      'nuxt-robots-module',
+      [
+        {
+          /* module options */
+          UserAgent: '*',
+          Disallow: generateDisallow()
+        }
+      ]
+    ],
+    [
       'nuxt-env',
       {
-        keys: ['GRAPHQL_URL', 'ASSET_URL']
+        keys: ['GRAPHQL_URL', 'ASSET_URL', 'ROBOTS']
       }
     ],
     ['@nuxtjs/pwa', { onesignal: false, workbox: false }]

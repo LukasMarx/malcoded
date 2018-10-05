@@ -2,12 +2,6 @@ const { Nuxt, Builder } = require('nuxt');
 const RSS = require('rss');
 const request = require('graphql-request').request;
 
-let cache = apicache.middleware;
-// var cache = require('express-redis-cache')({
-//     host: process.env.REDIS_HOST,
-//     port: process.env.REDIS_PORT
-// });
-
 let nuxtConfig = require('./nuxt.config.js');
 nuxtConfig.dev = false;
 const nuxt = new Nuxt(nuxtConfig);
@@ -27,7 +21,7 @@ const query = `{
     }
   }`;
 
-app.get('/rss', cache('1 hour'), (req, res) => {
+app.get('/rss', (req, res) => {
   request('https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api', query).then(
     data => {
       const feedOptions = {
