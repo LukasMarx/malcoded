@@ -31,7 +31,7 @@ const blocks = {
     return {
       tag: 'img',
       attributes: {
-        src: 'https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + attr,
+        src: attr,
         alt: attr
       },
       class: { 'inline-image': true }
