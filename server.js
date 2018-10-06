@@ -10,19 +10,21 @@ const app = require('express')();
 app.disable('x-powered-by');
 
 const query = `{
-    BlogPosts(orderBy: "releaseDate", descending: true) { 
-        nodes {
-            title
-            thumbnail
-            description
-            url
-            releaseDate
+     getPublicPosts{
+       edges {
+         node {
+          title
+          thumbnail
+          releaseDate
+          description
+          url
         }
+      }
     }
   }`;
 
 app.get('/rss', (req, res) => {
-  request('https://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/api', query).then(
+  request('https://malcoded.com/v1/api/graphql', query).then(
     data => {
       const feedOptions = {
         title: 'malcoded',
@@ -45,15 +47,17 @@ app.get('/rss', (req, res) => {
         ]
       };
       const feed = new RSS(feedOptions);
-      if (data && data.BlogPosts && data.BlogPosts.nodes) {
-        data.BlogPosts.nodes.forEach(node => {
+      if (data && data.getPublicPosts && data.getPublicPosts.edges) {
+        data.getPublicPosts.edges.forEach(edge => {
+          const node = edge.node;
+
           const itemOptions = {
             title: node.title,
             description: node.description,
             url: 'https://malcoded.com/posts/' + node.url,
             guid: 'https://malcoded.com/posts/' + node.url,
             enclosure: {
-              url: 'http://malcoded.com/api/v1/48238e83-87dd-4b4f-be48-26ea7c89e8e7/asset/' + node.thumbnail + '/jpg',
+              url: 'http://malcoded.com/v1/api/assets' + node.thumbnail + '.jpg',
               type: 'image/jpg'
             },
             author: 'Lukas Marx',
@@ -66,6 +70,7 @@ app.get('/rss', (req, res) => {
       res.send(feed.xml({ indent: true }));
     },
     err => {
+      console.error(err);
       res.sendStatus(404);
     }
   );
