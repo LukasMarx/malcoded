@@ -37,7 +37,7 @@
             <v-btn v-if="!edit" flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="editContent()">
                 <v-icon>edit</v-icon>
             </v-btn>
-            <v-btn v-if="!edit"  flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="dialog = true">
+            <v-btn v-if="!edit"  flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="startDeleteComment()">
                 <v-icon>delete</v-icon>
             </v-btn>
             <v-btn v-if="edit"  flat :color="post.primaryColor || '#c40030'" class="delete" v-on:click="edit = false">
@@ -111,13 +111,39 @@ export default {
     deleteComment() {
       this.$emit('delete', this.comment.id);
     },
+    startDeleteComment() {
+      if (!this.verifyToken()) {
+        this.$emit('tokenInvalid');
+        return;
+      }
+      this.dialog = true;
+    },
     updateComment() {
       this.$emit('update', Object.assign({ ...this.comment }, { content: this.newContent }));
       this.edit = false;
     },
     editContent() {
+      if (!this.verifyToken()) {
+        this.$emit('tokenInvalid');
+        return;
+      }
       this.newContent = this.comment.content;
       this.edit = true;
+    },
+    verifyToken() {
+      try {
+        const token = this.$store.state.token;
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const tokenObject = JSON.parse(atob(base64));
+
+        if (tokenObject.exp <= Date.now() / 1000) {
+          return false;
+        }
+      } catch (error) {
+        return false;
+      }
+      return true;
     }
   }
 };

@@ -99,11 +99,15 @@ export default {
     const rawToken = localStorage.getItem('token');
     if (rawToken) {
       const token = JSON.parse(rawToken);
-      if (token && token.user) {
-        this.$store.commit('setUser', token.user);
-      }
-      if (token && token.access_token) {
-        this.$store.commit('setToken', token.access_token);
+      if (this.verifyToken(token.access_token)) {
+        if (token && token.user) {
+          this.$store.commit('setUser', token.user);
+        }
+        if (token && token.access_token) {
+          this.$store.commit('setToken', token.access_token);
+        }
+      } else {
+        localStorage.removeItem('token');
       }
     }
   },
@@ -128,6 +132,21 @@ export default {
     //     }
     //     this.snackbar = false;
     // },
+    verifyToken(token) {
+      try {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const tokenObject = JSON.parse(atob(base64));
+        console.log(tokenObject);
+
+        if (tokenObject.exp <= Date.now() / 1000) {
+          return false;
+        }
+      } catch (error) {
+        return false;
+      }
+      return true;
+    },
     toggleDarkMode() {
       this.$store.commit('setDarkMode', !this.darkMode);
     },

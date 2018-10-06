@@ -21,6 +21,12 @@ const createStore = () => {
       setDarkMode(state, mode) {
         state.darkMode = mode;
       }
+    },
+    actions: {
+      signOut(context) {
+        context.commit('setToken', null);
+        context.commit('setUser', null);
+      }
     }
   });
 };

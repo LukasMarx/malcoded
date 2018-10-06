@@ -1,11 +1,11 @@
 <template>
-<div>
+<div ref="comment">
     <v-card class="card">
       <span class="headline">Leave a comment</span>
       <div v-if="!user" class="sign-in-wrapper">
-        <google-sing-in-button v-on:token="onToken($event)"></google-sing-in-button>
-
+        <google-sing-in-button v-on:token="onToken($event)" v-on:click="error = null"></google-sing-in-button>
         <p class="caption disclaimer">We save your email address, your name and your profile picture on our servers when you sing in. Read more in our <a  v-bind:style="{'color': color || '#c40030'}" href="/privacy">Privacy Policy</a>.</p>
+        <p class="error-message">{{error}}</p>
       </div>
         <div v-if="user">
           <v-avatar :size="50" class="avatar">
@@ -43,7 +43,8 @@
     <comment v-for="comment in comments" :key="comment.id" 
         :comment="comment" 
         :user="user" 
-        :post="post" 
+        :post="post"
+        v-on:tokenInvalid="onTokenInvalid()"
         v-on:delete="onDeleteComment($event)" 
         v-on:update="onUpdateComment($event)">
     </comment>
@@ -67,7 +68,7 @@ export default {
   },
   props: ['post'],
   data() {
-    return { comment: null };
+    return { comment: null, errors: {}, error: null };
   },
   apollo: {
     $client: 'post',
@@ -93,45 +94,94 @@ export default {
   },
   methods: {
     submitComment() {
-      this.$apollo.mutate({
-        mutation: submitComment,
-        variables: {
-          postId: this.post.id,
-          createCommentInput: { content: this.comment }
-        },
-        update: (store, { data: { createCommentForPost } }) => {
-          this.comment = '';
-          this.$apollo.queries.comments.refetch();
-        }
-      });
+      if (!this.verifyToken()) {
+        this.onTokenInvalid();
+      }
+      this.$apollo
+        .mutate({
+          mutation: submitComment,
+          variables: {
+            postId: this.post.id,
+            createCommentInput: { content: this.comment }
+          },
+          update: (store, { data: { createCommentForPost } }) => {
+            this.comment = '';
+            this.$apollo.queries.comments.refetch();
+          }
+        })
+        .catch(error => {
+          this.handleErrors(error);
+        });
     },
     onDeleteComment(commentId) {
-      this.$apollo.mutate({
-        mutation: deleteComment,
-        variables: {
-          commentId
-        },
-        update: (store, { data: { deleteComment } }) => {
-          this.$apollo.queries.comments.refetch();
-        }
-      });
+      this.$apollo
+        .mutate({
+          mutation: deleteComment,
+          variables: {
+            commentId
+          },
+          update: (store, { data: { deleteComment } }) => {
+            this.$apollo.queries.comments.refetch();
+          }
+        })
+        .catch(error => {
+          this.handleErrors(error);
+        });
     },
     onUpdateComment(comment) {
-      this.$apollo.mutate({
-        mutation: updateComment,
-        variables: {
-          commentId: comment.id,
-          updateCommentInput: { content: comment.content }
-        },
-        update: (store, { data: { updateComment } }) => {
-          this.$apollo.queries.comments.refetch();
-        }
-      });
+      if (!this.verifyToken()) {
+        this.onTokenInvalid();
+      }
+      this.$apollo
+        .mutate({
+          mutation: updateComment,
+          variables: {
+            commentId: comment.id,
+            updateCommentInput: { content: comment.content }
+          },
+          update: (store, { data: { updateComment } }) => {
+            this.$apollo.queries.comments.refetch();
+          }
+        })
+        .catch(error => {
+          this.handleErrors(error);
+        });
+    },
+    handleErrors(error) {
+      if (error.graphQLErrors) {
+        error.graphQLErrors.forEach(err => {
+          if (err.message && err.message.statusCode == 403) {
+            this.onTokenInvalid();
+          }
+        });
+      }
     },
     onToken(token) {
       this.$store.commit('setToken', token.access_token);
       this.$store.commit('setUser', token.user);
       localStorage.setItem('token', JSON.stringify(token));
+    },
+    onTokenInvalid() {
+      this.error = 'Your Session expired, please re-authenticate!';
+      this.$store.dispatch('signOut');
+      this.$refs.comment.scrollIntoView();
+    },
+    verifyToken() {
+      try {
+        const token = this.$store.state.token;
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        console.log(base64);
+        const tokenObject = JSON.parse(atob(base64));
+        console.log(tokenObject);
+
+        if (tokenObject.exp <= Date.now() / 1000) {
+          return false;
+        }
+      } catch (error) {
+        return false;
+      }
+      return true;
     }
   }
 };
@@ -202,5 +252,10 @@ code {
 
 .disclaimer {
   margin-top: 16px;
+}
+
+.error-message {
+  font-style: oblique;
+  color: #c40030;
 }
 </style>

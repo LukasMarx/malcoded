@@ -56,7 +56,7 @@ module.exports = {
     [
       'nuxt-env',
       {
-        keys: ['GRAPHQL_URL', 'ASSET_URL', 'ROBOTS']
+        keys: ['GRAPHQL_URL', 'ASSET_URL', 'BASE_URL', 'ROBOTS']
       }
     ],
     ['@nuxtjs/pwa', { onesignal: false, workbox: false }]

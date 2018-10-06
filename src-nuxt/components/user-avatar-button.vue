@@ -1,5 +1,5 @@
 <template>
-     <v-menu offset-y v-if="user">
+     <v-menu offset-y v-if="user" style="height:100%">
         <v-btn slot="activator" flat >
         <v-avatar>
             <img :src="'data:image/jpg;base64,'+user.image">

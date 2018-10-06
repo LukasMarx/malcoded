@@ -10,18 +10,12 @@ export default function(context) {
 
   const middlewareLink = new ApolloLink((operation, forward) => {
     if (typeof window !== 'undefined') {
-      const rawToken = localStorage.getItem('token');
-      if (rawToken) {
-        let token = JSON.parse(rawToken);
-        let access_token;
-        if (token) {
-          access_token = token.access_token;
-        }
-        if (access_token) {
-          operation.setContext({
-            headers: { Authorization: `Bearer ${access_token}` }
-          });
-        }
+      const access_token = context.app.store.state.token;
+
+      if (access_token) {
+        operation.setContext({
+          headers: { Authorization: `Bearer ${access_token}` }
+        });
       }
     }
     return forward(operation);

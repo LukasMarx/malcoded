@@ -9,11 +9,12 @@
 export default {
   methods: {
     singInWihtGoogle() {
-      const windowRef = window.open('http://localhost:3000/auth/google', 'Sign in', 'width=600,height=600');
+      this.$emit('click');
+      const windowRef = window.open(`${this.$env.BASE_URL || 'http://localhost:3000'}/v1/api/auth/google`, 'Sign in', 'width=600,height=600');
       window.addEventListener('message', this.onTokenReceived);
     },
     onTokenReceived({ data, origin }) {
-      if (origin !== 'http://localhost:3000' || !data) return;
+      if (origin !== (this.$env.BASE_URL || 'http://localhost:3000') || !data) return;
       this.$emit('token', data);
       window.removeEventListener('message', this.onTokenReceived);
     }
