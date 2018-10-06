@@ -4,7 +4,7 @@
       <span class="headline">Leave a comment</span>
       <div v-if="!user" class="sign-in-wrapper">
         <google-sing-in-button v-on:token="onToken($event)" v-on:click="error = null"></google-sing-in-button>
-        <p class="caption disclaimer">We save your email address, your name and your profile picture on our servers when you sing in. Read more in our <a  v-bind:style="{'color': color || '#c40030'}" href="/privacy">Privacy Policy</a>.</p>
+        <p class="caption disclaimer">We save your email address, your name and your profile picture on our servers when you sing in. Read more in our <a  v-bind:style="{'color': post.primaryColor || '#c40030'}" href="/privacy">Privacy Policy</a>.</p>
         <p class="error-message">{{error}}</p>
       </div>
         <div v-if="user">

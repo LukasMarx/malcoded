@@ -34,7 +34,8 @@
 
 
     <v-toolbar>
-        <div class="toolbar-wrapper">
+         <v-layout row style="height:100%">
+          <v-flex lg8 offset-lg2 md10 offset-md1 sm12 style="display:flex;" >
             <v-toolbar-items>
                 <nuxt-link :to="{ path: '/aboutme'}" title="About" class="full-height">
                     <v-btn flat>About</v-btn>
@@ -49,7 +50,8 @@
                     <v-btn flat>Blog</v-btn>
                 </nuxt-link>
             </v-toolbar-items>
-        </div>
+          </v-flex>
+         </v-layout>
     </v-toolbar>
     <!-- <v-snackbar
       :timeout="timeout"

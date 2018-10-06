@@ -57,7 +57,7 @@
                 <headlines :headlines="headlines" v-on:headline-click="navigateToHeadline($event)" :color="BlogPost ? BlogPost.primaryColor : null"></headlines>
                 <v-btn @click.native="dialog = true" v-if="BlogPost" class="email-button" large v-bind:style="{ 'background-color': (BlogPost.primaryColor || '#c3002f' ) + '!important', color: 'white' }">
                     <v-icon class="email-icon" dark>email</v-icon>
-                    Get the Newsletter
+                    Join the Newsletter
                 </v-btn>
                 <sideSuggestions :post="BlogPost"></sideSuggestions>
                 
