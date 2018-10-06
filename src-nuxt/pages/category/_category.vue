@@ -1,5 +1,5 @@
 <template>
-      <v-container fluid grid-list-md text-xs-center>
+      <v-container fluid grid-list-md text-xs-center style="margin-top:72px">
           <v-layout row wrap>
             <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
                 <v-layout row wrap>
@@ -73,6 +73,9 @@ export default {
         return getPublicPosts.edges.map(edge => edge.node);
       }
     }
+  },
+  created() {
+    this.$store.commit('setThemeColor', '#c40030');
   },
   methods: {
     all: posts => {
