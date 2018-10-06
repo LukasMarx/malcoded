@@ -15,7 +15,8 @@ export default {
     },
     onTokenReceived({ data, origin }) {
       if (origin !== (this.$env.BASE_URL || 'http://localhost:3000') || !data) return;
-      this.$emit('token', data);
+      if (data.sender || data.sender !== 'malcoded') return;
+      this.$emit('token', data.token);
       window.removeEventListener('message', this.onTokenReceived);
     }
   }
