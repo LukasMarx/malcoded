@@ -14,7 +14,7 @@
         </v-toolbar>
 
         <div style="padding: 16px">
-        <pre class="pre"  v-html="hlCode(code)">
+        <pre class="pre"  v-html="hlCode">
         </pre>
         </div>
 
@@ -46,12 +46,12 @@ hljs.configure({
 
 export default {
   props: ['code', 'language', 'title', 'primaryColor'],
-  methods: {
-    hlCode(code) {
-      let result = hljs.highlightAuto(code);
-
-      return hljs.fixMarkup(result.value);
-      //return result.value;
+  computed: {
+    hlCode() {
+      if (this.code) {
+        let result = hljs.highlightAuto(this.code);
+        return hljs.fixMarkup(result.value);
+      }
     }
   }
 };
