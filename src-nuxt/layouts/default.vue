@@ -98,6 +98,9 @@ export default {
     //     }
     // }
     //document.body.addEventListener('mouseleave', this.onExitIntent);
+    if (process.client && window) {
+      window.history.scrollRestoration = 'auto';
+    }
     const rawToken = localStorage.getItem('token');
     if (rawToken) {
       const token = JSON.parse(rawToken);
