@@ -63,10 +63,9 @@ export default {
       });
 
       return insane(myMarked(markdown, renderer), {
-        allowedTags: ['div', 'h1', 'h2', 'h3', 'h4', 'pre', 'p', 'span', 'br'],
+        allowedTags: ['div', 'h1', 'h2', 'h3', 'h4', 'pre', 'p', 'span', 'br', 'b', 'strong', 'em', 'del', 'ol', 'ul', 'li', 'hr'],
         allowedAttributes: { span: ['class'] }
       });
-      return myMarked(markdown, renderer);
     }
   }
 };
