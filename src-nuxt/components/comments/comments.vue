@@ -12,31 +12,7 @@
               <img  v-if="user" :src="'data:image/jpg;base64,'+user.image">
           </v-avatar>
           <div class="edit-container">
-          <v-tabs :slider-color="post.primaryColor || '#c40030' ">
-              <v-tab >
-                  Comment
-              </v-tab>
-              <v-tab-item class="tab-item">
-                  <v-textarea
-                      outline
-                      height="200px"
-                      no-resize
-                      v-model="comment"
-                      label="Comment"
-                      class="textarea"
-                      :color="post.primaryColor || '#c40030' ">
-                  </v-textarea>
-              </v-tab-item>
-              <v-tab>
-                  Preview
-              </v-tab>
-              <v-tab-item class="tab-item">
-                  <markdown class="preview" :input="comment"></markdown>
-              </v-tab-item>
-          </v-tabs>
-          </div>
-           <div class="actions">
-            <v-btn :color="post.primaryColor || '#c40030'" class="submit" v-on:click="submitComment()">Submit</v-btn>
+            <commentEditor v-on:commentChange="submitComment($event)"></commentEditor>
           </div>
          </div>
     </v-card>
@@ -46,23 +22,28 @@
         :post="post"
         v-on:tokenInvalid="onTokenInvalid()"
         v-on:delete="onDeleteComment($event)" 
-        v-on:update="onUpdateComment($event)">
+        v-on:update="onUpdateComment($event)"
+        v-on:answer="onAnswerComment($event)"
+        v-on:deleteAnswer="onDeleteAnswer($event)">
     </comment>
 
 </div>
 </template>
 
 <script>
-import markdown from '~/components/markdown.vue';
 import comment from '~/components/comments/comment.vue';
 import googleSingInButton from '~/components/sign-in-buttons/google-sign-in.vue';
 import submitComment from '~/apollo/mutations/submitComment';
 import deleteComment from '~/apollo/mutations/deleteComment';
 import updateComment from '~/apollo/mutations/updateComment';
+import answerComment from '~/apollo/mutations/answerComment';
+import deleteAnswer from '~/apollo/mutations/deleteAnswer';
 import comments from '~/apollo/queries/comments';
+import commentEditor from '~/components/comments/comment-editor.vue';
+
 export default {
   components: {
-    markdown,
+    commentEditor,
     comment,
     googleSingInButton
   },
@@ -93,16 +74,17 @@ export default {
     }
   },
   methods: {
-    submitComment() {
+    submitComment(content) {
       if (!this.verifyToken()) {
         this.onTokenInvalid();
       }
+
       this.$apollo
         .mutate({
           mutation: submitComment,
           variables: {
             postId: this.post.id,
-            createCommentInput: { content: this.comment }
+            createCommentInput: { content }
           },
           update: (store, { data: { createCommentForPost } }) => {
             this.comment = '';
@@ -138,6 +120,45 @@ export default {
           variables: {
             commentId: comment.id,
             updateCommentInput: { content: comment.content }
+          },
+          update: (store, { data: { updateComment } }) => {
+            this.$apollo.queries.comments.refetch();
+          }
+        })
+        .catch(error => {
+          this.handleErrors(error);
+        });
+    },
+    onAnswerComment(evt) {
+      if (!this.verifyToken()) {
+        this.onTokenInvalid();
+      }
+      this.$apollo
+        .mutate({
+          mutation: answerComment,
+          variables: {
+            commentId: evt.commentId,
+            createCommentInput: { content: evt.content }
+          },
+          update: (store, { data: { updateComment } }) => {
+            this.$apollo.queries.comments.refetch();
+          }
+        })
+        .catch(error => {
+          this.handleErrors(error);
+        });
+    },
+    onDeleteAnswer(evt) {
+      if (!this.verifyToken()) {
+        this.onTokenInvalid();
+      }
+      this.$apollo
+        .mutate({
+          mutation: deleteAnswer,
+          variables: {
+            commentId: evt.commentId,
+            answerId: evt.answerId,
+            createCommentInput: { content: evt.content }
           },
           update: (store, { data: { updateComment } }) => {
             this.$apollo.queries.comments.refetch();
