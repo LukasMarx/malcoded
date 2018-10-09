@@ -44,7 +44,7 @@
       <v-card v-if="editAnswer" class="edit-answer">
         <div class="header">
           <v-avatar :size="50" class="avatar">
-              <img   :src="'data:image/jpg;base64,'+comment.author.image">
+              <img   :src="'data:image/jpg;base64,'+user.image">
           </v-avatar>
           <span  class="displayName title">Answer {{comment.author.displayName}}</span>
           </div>
