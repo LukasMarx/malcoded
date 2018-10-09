@@ -13,15 +13,15 @@
             <commentEditor showCancelButton="true" :input="comment.content" v-on:commentChange="updateComment($event)" v-on:cancel="edit=false"></commentEditor>
         </div>
         <markdown v-if="!edit" class="comment" :input="comment.content"></markdown>
-        <div class="actions" v-if="user && user.id === comment.author.id">
-            <v-btn flat v-if="!edit" :color="post.primaryColor || '#c40030'" class="delete" v-on:click="answerComment()">
+        <div class="actions">
+            <v-btn flat v-if="!edit && user" :color="post.primaryColor || '#c40030'" class="delete" v-on:click="answerComment()">
               <v-icon>chat</v-icon>
               Answer
             </v-btn>
-            <v-btn v-if="!edit" flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="editContent()">
+            <v-btn v-if="!edit && user && user.id === comment.author.id" flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="editContent()">
                 <v-icon>edit</v-icon>
             </v-btn>
-            <v-btn v-if="!edit"  flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="startDeleteComment()">
+            <v-btn v-if="!edit && user && user.id === comment.author.id"  flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="startDeleteComment()">
                 <v-icon>delete</v-icon>
             </v-btn>
         </div>
