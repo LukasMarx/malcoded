@@ -202,6 +202,10 @@ body {
   background-color: #1f2e41;
 }
 
+.theme--dark.v-btn:not(.v-btn--icon):not(.v-btn--flat) {
+  background-color: #1f2e41;
+}
+
 .application.theme--dark .icon-path {
   fill: white;
 }
