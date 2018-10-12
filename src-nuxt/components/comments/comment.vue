@@ -14,20 +14,20 @@
         </div>
         <markdown v-if="!edit" class="comment" :input="comment.content"></markdown>
         <div class="actions">
-          <v-tooltip bottom>
-            <v-btn slot="activator" flat icon v-if="!edit && user" class="delete" v-on:click="answerComment()">
+          <v-tooltip bottom v-if="!edit && user">
+            <v-btn slot="activator" flat icon  class="delete" v-on:click="answerComment()">
               <v-icon>chat</v-icon>
             </v-btn>
             <span>Answer</span>
           </v-tooltip>
-          <v-tooltip bottom>
-            <v-btn slot="activator" v-if="!edit && user && user.id === comment.author.id" flat icon   class="delete" v-on:click="editContent()">
+          <v-tooltip bottom v-if="!edit && user && user.id === comment.author.id">
+            <v-btn slot="activator"  flat icon   class="delete" v-on:click="editContent()">
                 <v-icon>edit</v-icon>
             </v-btn>
             <span>Edit</span>
           </v-tooltip>
-          <v-tooltip bottom>
-            <v-btn slot="activator" v-if="!edit && user && user.id === comment.author.id"  flat icon  class="delete" v-on:click="startDeleteComment()">
+          <v-tooltip bottom v-if="!edit && user && user.id === comment.author.id">
+            <v-btn slot="activator"   flat icon  class="delete" v-on:click="startDeleteComment()">
                 <v-icon>delete</v-icon>
             </v-btn>
             <span>Delete</span>

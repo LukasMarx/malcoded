@@ -24,7 +24,7 @@
     </v-tabs>
     <div class="actions">
         
-        <v-btn v-if="showCancelButton" flat :color="themeColor || '#c40030'" class="action" v-on:click="cancel()">
+        <v-btn v-if="showCancelButton" flat :color="themeColor || '#c40030'" class="action" v-on:click="cancel()" style="margin-right: 16px">
             Cancel
         </v-btn>
         <v-btn :color="themeColor || '#c40030'" class="action" v-on:click="updateComment()">
