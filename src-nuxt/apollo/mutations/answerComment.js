@@ -12,6 +12,7 @@ export default gql`
       creationDate
       updateDate
       content
+      deleted
     }
   }
 `;

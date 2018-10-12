@@ -108,8 +108,8 @@ export default {
     },
 
     updateComment(newContent) {
-      this.comment = Object.assign({ ...this.comment }, { content: newContent });
-      this.$emit('update', this.comment);
+      const comment = Object.assign({ ...this.comment }, { content: newContent });
+      this.$emit('update', comment);
       this.edit = false;
     },
     editContent() {

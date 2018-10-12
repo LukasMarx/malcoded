@@ -1,7 +1,7 @@
 <template>
 <v-scale-transition>
   <div>
-     <v-card class="card" v-if="comment">
+     <v-card class="card" v-if="comment && !comment.deleted">
         <div class="header">
         <v-avatar :size="50" class="avatar">
             <img   :src="'data:image/jpg;base64,'+comment.author.image">
@@ -40,13 +40,16 @@
                 </v-card>
             </v-dialog>
     </v-card>
+    <v-card class="card" v-if="comment && comment.deleted &&comment.answers && comment.answers.edges.length > 0">
+        Deleted
+      </v-card>
     <div class="answers">
       <v-card v-if="editAnswer" class="edit-answer">
         <div class="header">
           <v-avatar :size="50" class="avatar">
               <img   :src="'data:image/jpg;base64,'+user.image">
           </v-avatar>
-          <span  class="displayName title">Answer {{comment.author.displayName}}</span>
+          <span  class="displayName title">Answer {{comment.deleted ? 'delted' : comment.author.displayName}}</span>
           </div>
           <div class="edit-container">
             <commentEditor showCancelButton="true" v-on:commentChange="submitAnswer($event)" v-on:cancel="editAnswer=false"></commentEditor>
@@ -124,8 +127,8 @@ export default {
       this.editAnswer = true;
     },
     updateComment(newContent) {
-      this.comment = Object.assign({ ...this.comment }, { content: newContent });
-      this.$emit('update', this.comment);
+      const comment = Object.assign({ ...this.comment }, { content: newContent });
+      this.$emit('update', comment);
       this.edit = false;
     },
     submitAnswer(content) {

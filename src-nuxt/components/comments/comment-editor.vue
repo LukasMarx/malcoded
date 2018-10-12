@@ -58,6 +58,7 @@ export default {
   methods: {
     updateComment() {
       this.$emit('commentChange', this.newContent);
+      this.newContent = '';
     },
     cancel() {
       this.$emit('cancel');
