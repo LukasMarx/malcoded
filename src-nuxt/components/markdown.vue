@@ -37,16 +37,15 @@ export default {
         let c = hljs.highlightAuto(code);
         let x = hljs.fixMarkup(c.value);
         return `
-        <pre class="pre">
-            ${x}
+        <pre class="comment-pre">${x}
         </pre>`;
       };
 
       renderer.codespan = (code, language, escaped) => {
-        console.log('test');
+        let c = hljs.highlightAuto(code);
+        let x = hljs.fixMarkup(c.value);
         return `
-        <pre>
-            ${code}
+        <pre class="comment-pre">${c}
         </pre>`;
       };
 
@@ -62,24 +61,22 @@ export default {
         xhtml: false
       });
 
-      return insane(myMarked(markdown, renderer), {
+      return insane(myMarked(markdown, { renderer: renderer }), {
         allowedTags: ['div', 'h1', 'h2', 'h3', 'h4', 'pre', 'p', 'span', 'br', 'b', 'strong', 'em', 'del', 'ol', 'ul', 'li', 'hr'],
-        allowedAttributes: { span: ['class'] }
+        allowedAttributes: { span: ['class'], pre: ['class'] }
       });
+      return myMarked(markdown, renderer);
     }
   }
 };
 </script>
 
-<style scoped>
-.pre {
-  width: 100%;
-  white-space: pre-wrap;
-  text-align: left;
-  display: table;
-}
-
+<style >
 .wrapper {
   overflow: auto;
+}
+
+.comment-pre {
+  width: 100%;
 }
 </style>
