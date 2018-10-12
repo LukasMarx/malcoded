@@ -214,6 +214,10 @@ body {
   padding: 0;
 }
 
+.theme--dark .v-tabs__bar {
+  background-color: transparent !important;
+}
+
 .small-print {
   font-size: 13px;
 }

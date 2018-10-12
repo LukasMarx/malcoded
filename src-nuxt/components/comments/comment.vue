@@ -14,16 +14,24 @@
         </div>
         <markdown v-if="!edit" class="comment" :input="comment.content"></markdown>
         <div class="actions">
-            <v-btn flat v-if="!edit && user" :color="post.primaryColor || '#c40030'" class="delete" v-on:click="answerComment()">
+          <v-tooltip bottom>
+            <v-btn slot="activator" flat icon v-if="!edit && user" class="delete" v-on:click="answerComment()">
               <v-icon>chat</v-icon>
-              Answer
             </v-btn>
-            <v-btn v-if="!edit && user && user.id === comment.author.id" flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="editContent()">
+            <span>Answer</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <v-btn slot="activator" v-if="!edit && user && user.id === comment.author.id" flat icon   class="delete" v-on:click="editContent()">
                 <v-icon>edit</v-icon>
             </v-btn>
-            <v-btn v-if="!edit && user && user.id === comment.author.id"  flat icon :color="post.primaryColor || '#c40030'" class="delete" v-on:click="startDeleteComment()">
+            <span>Edit</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <v-btn slot="activator" v-if="!edit && user && user.id === comment.author.id"  flat icon  class="delete" v-on:click="startDeleteComment()">
                 <v-icon>delete</v-icon>
             </v-btn>
+            <span>Delete</span>
+          </v-tooltip>
         </div>
        
         <v-dialog v-model="dialog" max-width="290">
@@ -213,6 +221,10 @@ export default {
   margin-right: 16px;
 }
 
+.theme--light .delete {
+  color: #5b5b5b;
+}
+
 .edit-container {
   margin-left: 32px;
   margin-right: 16px;
@@ -228,5 +240,9 @@ export default {
 .tab-item {
   padding: 16px;
   height: 232px;
+}
+
+.theme--light .v-icon {
+  color: #5b5b5b;
 }
 </style>
