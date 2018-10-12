@@ -130,7 +130,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: assetUrl + post.thumbnail + '.jpg'
+          content: this.assetUrl + post.thumbnail + '.jpg'
         },
         {
           hid: 'apple-mobile-web-app-title',
