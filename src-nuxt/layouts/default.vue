@@ -142,7 +142,6 @@ export default {
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         const tokenObject = JSON.parse(atob(base64));
-        console.log(tokenObject);
 
         if (tokenObject.exp <= Date.now() / 1000) {
           return false;
@@ -156,7 +155,6 @@ export default {
       this.$store.commit('setDarkMode', !this.darkMode);
     },
     onExitIntent(event) {
-      console.log(this);
       document.body.removeEventListener('mouseleave', this.onExitIntent);
       this.dialog = true;
     }

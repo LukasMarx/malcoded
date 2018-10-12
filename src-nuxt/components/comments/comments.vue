@@ -192,9 +192,8 @@ export default {
         const token = this.$store.state.token;
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        console.log(base64);
+
         const tokenObject = JSON.parse(atob(base64));
-        console.log(tokenObject);
 
         if (tokenObject.exp <= Date.now() / 1000) {
           return false;
