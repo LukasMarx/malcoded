@@ -6,7 +6,7 @@
             <path d="M0 0h24v24H0z" fill="none"/>
         </svg> -->
 
-        <v-card-title class="display-1 popup-title">Join the Newsetter</v-card-title>
+        <v-card-title class="display-1 popup-title">Join the Newsletter</v-card-title>
         <v-layout row wrap>
           <v-flex lg6 md6 xs12 style="padding-right: 64px">
             <div class="point">
