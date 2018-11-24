@@ -19,13 +19,13 @@
 </template>
 
 <script>
-import progressiveimage from '~/components/progressiveimage.vue';
+import progressiveimage from "~/components/progressiveimage.vue";
 export default {
-  props: ['post'],
+  props: ["post"],
   components: { progressiveimage },
   computed: {
     assetUrl() {
-      return this.$env.ASSET_URL || 'http://localhost:3000/v1/api/asset/';
+      return this.$env.ASSET_URL || "http://localhost:3000/v1/api/asset/";
     }
   }
 };
@@ -38,8 +38,8 @@ export default {
   padding: 4px;
   margin-bottom: 16px;
   float: left;
-  justify-content: space-around;
   min-height: 80px;
+  width: 100%;
 }
 
 .text-wrapper {

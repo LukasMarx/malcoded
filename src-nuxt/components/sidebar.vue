@@ -1,5 +1,5 @@
 <template>
-    <v-flex lg3 hidden-md-and-down class="container">
+    <v-flex xl3 lg4 hidden-md-and-down class="container">
         <div class="sticky">
             <slot></slot>
         </div>
