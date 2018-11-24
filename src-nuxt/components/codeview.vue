@@ -3,11 +3,11 @@
     <v-card class="codeview-card">
         <v-toolbar card dense class="codeview-toolbar" v-bind:style="{ 'background-color': ( '#1a2335' ) + '!important' }" v-if="title && title !== 'null' && title !== 'undefined' || (language!=='undefined' && language!=='null')">
           <div class="codeview-icon" v-bind:style="{ 'background-color': (primaryColor || '#c40030' ) + '!important' }">
-            <img width="48" height="48" style="padding: 8px" v-if="language==='typescript'" src="/icons/ts.svg"/>  
-            <img width="48" height="48" style="padding: 8px" v-if="language==='javascript'" src="/icons/js.svg"/>  
-            <img width="48" height="48" style="padding: 3px" v-if="language==='html'" src="/icons/html.svg"/>  
-            <img width="48" height="48" style="padding: 3px" v-if="language==='css'" src="/icons/css.svg"/>  
-            <img width="48" height="48" style="padding: 8px" v-if="!language || language==='null'" src="/icons/malcoded-icon-white.svg"/>
+            <img width="48" height="48" style="padding: 8px; display:flex" v-if="language==='typescript'" src="/icons/ts.svg"/>  
+            <img width="48" height="48" style="padding: 8px; display:flex" v-if="language==='javascript'" src="/icons/js.svg"/>  
+            <img width="48" height="48" style="padding: 3px; display:flex" v-if="language==='html'" src="/icons/html.svg"/>  
+            <img width="48" height="48" style="padding: 3px; display:flex" v-if="language==='css'" src="/icons/css.svg"/>  
+            <img width="48" height="48" style="padding: 8px; display:flex" v-if="!language || language==='null'" src="/icons/malcoded-icon-white.svg"/>
           </div>
           <div class="title-wrapper">
             <span  v-if="title && title !== 'null' && title !== 'undefined'" class="codeview-title">{{title}}</span>
