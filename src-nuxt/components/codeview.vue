@@ -1,27 +1,41 @@
 <template>
-<div style="width: 100%">
+  <div style="width: 100%">
     <v-card class="codeview-card">
-        <v-toolbar card dense class="codeview-toolbar" v-bind:style="{ 'background-color': ( '#1a2335' ) + '!important' }" v-if="title && title !== 'null' && title !== 'undefined' || (language!=='undefined' && language!=='null')">
-          <div class="codeview-icon" v-bind:style="{ 'background-color': (primaryColor || '#c40030' ) + '!important' }">
-            <img width="48" height="48" style="padding: 8px; display:flex" v-if="language==='typescript'" src="/icons/ts.svg"/>  
-            <img width="48" height="48" style="padding: 8px; display:flex" v-if="language==='javascript'" src="/icons/js.svg"/>  
-            <img width="48" height="48" style="padding: 3px; display:flex" v-if="language==='html'" src="/icons/html.svg"/>  
-            <img width="48" height="48" style="padding: 3px; display:flex" v-if="language==='css'" src="/icons/css.svg"/>  
-            <img width="48" height="48" style="padding: 8px; display:flex" v-if="!language || language==='null'" src="/icons/malcoded-icon-white.svg"/>
-          </div>
-          <div class="title-wrapper">
-            <span  v-if="title && title !== 'null' && title !== 'undefined'" class="codeview-title">{{title}}</span>
-          </div>
-        </v-toolbar>
-
-        <div style="padding: 16px">
-        <pre class="pre"  v-html="hlCode">
-        </pre>
+      <v-toolbar
+        card
+        dense
+        class="codeview-toolbar"
+        v-bind:style="{ 'background-color': ( '#1a2335' ) + '!important' }"
+        v-if="title && title !== 'null' && title !== 'undefined' || (language!=='undefined' && language!=='null')"
+      >
+        <div
+          class="codeview-icon"
+          v-bind:style="{ 'background-color': (primaryColor || '#c40030' ) + '!important' }"
+        >
+          <img width="48" height="48" v-if="language==='typescript'" src="/icons/ts.svg">
+          <img width="48" height="48" v-if="language==='javascript'" src="/icons/js.svg">
+          <img width="48" height="48" v-if="language==='html'" src="/icons/html.svg">
+          <img width="48" height="48" v-if="language==='css'" src="/icons/css.svg">
+          <img
+            width="48"
+            height="48"
+            v-if="!language || language==='null'"
+            src="/icons/malcoded-icon-white.svg"
+          >
         </div>
+        <div class="title-wrapper">
+          <span
+            v-if="title && title !== 'null' && title !== 'undefined'"
+            class="codeview-title"
+          >{{title}}</span>
+        </div>
+      </v-toolbar>
 
-
+      <div style="padding: 16px">
+        <pre class="pre" v-html="hlCode"></pre>
+      </div>
     </v-card>
-</div>
+  </div>
 </template>
 
 <script>
@@ -73,8 +87,7 @@ export default {
 .codeview-icon {
   width: 48px;
   height: 48px;
-  padding: 8px;
-  display: flex;
+  display: absolute;
   justify-content: center;
   align-items: center;
 }

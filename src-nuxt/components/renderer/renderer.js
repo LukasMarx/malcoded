@@ -1,4 +1,4 @@
-import * as Delta from 'quill-delta';
+import * as Delta from "quill-delta";
 
 // export class QNode {
 //   tag;
@@ -8,17 +8,20 @@ import * as Delta from 'quill-delta';
 
 const closures = {
   header: (attr, value) => {
-    return { tag: 'h' + (attr + 1), content: value };
+    return { tag: "h" + (attr + 1), content: value };
   },
-  'my-code-block': (attr, value) => {
-    return { tag: 'codeview', content: value, attributes: JSON.parse(attr) };
+  "my-code-block": (attr, value) => {
+    return { tag: "codeview", content: value, attributes: JSON.parse(attr) };
+  },
+  textbox: (attr, value) => {
+    return { tag: "textbox", content: value, attributes: JSON.parse(attr) };
   }
 };
 
 const inlines = {
   link: (attr, value) => {
     return {
-      tag: 'a',
+      tag: "a",
       attributes: { href: attr },
       content: value,
       class: { link: true }
@@ -29,21 +32,21 @@ const inlines = {
 const blocks = {
   image: (attr, value) => {
     return {
-      tag: 'img',
+      tag: "img",
       attributes: {
         src: attr,
         alt: attr
       },
-      class: { 'inline-image': true }
+      class: { "inline-image": true }
     };
   },
-  'i-frame': (attr, value) => {
+  "i-frame": (attr, value) => {
     return {
-      tag: 'iframe',
+      tag: "iframe",
       attributes: {
         src: attr.src
       },
-      class: { 'inline-iframe': true }
+      class: { "inline-iframe": true }
     };
   }
 };
@@ -70,7 +73,7 @@ export class QuillRenderer {
         return result;
       }
     }
-    return { tag: 'span', content: value, class: { text: true } };
+    return { tag: "span", content: value, class: { text: true } };
   }
 
   createInlineFromAttributes(elementAttributes, value) {
@@ -81,7 +84,7 @@ export class QuillRenderer {
         return result;
       }
     }
-    return { tag: 'span', content: value, class: { text: true } };
+    return { tag: "span", content: value, class: { text: true } };
   }
 
   createBlockFromAttributes(elementAttributes, value) {
@@ -92,7 +95,7 @@ export class QuillRenderer {
         return result;
       }
     }
-    return { tag: 'span', content: value, class: { text: true } };
+    return { tag: "span", content: value, class: { text: true } };
   }
 
   parseOperations(ops, closureAttributes) {
@@ -101,7 +104,7 @@ export class QuillRenderer {
       ops.forEach(operation => {
         nodes.push(this.parseOperation(operation, closureAttributes));
       });
-      if (nodes[0].tag !== 'codeview') nodes.push(this.createNewLine());
+      if (nodes[0].tag !== "codeview") nodes.push(this.createNewLine());
       return nodes;
     } else {
       return [this.createNewLine()];
@@ -112,8 +115,11 @@ export class QuillRenderer {
     if (Object.keys(closureAttributes).length > 0) {
       return this.createNodeFromAttributes(closureAttributes, operation.insert);
     } else {
-      if (typeof operation.insert === 'string') {
-        return this.createInlineFromAttributes(operation.attributes, operation.insert);
+      if (typeof operation.insert === "string") {
+        return this.createInlineFromAttributes(
+          operation.attributes,
+          operation.insert
+        );
       } else {
         return this.createBlockFromAttributes(operation.insert);
       }
@@ -121,7 +127,7 @@ export class QuillRenderer {
   }
 
   createNewLine() {
-    return { tag: 'br' };
+    return { tag: "br" };
   }
 
   postProcess(nodes) {
@@ -129,9 +135,12 @@ export class QuillRenderer {
     let prevTag;
     let toMerge;
     nodes.forEach(node => {
-      if (node.tag === 'codeview' || (node.tag === 'br' && prevTag === 'codeview')) {
+      if (
+        node.tag === "codeview" ||
+        (node.tag === "br" && prevTag === "codeview")
+      ) {
         if (toMerge) {
-          toMerge.content += '\n';
+          toMerge.content += "\n";
           if (node.content) toMerge.content += node.content;
         } else {
           toMerge = node;
