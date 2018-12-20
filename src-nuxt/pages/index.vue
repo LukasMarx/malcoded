@@ -1,118 +1,115 @@
 <template>
-  <v-container fluid grid-list-md text-xs-center style="flex: 1 1 auto !important; padding:0; margin-top:72px">
-      <v-layout row wrap style="margin:0">
-        <v-flex  lg8 offset-lg2 md10 offset-md1 sm12 >
-            <v-layout row wrap>
-                 <v-flex v-if="!posts"  xs12 md6 >
-                     <postcardPlaceholder></postcardPlaceholder>
-                 </v-flex>
-                <v-flex v-if="!posts"  xs12 md6>
-                     <postcardPlaceholder></postcardPlaceholder>
-                 </v-flex>
-                <v-flex  xs12 md6
-                    v-for="post in first2(posts)"
-                    :key="post.title +'a'"
-                    >
-                    <postcard :post="post"></postcard>
-                </v-flex>
-            </v-layout>
-            <v-layout row wrap> 
-                 <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex xs12 md4
-                    v-for="post in second3(posts)"
-                    :key="post.title +'b'"
-                    >
-                    <postcard :post="post"></postcard>
-                </v-flex>
-            </v-layout>
-            <v-layout row wrap> 
-                <v-flex d-flex xs12>
-                    <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
-                        <v-btn round color="primary" aria-label="All Posts" large>
-                            ALL POSTS
-                        </v-btn>
-                    </nuxt-link>
-                </v-flex>
-            </v-layout>
-            <v-layout row wrap>
-                <v-flex xs12>
-                    <h1 class="section-title">Angular Beginner</h1>
-                </v-flex>
-            </v-layout>
-            <v-layout row wrap>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex xs12 md4
-                    v-for="post in all(beginner)"
-                    :key="post.title + 'c'"
-                >
-                    <postcard :post="post"></postcard>
-                </v-flex>
-                <v-flex xs12>
-                    <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
-                    <v-btn round color="primary" aria-label="Beginner Posts" large>
-                        ALL BEGINNER POSTS
-                    </v-btn>
-                    </nuxt-link>
-                </v-flex>
-            </v-layout>
-            <v-layout row wrap>
-            <v-flex xs12>
-                <h1 class="section-title">Angular Intermediate</h1>
-            </v-flex>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-                <v-flex v-if="!posts" xs12 md4>
-                    <postcardPlaceholder></postcardPlaceholder>
-                </v-flex>
-            <v-flex xs12 md4
-                v-for="post in all(intermediate)"
-                :key="post.title + 'c'"
-                >
-                <postcard :post="post"></postcard>
-            </v-flex>
-            </v-layout>
-            <v-layout row wrap>
-                <v-flex xs12>
-                    <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
-                        <v-btn round color="primary" aria-label="Intermediate Posts" large>
-                        ALL INTERMEDIATE POSTS
-                        </v-btn>
-                    </nuxt-link>
-                </v-flex>
-            </v-layout>
-        </v-flex>
-      </v-layout>
-    </v-container>
-
-
+  <v-container
+    fluid
+    grid-list-md
+    text-xs-center
+    style="flex: 1 1 auto !important; padding:0; margin-top:72px"
+  >
+    <v-layout row wrap style="margin:0">
+      <v-flex lg8 offset-lg2 md10 offset-md1 sm12>
+        <v-layout row wrap>
+          <v-flex v-if="!posts" xs12 md6>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md6>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex xs12 md6 v-for="post in first2(posts)" :key="post.title +'a'">
+            <postcard :post="post"></postcard>
+          </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex xs12 md4 v-for="post in second3(posts)" :key="post.title +'b'">
+            <postcard :post="post"></postcard>
+          </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+          <v-flex d-flex xs12>
+            <nuxt-link :to="{ path: 'category/all'}" title="All Posts">
+              <v-btn round color="primary" class="button" aria-label="All Posts" large>ALL POSTS</v-btn>
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+          <v-flex xs12>
+            <h1 class="section-title">Angular Beginner</h1>
+          </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex xs12 md4 v-for="post in all(beginner)" :key="post.title + 'c'">
+            <postcard :post="post"></postcard>
+          </v-flex>
+          <v-flex xs12>
+            <nuxt-link :to="{ path: '/category/angular-beginner'}" title="Beginner Posts">
+              <v-btn
+                round
+                color="primary"
+                class="button"
+                aria-label="Beginner Posts"
+                large
+              >ALL BEGINNER POSTS</v-btn>
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+          <v-flex xs12>
+            <h1 class="section-title">Angular Intermediate</h1>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex v-if="!posts" xs12 md4>
+            <postcardPlaceholder></postcardPlaceholder>
+          </v-flex>
+          <v-flex xs12 md4 v-for="post in all(intermediate)" :key="post.title + 'c'">
+            <postcard :post="post"></postcard>
+          </v-flex>
+        </v-layout>
+        <v-layout row wrap>
+          <v-flex xs12>
+            <nuxt-link :to="{ path: 'category/angular-intermediate'}" title="Intermediate Posts">
+              <v-btn
+                round
+                color="primary"
+                class="button"
+                aria-label="Intermediate Posts"
+                large
+              >ALL INTERMEDIATE POSTS</v-btn>
+            </nuxt-link>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-import posts from '~/apollo/queries/posts';
-import angularBeginner from '~/apollo/queries/angularBeginner';
-import angularIntermediate from '~/apollo/queries/angularIntermediate';
-import postcard from '~/components/postcard/postcard.vue';
-import postcardPlaceholder from '~/components/postcard/postcardPlaceholder.vue';
+import posts from "~/apollo/queries/posts";
+import angularBeginner from "~/apollo/queries/angularBeginner";
+import angularIntermediate from "~/apollo/queries/angularIntermediate";
+import postcard from "~/components/postcard/postcard.vue";
+import postcardPlaceholder from "~/components/postcard/postcardPlaceholder.vue";
 
 export default {
   data() {
@@ -143,7 +140,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('setThemeColor', '#c40030');
+    this.$store.commit("setThemeColor", "#c40030");
   },
   methods: {
     first2: posts => {
@@ -153,7 +150,7 @@ export default {
 
         const description = clone.description.substring(0, 197);
         if (clone.description.length > 200) {
-          clone.description = description + '...';
+          clone.description = description + "...";
         } else {
           clone.description = description;
         }
@@ -167,7 +164,7 @@ export default {
         const clone = JSON.parse(JSON.stringify(value));
         const description = clone.description.substring(0, 197);
         if (clone.description.length > 200) {
-          clone.description = description + '...';
+          clone.description = description + "...";
         } else {
           clone.description = description;
         }
@@ -180,7 +177,7 @@ export default {
         const clone = JSON.parse(JSON.stringify(value));
         const description = clone.description.substring(0, 197);
         if (clone.description.length > 200) {
-          clone.description = description + '...';
+          clone.description = description + "...";
         } else {
           clone.description = description;
         }
@@ -208,7 +205,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 1 */
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
   display: block;
   font-weight: 300;
   font-size: 100px;
@@ -235,22 +233,7 @@ a:hover {
   color: inherit;
 }
 
-/* .page-enter {
-    transform: translateX(-100%);
-    opacity: 0;
+.button {
+  margin-top: 24px;
 }
-
-.page-enter-active {
-    transition: all 0.4s;
-}
-
-.page-enter-to {
-    opacity: 1;
-}
-
-.page-leave-active {
-    transition: all 0.2s;
-    opacity: 0;
-    transform: translateX(-100%);
-} */
 </style>

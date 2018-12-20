@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%">
+  <div style="width: 100%; padding: 16px">
     <v-card class="codeview-card">
       <v-toolbar
         card
