@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; padding: 16px">
+  <div style="width: 100%;">
     <v-card class="codeview-card">
       <v-toolbar
         card
@@ -31,7 +31,7 @@
         </div>
       </v-toolbar>
 
-      <div style="padding: 16px">
+      <div style="padding: 32px">
         <pre class="pre" v-html="hlCode"></pre>
       </div>
     </v-card>
@@ -73,10 +73,6 @@ export default {
 </script>
 
 <style>
-.v-card {
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
-    0 5px 15px 0 rgba(0, 0, 0, 0.08);
-}
 .codeview-card {
   margin-bottom: 64px;
   margin-top: 32px;

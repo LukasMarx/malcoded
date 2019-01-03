@@ -197,10 +197,14 @@ body {
 
 .theme--dark.application .v-card {
   background-color: #0e1125 !important;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08) !important;
 }
 
 .theme--light.application .v-card {
   color: hsl(202, 57%, 15%) !important;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+    0 5px 15px 0 rgba(0, 0, 0, 0.08) !important;
 }
 
 .theme--light.application .grey--text {
@@ -217,6 +221,10 @@ body {
 
 .application.theme--dark .icon-path {
   fill: white;
+}
+
+.application.theme--light .icon-path {
+  fill: hsl(202, 57%, 15%) !important;
 }
 
 .v-toolbar__content {
