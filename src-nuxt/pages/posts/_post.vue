@@ -139,8 +139,9 @@
           @click.native="dialog = true"
           v-if="BlogPost"
           class="email-button"
+          outline
           large
-          v-bind:style="{ 'background-color': (BlogPost.primaryColor || '#c3002f' ) + '!important', color: 'white' }"
+          v-bind:style="{ 'color': (BlogPost.primaryColor || '#c3002f' ) + '!important'}"
         >
           <v-icon class="email-icon" dark>email</v-icon>Join the Newsletter
         </v-btn>
