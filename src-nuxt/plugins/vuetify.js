@@ -1,6 +1,5 @@
-import Vue from 'vue';
-import {
-  Vuetify,
+import Vue from "vue";
+import Vuetify, {
   VApp,
   VCard,
   VBtn,
@@ -19,8 +18,7 @@ import {
   VTabs,
   transitions,
   VMenu
-} from 'vuetify';
-import * as LRU from 'lru';
+} from "vuetify/lib";
 
 Vue.use(Vuetify, {
   components: {
@@ -44,12 +42,12 @@ Vue.use(Vuetify, {
     VMenu
   },
   theme: {
-    primary: '#c40030',
-    secondary: '#c40030',
-    accent: '#c40030',
-    error: '#f44336',
-    warning: '#ffeb3b',
-    info: '#2196f3',
-    success: '#4caf50'
+    primary: "#c40030",
+    secondary: "#c40030",
+    accent: "#c40030",
+    error: "#f44336",
+    warning: "#ffeb3b",
+    info: "#2196f3",
+    success: "#4caf50"
   }
 });

@@ -1,65 +1,66 @@
-const nodeExternals = require('webpack-node-externals');
+const nodeExternals = require("webpack-node-externals");
+const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 
 const generateDisallow = () => {
-  const array = ['/privacy', '/legal'];
+  const array = ["/privacy", "/legal"];
   if (process.env.BLOCK_ROBOTS) {
-    array.push('/');
+    array.push("/");
   }
   return array;
 };
 
 module.exports = {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   router: {
-    base: '/'
+    base: "/"
   },
   head: {
-    title: 'malcoded | Learn to build Web-Applications',
+    title: "malcoded | Learn to build Web-Applications",
     meta: [
-      { charset: 'utf-8' },
+      { charset: "utf-8" },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
       },
       {
-        name: 'google-site-verification',
-        content: 'FWSL-9BrQcznNznCkDYWgceFZ3XNzxBggv8KXU0Ut2k'
+        name: "google-site-verification",
+        content: "FWSL-9BrQcznNznCkDYWgceFZ3XNzxBggv8KXU0Ut2k"
       },
       {
-        hid: 'description',
-        name: 'description',
+        hid: "description",
+        name: "description",
         content:
           "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!"
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/_nuxt/favicon.ico' }]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/_nuxt/favicon.ico" }]
   },
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#c3002f' },
+   ** Customize the progress bar color
+   */
+  loading: { color: "#c3002f" },
 
   modules: [
-    '@nuxtjs/apollo',
+    "@nuxtjs/apollo",
     [
-      'nuxt-robots-module',
+      "nuxt-robots-module",
       [
         {
           /* module options */
-          UserAgent: '*',
+          UserAgent: "*",
           Disallow: generateDisallow()
         }
       ]
     ],
     [
-      'nuxt-env',
+      "nuxt-env",
       {
-        keys: ['GRAPHQL_URL', 'ASSET_URL', 'BASE_URL', 'ROBOTS']
+        keys: ["GRAPHQL_URL", "ASSET_URL", "BASE_URL", "ROBOTS"]
       }
     ],
-    ['@nuxtjs/pwa', { onesignal: false, workbox: false }]
+    ["@nuxtjs/pwa", { onesignal: false, workbox: false }]
     // [
     //     '@nuxtjs/google-analytics',
     //     {
@@ -85,14 +86,14 @@ module.exports = {
     //     }
     // ]
   ],
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: ["~/plugins/vuetify.js"],
   manifest: {
-    name: 'malcoded',
-    short_name: 'malcoded',
+    name: "malcoded",
+    short_name: "malcoded",
     description:
       "Learn all about building Single Page Applications using the Angular framework and Typescript! From absolute beginner to intermediate; We've got you covered!",
-    lang: 'en',
-    theme_color: '#c3002f'
+    lang: "en",
+    theme_color: "#c3002f"
   },
 
   // workbox: {
@@ -116,63 +117,36 @@ module.exports = {
   //     ]
   // },
 
-  css: ['~/assets/vuetify.min.css'],
+  css: ["~/assets/vuetify.min.css"],
   apollo: {
     clientConfigs: {
-      default: '~/apollo/client-configs/default.js',
-      post: '~/apollo/client-configs/post.js'
+      default: "~/apollo/client-configs/default.js",
+      post: "~/apollo/client-configs/post.js"
     }
   },
-  srcDir: 'src-nuxt',
+  srcDir: "src-nuxt",
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
-    publicPath: '/dist/',
+    publicPath: "/dist/",
     extractCSS: true,
-    vendor: [
-      'core-js/es6/symbol',
-      'core-js/es6/object',
-      'core-js/es6/function',
-      'core-js/es6/parse-int',
-      'core-js/es6/parse-float',
-      'core-js/es6/number',
-      'core-js/es6/math',
-      'core-js/es6/string',
-      'core-js/es6/date',
-      'core-js/es6/array',
-      'core-js/es6/regexp',
-      'core-js/es7/array',
-      'core-js/es7/object',
-      'graphql/language',
-      '~/plugins/vuetify.js'
-    ],
     babel: {
-      plugins: [
-        [
-          'transform-imports',
-          {
-            vuetify: {
-              transform: 'vuetify/es5/components/${member}',
-              preventFullImport: true
-            }
-          }
-        ]
-      ],
-
-      presets: [
-        [
-          'vue-app',
-          {
-            useBuiltIns: true,
-            targets: { ie: 11, uglify: true }
-          }
-        ]
-      ]
+      // presets: [
+      //   [
+      //     'vue-app',
+      //     {
+      //       useBuiltIns: true,
+      //       targets: { ie: 11, uglify: true }
+      //     }
+      //   ]
+      // ]
     },
+    transpile: [/^vuetify/],
+    plugins: [new VuetifyLoaderPlugin()],
     extend(config, ctx) {
-      if (ctx.isServer) {
+      if (process.server) {
         config.externals = [
           nodeExternals({
             whitelist: [/^vuetify/]

@@ -1,6 +1,6 @@
 <template>
   <v-app :dark="darkMode">
-    <v-toolbar fixed scroll-off-screen>
+    <v-toolbar fixed scroll-off-screen style="padding:0">
       <v-layout row style="height:100%">
         <v-flex lg8 offset-lg2 md10 offset-md1 sm12 style="display:flex;">
           <logo :accentColor="themeColor" :fontColor="darkMode? '#fff' : null"></logo>
@@ -184,11 +184,11 @@ body {
 }
 
 .theme--dark.application {
-  background-color: #1f2e41;
+  background-color: #1f2e41 !important;
 }
 
 .theme--light.application {
-  color: hsl(202, 57%, 15%);
+  color: hsl(202, 57%, 15%) !important;
 }
 
 .theme--dark.application .v-toolbar {
@@ -200,7 +200,7 @@ body {
 }
 
 .theme--light.application .v-card {
-  color: hsl(202, 57%, 15%);
+  color: hsl(202, 57%, 15%) !important;
 }
 
 .theme--light.application .grey--text {
@@ -208,11 +208,11 @@ body {
 }
 
 .theme--dark.application .v-btn {
-  background-color: #1f2e41;
+  background-color: #1f2e41 !important;
 }
 
 .theme--dark.v-btn:not(.v-btn--icon):not(.v-btn--flat) {
-  background-color: #1f2e41;
+  background-color: #1f2e41 !important;
 }
 
 .application.theme--dark .icon-path {
@@ -220,7 +220,7 @@ body {
 }
 
 .v-toolbar__content {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .theme--dark .v-tabs__bar {
