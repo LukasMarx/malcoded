@@ -133,15 +133,14 @@ module.exports = {
     publicPath: "/dist/",
     extractCSS: true,
     babel: {
-      // presets: [
-      //   [
-      //     'vue-app',
-      //     {
-      //       useBuiltIns: true,
-      //       targets: { ie: 11, uglify: true }
-      //     }
-      //   ]
-      // ]
+      plugins: [
+        [
+          "prismjs",
+          {
+            languages: ["javascript", "css", "markup", "typescript", "tsx"]
+          }
+        ]
+      ]
     },
     transpile: [/^vuetify/],
     plugins: [new VuetifyLoaderPlugin()],
