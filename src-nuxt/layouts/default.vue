@@ -211,14 +211,6 @@ body {
   color: hsl(203, 15%, 47%) !important;
 }
 
-.theme--dark.application .v-btn {
-  background-color: #1f2e41 !important;
-}
-
-.theme--dark.v-btn:not(.v-btn--icon):not(.v-btn--flat) {
-  background-color: #1f2e41 !important;
-}
-
 .application.theme--dark .icon-path {
   fill: white;
 }

@@ -10,7 +10,8 @@
 
       <div class="header">
         <h2 class="headline">{{post.title}}</h2>
-        <v-btn aria-label="Read More" fab>
+        <v-spacer></v-spacer>
+        <v-btn aria-label="Read More" fab class="read-more">
           <v-icon style="display: flex;" color="primary">arrow_forward</v-icon>
         </v-btn>
       </div>
@@ -112,5 +113,9 @@ export default {
   padding-bottom: 8px;
   display: flex;
   align-items: center;
+}
+
+.theme--dark.read-more {
+  background-color: #1f2e41 !important;
 }
 </style>
